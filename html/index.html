@@ -228,6 +228,15 @@
                     scale: 1.1,
                     perspective: 750
                 });
+                if (allData.People[i].Level == 'Teacher') {
+                    var idName = allData.People[i]["First Name"] + '.' + allData.People[i]["Last Name"] + 'Img';
+                    var srcImg = 'holder.js/100px225?theme=thumb&bg=f4ac41&fg=000000&text=' + allData.People[i]["First Name"] + '%20' + allData.People[i]["Last Name"];
+                    document.getElementById(idName).setAttribute('data-src', srcImg);
+                } else {
+                    var idName = allData.People[i]["First Name"] + '.' + allData.People[i]["Last Name"] + 'Img';
+                    var srcImg = 'holder.js/100px225?theme=thumb&bg=41f48f&fg=000000&text=' + allData.People[i]["First Name"] + '%20' + allData.People[i]["Last Name"];
+                    document.getElementById(idName).setAttribute('data-src', srcImg);
+                }
             }
 
             for (var i = 0; i < allData.Projects.length; i++) {
@@ -271,7 +280,7 @@
                 '<!--Student / Project Card Template--> \n' +   
                 '<div class="col-md-4" id="' + id + 'Card" data-tilt data-tilt-perspective="1000"> \n' +
                 '    <div class="card mb-4 shadow-sm"> \n' +
-                '        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=4286f4&fg=FFFFFF&text=' + nameURL + '"> \n' +
+                '        <img class="card-img-top" id="' + name + 'Img"> \n' +
                 '            <div class="card-body"> \n' +
                 '                <h5 class="card-title"> \n' +
                 '                    ' + name + ' \n' +
@@ -323,7 +332,7 @@
                 '<!--Student: ' + id + '--> \n' +
                 '<div class="col-md-4" id="' + id +'Card" data-tilt data-tilt-perspective="1000"> \n' +
                 '    <div class="card mb-4 shadow-sm" > \n' +
-                '        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=f4ac41&fg=000000&text=' + firstName + '%20' + lastName + '"> \n' +
+                '        <img class="card-img-top" id="' + firstName + '.' + lastName + 'Img"> \n' +
                 '            <div class="card-body"> \n' +
                 '                <h5 class="card-title"> \n' +
                 '                    ' + firstName + ' ' + lastName + '\n' +
@@ -359,7 +368,7 @@
                 '<!--Student: --> \n' +
                 '<div class="col-md-4" id="' + id +'Card" data-tilt data-tilt-perspective="1000"> \n' +
                 '    <div class="card mb-4 shadow-sm"> \n' +
-                '        <img class="card-img-top"data-src="holder.js/100px225?theme=thumb&bg=41f48f&fg=000000&text=' + firstName + '%20' + lastName + '"> \n' +
+                '        <img class="card-img-top" id="' + firstName + '.' + lastName + 'Img"> \n' +
                 '            <div class="card-body"> \n' +
                 '                <h5 class="card-title"> \n' +
                 '                    ' + firstName + ' ' + lastName + '\n' +
