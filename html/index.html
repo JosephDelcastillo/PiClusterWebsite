@@ -162,7 +162,7 @@
                 },
                 //Delcastillo
                 {
-                    "ID": 10350478,
+                    "ID": "10350478",
                     "First Name": "Joseph",
                     "Last Name": "Delcastillo III",
                     "Level": "Senior",
@@ -499,6 +499,8 @@
         
         //Initiallizes the page
         window.onload = function init() {
+            localStorage.setItem('allData', JSON.stringify(allData));
+            //JSON.parse(localStorage.getItem('allData'));
             buildAllCards();
         }
         
