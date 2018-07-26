@@ -218,16 +218,17 @@
             buildPersonCards();
             buildProjectCards();
 
-            giveCardsTilt();
+            giveCardsData();
         }
 
-        function giveCardsTilt() {
+        function giveCardsData() {
             for (var i = 0; i < allData.People.length; i++) {
                 var idName = allData.People[i].ID + 'Card';
                 $('#' + idName).tilt({
                     scale: 1.1,
                     perspective: 750
                 });
+                $('#' + idName).data-src();
             }
 
             for (var i = 0; i < allData.Projects.length; i++) {
