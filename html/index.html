@@ -257,18 +257,18 @@
         }
 
         function createProjectCardCode(project) {
-            var name = project.Name.trim();
+            var name = project.Name.trim(); 
             var nameURL = encodeURIComponent(project.Name.trim());
             var description = project.Description;
             var id = project.ID;
-            var makerID = project.MakerID;
+            var makerID = project.MakerID;$
 
             var maker = findPersonIndexByID(makerID);
             var makerName = allData.People[maker]["Last Name"] + ', ' + allData.People[maker]["First Name"].substring(0,1);
             var makerLevel = maker.Level;
 
             var output = '' +
-                '<!--Student / Project Card Template--> \n' +
+                '<!--Student / Project Card Template--> \n' +   
                 '<div class="col-md-4" id="' + id + 'Card" data-tilt data-tilt-perspective="1000"> \n' +
                 '    <div class="card mb-4 shadow-sm"> \n' +
                 '        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=4286f4&fg=FFFFFF&text=' + nameURL + '"> \n' +
