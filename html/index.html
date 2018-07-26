@@ -80,7 +80,7 @@
         <div class="album py-5 bg-light">
             <div class="container">
 
-                <div class="row">
+                <div class="row" id="peopleHeader">
                     <div class="col-12">
                         <h2 class="jumbotron-heading" style="text-align:center;">
                             <strong>People</strong>
@@ -94,7 +94,7 @@
                     <!--People Cards AutoPopulate Here-->
                 </div>
 
-                <div class="row">
+                <div class="row" id="projectHeader">
                     <div class="col-12">
                         <hr />
                         <h2 class="jumbotron-heading" style="text-align:center;">
@@ -107,6 +107,19 @@
                 <div class="row" id="projectRow">
                     <!--Project Cards AutoPopulate Here-->
                 </div>
+
+                
+                <div class="row" id="levelResetButton" >
+                    <div class="col-12">
+                        <hr />
+                        <h2 class="jumbotron-heading" style="text-align:center;">
+                            <label class="btn btn-block btn-outline-primary" onclick="resetLevelSubmit();">
+                                Go Back
+                            </label>
+                        </h2>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -462,12 +475,36 @@
         }
 
         function LevelSubmit(level) {
-            //TODO: Open Page for only People
-            //TODO: Sort by level
-
-            
-
+            for(i in allData.People){
+                if(allData.People[i].Level != level){
+                    var obj = document.getElementById(allData.People[i].ID + 'Card');
+                    obj.style.display = "none";
+                } else {
+                    var obj = document.getElementById(allData.People[i].ID + 'Card');
+                    obj.style.display = "initial";
+                }
+                obj = document.getElementById('projectHeader');
+                obj.style.display = "none";
+                obj = document.getElementById('projectRow');
+                obj.style.display = "none";
+                obj = document.getElementById('levelResetButton');
+                obj.style.display = "block";
+            }
         }
+
+        function resetLevelSubmit(){
+            for(i in allData.People){
+                var obj = document.getElementById(allData.People[i].ID + 'Card');
+                obj.style.display = "initial";
+            }
+            obj = document.getElementById('projectHeader');
+            obj.style.display = "flex";
+            obj = document.getElementById('projectRow');
+            obj.style.display = "flex";
+            obj = document.getElementById('levelResetButton');
+            obj.style.display = "none";
+        }
+
     </script>
     <script src="https://gijsroge.github.io/tilt.js/js/jquery.slim.min.js"></script>
     <script src="https://unpkg.com/tilt.js@1.1.21/dest/tilt.jquery.min.js"></script>
