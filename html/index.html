@@ -742,6 +742,7 @@
                 obj = document.getElementById('levelResetButton');
                 obj.style.display = "block";
             }
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
         
         //Unhides all the cards
@@ -756,6 +757,7 @@
         obj.style.display = "flex";
         obj = document.getElementById('levelResetButton');
         obj.style.display = "none";
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
     </script>
