@@ -733,6 +733,7 @@
         
         //Hides all cards that dont have that level
         function LevelSubmit(level) {
+            resetCardsSubmit();
             for(i in allData.People){
                 if(allData.People[i].Level != level){
                     document.getElementById(allData.People[i].ID + 'Card').style.display = "none";
@@ -770,7 +771,9 @@
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
+        //Hides on of the two sections
         function hideCardsType(type){
+            resetCardsSubmit();
             if(type == 'project'){
                 document.getElementById('projectRow').style.display = 'none';
                 document.getElementById('projectHeader').style.display = 'none';
@@ -782,9 +785,10 @@
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
         
+        //These are for the "TOP" Btn
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {scrollFunction()};
-
+        
         function scrollFunction() {
             if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
                 document.getElementById("myBtn").style.display = "block";
