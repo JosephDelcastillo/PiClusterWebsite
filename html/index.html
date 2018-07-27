@@ -82,10 +82,10 @@
                 <!--Header for people row-->
                 <div class="row" id="peopleHeader">
                     <div class="col-12">
-                        <h2 class="jumbotron-heading" style="text-align:center;">
+                        <h2 class="jumbotron-heading cardHeader" style="text-align:center;" onclick="hideCardsType('project');">
                             <strong>People</strong>
+                            <hr />
                         </h2>
-                        <hr />
                         <br />
                     </div>
                 </div>
@@ -98,10 +98,11 @@
                 <div class="row" id="projectHeader">
                     <div class="col-12">
                         <hr />
-                        <h2 class="jumbotron-heading" style="text-align:center;">
+                        <h2 class="jumbotron-heading cardHeader" style="text-align:center;" onclick="hideCardsType('people');">
                             <strong>Projects</strong>
+                            <hr />
                         </h2>
-                        <hr />
+                        <br/>
                     </div>
                 </div>
 
@@ -110,11 +111,11 @@
                 </div>
 
                 <!--The Level Reset Button-->
-                <div class="row" id="levelResetButton" style="display: none;">
+                <div class="row" id="cardResetButton" style="display: none;">
                     <div class="col-12">
                         <hr />
                         <h2 class="jumbotron-heading" style="text-align:center;">
-                            <label class="btn btn-block btn-outline-primary" onclick="resetLevelSubmit();">
+                            <label class="btn btn-block btn-outline-danger" onclick="resetCardsSubmit();">
                                 Go Back
                             </label>
                         </h2>
@@ -621,10 +622,10 @@
                 '                </p> \n' +
                 '                <div class="d-flex justify-content-between align-items-center"> \n' +
                 '                    <div class="btn-group"> \n' +
-                '                        <button onclick="window.open(\'HTML/Projects/' + id + '.html\');" class="btn btn-sm btn-outline-secondary">View Project</button> \n' +
-                '                        <button onclick="window.open(\'HTML/People/' + makerID + '.html\');" class="btn btn-sm btn-outline-secondary">View Maker</button> \n' +
+                '                        <button onclick="window.open(\'HTML/Projects/' + id + '.html\');" class="btn btn-sm btn-outline-success">View Project</button> \n' +
+                '                        <button onclick="window.open(\'HTML/People/' + makerID + '.html\');" class="btn btn-sm btn-outline-primary">View Maker</button> \n' +
                 '                    </div> \n' +
-                '                    <small class="text-muted"> \n' +
+                '                    <small class="text-muted hash"> \n' +
                 '                        <!--20 Char Limit--> \n' +
                 '                        <a href="HTML/People/' + makerID + '.html" target=_blank class="text-muted"> \n' +
                 '                            @' + makerName + ' \n' +
@@ -675,16 +676,16 @@
                 '                </p> \n' +
                 '                <div class="d-flex justify-content-between align-items-center"> \n' +
                 '                    <div class="btn-group"> \n' +
-                '                        <button onclick="window.open(\'HTML/People/' + id + '.html\');" class="btn btn-sm btn-outline-secondary">View Their Bio</button> \n' +
+                '                        <button onclick="window.open(\'HTML/People/' + id + '.html\');" class="btn btn-sm btn-outline-primary">View Their Bio</button> \n' +
                 '                    </div> \n' +
                 '                    <small class="text-muted" onclick="LevelSubmit(\'' + level + '\');"> \n' +
-                '                            #' + level + '\n' +
-                '                        </small> \n' +
-                '                    </div> \n' +
-                '                </div> \n' +
-                '            </div> \n' +
-                '        </div> \n \n';
-            return output;
+            '                            <a>#' + level + '</a>\n' +
+            '                        </small> \n' +
+            '                    </div> \n' +
+            '                </div> \n' +
+            '            </div> \n' +
+            '        </div> \n \n';
+            return output; 
         }
 
         //Creates a card for the student setup
@@ -715,10 +716,10 @@
                 '                </p> \n' +
                 '                <div class="d-flex justify-content-between align-items-center"> \n' +
                 '                    <div class="btn-group"> \n' +
-                '                        <button onclick="window.open(\'HTML/People/' + id + '.html\');" class="btn btn-sm btn-outline-secondary">View Their Bio</button> \n' +
+                '                        <button onclick="window.open(\'HTML/People/' + id + '.html\');" class="btn btn-sm btn-outline-primary">View Their Bio</button> \n' +
                 '                    </div> \n' +
                 '                    <small class="text-muted" onclick="LevelSubmit(\'' + level + '\');"> \n' +
-                '                            #' + level + '\n' +
+                '                            <a>#' + level + '</a>\n' +
                 '                        </small> \n' +
                 '                    </div> \n' +
                 '                </div> \n' +
@@ -731,36 +732,52 @@
         function LevelSubmit(level) {
             for(i in allData.People){
                 if(allData.People[i].Level != level){
-                    var obj = document.getElementById(allData.People[i].ID + 'Card');
-                    obj.style.display = "none";
+                    document.getElementById(allData.People[i].ID + 'Card').style.display = "none";
                 } else {
-                    var obj = document.getElementById(allData.People[i].ID + 'Card');
-                    obj.style.display = "initial";
+                    document.getElementById(allData.People[i].ID + 'Card').style.display = "initial";
                 }
-                obj = document.getElementById('projectHeader');
-                obj.style.display = "none";
-                obj = document.getElementById('projectRow');
-                obj.style.display = "none";
-                obj = document.getElementById('levelResetButton');
-                obj.style.display = "block";
+                document.getElementById('projectHeader').style.display = "none";
+                document.getElementById('projectRow').style.display = "none";
+                document.getElementById('cardResetButton').style.display = "block";
             }
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         }
         
         //Unhides all the cards
-        function resetLevelSubmit(){
+        function resetCardsSubmit(){
         for(i in allData.People){
             var obj = document.getElementById(allData.People[i].ID + 'Card');
             obj.style.display = "initial";
         }
+        for(i in allData.Projects){
+            var obj = document.getElementById(allData.Projects[i].ID + 'Card');
+            obj.style.display = "initial";
+        }
+
         obj = document.getElementById('projectHeader');
         obj.style.display = "flex";
         obj = document.getElementById('projectRow');
         obj.style.display = "flex";
-        obj = document.getElementById('levelResetButton');
+        obj = document.getElementById('peopleHeader');
+        obj.style.display = "flex";
+        obj = document.getElementById('peopleRow');
+        obj.style.display = "flex";
+        obj = document.getElementById('cardResetButton');
         obj.style.display = "none";
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
+
+        function hideCardsType(type){
+            if(type == 'project'){
+                document.getElementById('projectRow').style.display = 'none';
+                document.getElementById('projectHeader').style.display = 'none';
+            } else{
+                document.getElementById('peopleRow').style.display = 'none';
+                document.getElementById('peopleHeader').style.display = 'none';
+            }
+            document.getElementById('cardResetButton').style.display = "block";
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
 
     </script>
     <script src="https://gijsroge.github.io/tilt.js/js/jquery.slim.min.js"></script>
