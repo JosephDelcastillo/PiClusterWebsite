@@ -1064,18 +1064,18 @@
                     "text-align": "right"
                 },
                 "g": {
-                    "bg": "000000",
-                    "text": "FFFFFF",
+                    "bg": "FFFFFF",
+                    "text": "000000",
                     "text-align": "left"
                 },
                 "h": {
-                    "bg": "000000",
-                    "text": "FFFFFF",
+                    "bg": "FFFFFF",
+                    "text": "000000",
                     "text-align": "center"
                 },
                 "i": {
-                    "bg": "000000",
-                    "text": "FFFFFF",
+                    "bg": "FFFFFF",
+                    "text": "000000",
                     "text-align": "right"
                 }
             }
