@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-sm-8 col-md-7 py-4">
                         <!--NavBar Title-->
-                        <h4 class="text-white">About</h4>
+                        <h4 class="text-white">About The Site</h4>
                         <!--NavBar Text-->
                         <p class="text-muted">
                             These are projects and students whom have done a bunch of work with technology. Feel free to check them out.
@@ -42,6 +42,7 @@
                         <h4 class="text-white">Contact</h4>
                         <!--Contact Links-->
                         <ul class="list-unstyled">
+                            <li><a href="../../index.html">Home Page</a></li>
                             <!--Class Link-->
                             <li><a href="http://charlottemorrison.com/" target="_blank" class="text-white">Mrs. Morrisons Class Site</a></li>
                         </ul>
@@ -53,7 +54,7 @@
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    <strong>Album</strong>
+                    <strong>Joseph's Album</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -74,9 +75,14 @@
                 <p class="lead text-muted">
                     This is a page designed me, Joseph Delcastillo III, in an attempt to show off what I can (and have) done with technology, in a home to convinvce its reader to help support me through college and to hopefully help me get a job.
                 </p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                <p class="col-12">
+                    <br />
+                    <label onclick="window.open('../../index.html');" class="btn btn-outline-primary col-6">Home</label>
+                    <br />
+                    <div class="col-12">
+                        <label class="col-5 btn btn-outline-danger">Projects Only</label>
+                        <label class="col-5 btn btn-outline-warning">Awards/Accreditations Only</label>
+                    </div>
                 </p>
             </div>
         </section>
@@ -86,9 +92,8 @@
                 <!--Return to top button-->
                 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-                <div class="card-columns" id="cardOutput">
-                    
-                </div>
+                <!--Output For the cards-->
+                <div class="card-columns" id="cardOutput">ERROR! GOTO to <a href="../../index.html">Home</a> and try again</div>
 
             </div>
         </div>
@@ -99,8 +104,10 @@
     <footer class="text-muted">
         <div class="container">
             <p style="text-align: center;">
+                <hr>
                 Powered by <a href="https://getbootstrap.com/" target="_blank">Bootstrap&copy;</a>
-                Site Created by <a href="#" target="_blank">Delcastillo III, Joseph</a> - 2018
+                Site Created by <a href="#" target="_blank">Delcastillo III, Joseph</a> - 2018 <br /><br /><br />
+                <em>If your experiencing issues please <a href="" onclick="window.location.reload(true);">reload</a> the page, or go to <a href="../../index.html">home</a> then try to access it again.</em>
             </p>
         </div>
     </footer>
@@ -114,11 +121,13 @@
     <script src="../../JS/bootstrap.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
     <script>
+        window.onload = function(){if(localStorage.getItem('allData') == null || localStorage.getItem('allData') == undefined){window.open('../../index.html');}}
         var allData = JSON.parse(localStorage.getItem('allData'));
+
         var currentMakerID = "10350478";
         var currentMakerIndex = findPersonIndexByID(currentMakerID);
-        var finalCode;
 
+        //Sets up the page
         window.onload = function init(){
             allData = JSON.parse(localStorage.getItem('allData'));
             
@@ -128,12 +137,11 @@
             giveCardsData();
         }
         
-        var finalCodeArray;
+        //Populates the page with the cards
         function makeAllCards(){
-            finalCode = buildProjectCardsArray().concat(buildAccreditationsCardsArray().concat(buildAcheivementCardsArray()));
+            var finalCode = buildProjectCardsArray().concat(buildAccreditationsCardsArray().concat(buildAcheivementCardsArray()));
             
-
-            finalCodeArray = shuffle(finalCode);
+            var finalCodeArray = shuffle(finalCode);
             
             var output = '\n\n<!------------------------START------------------------>\n';            
             for(i in finalCodeArray){
@@ -146,6 +154,7 @@
             return output
         }
 
+        //Shuffles the contents of an array
         function shuffle(a) {
             var j, x, i;
             for (i = a.length - 1; i > 0; i--) {
@@ -208,7 +217,8 @@
                 }
             }
         }
-
+        
+        //Makes an array of all the Achievments
         function buildAcheivementCardsArray(){
             var output = [];
             for(i in allData.People[currentMakerIndex].Acheivements){
@@ -218,6 +228,7 @@
             return output;
         }
         
+        //Makes the code for each accreditation card
         function buildAcheivementCardsCode(acheivement){
             var id = acheivement.ID;
             var name = acheivement.Name;
@@ -238,7 +249,8 @@
 
             return output;
         }
-
+        
+        //Makes an array of all the Accreditation
         function buildAccreditationsCardsArray(){
             var output = [];
             for(i in allData.People[currentMakerIndex].Accreditations){
@@ -248,6 +260,7 @@
             return output;
         }
 
+        //Makes the code for each accreditation card
         function buildAccreditationsCardsCode(accredit){
             var id = accredit.ID;
             var description = accredit.Description;
@@ -263,7 +276,7 @@
             '        <p>' + description + '</p>\n' +
             '        <footer class="blockquote-footer">\n' +
             '            <small class="text-muted">\n' +
-            '                <cite><a class="text-muted" target=_blank href="' + connections + '">' + name + '<a></cite>, ' + title + '\n' +
+            '                <cite><a class="text-muted" target=_blank href="' + connections + '">' + name + '</a></cite>, ' + title + '\n' +
             '            </small>\n' +
             '        </footer>\n' +
             '    </blockquote>\n' +
@@ -315,7 +328,7 @@
                 '                        <button onclick="window.open(\'../Projects/' + id + '.html\');" class="btn btn-sm btn-outline-success">View Project</button> \n' +
                 '                        <button onclick="window.open(\'' + makerID + '.html\');" class="btn btn-sm btn-outline-primary">View Maker</button> \n' +
                 '                    </div> \n' +
-                '                    <small class="text-muted hash"> \n' +
+                '                    <small class="text-muted"> \n' +
                 '                        <!--20 Char Limit--> \n' +
                 '                        <a href="' + makerID + '.html" target=_blank class="text-muted"> \n' +
                 '                            @' + makerName + ' \n' +
@@ -336,7 +349,6 @@
                 }
             }
         }
-        
 
         //Returns color variation
         function accreditationsColorVariant(){
@@ -371,7 +383,6 @@
         //These are for the "TOP" Btn
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {scrollFunction()};
-        
         function scrollFunction() {
             if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
                 document.getElementById("myBtn").style.display = "block";
