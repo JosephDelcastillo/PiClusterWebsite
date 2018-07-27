@@ -79,6 +79,9 @@
 
         <div class="album py-5 bg-light">
             <div class="container">
+                <!--Return to top button-->
+                <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
                 <!--Header for people row-->
                 <div class="row" id="peopleHeader">
                     <div class="col-12">
@@ -777,6 +780,21 @@
             }
             document.getElementById('cardResetButton').style.display = "block";
             document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
 
     </script>
