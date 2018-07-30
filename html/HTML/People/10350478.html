@@ -33,7 +33,7 @@
                         <h4 class="text-white">About The Site</h4>
                         <!--NavBar Text-->
                         <p class="text-muted">
-                            These are projects and students whom have done a bunch of work with technology. Feel free to check them out.
+                            These are projects, achievments and accreditations of a student whom has done a lot of work with technology. Feel free to check them out. and Even support them into there academic and professional lives.
                         </p>
                     </div>
                     <!--Contact-->
@@ -41,8 +41,8 @@
                         <!--Contact Header-->
                         <h4 class="text-white">Contact</h4>
                         <!--Contact Links-->
-                        <ul class="list-unstyled">
-                            <li><a href="../../index.html">Home Page</a></li>
+                        <ul class="list-unstyle" style="list-style-type: none;" id="contactList">
+                            <li><a href="../../index.html" target="_blank" class="text-white">Home Page</a></li>
                             <!--Class Link-->
                             <li><a href="http://charlottemorrison.com/" target="_blank" class="text-white">Mrs. Morrisons Class Site</a></li>
                         </ul>
@@ -54,7 +54,7 @@
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    <strong>Joseph's Album</strong>
+                    <strong  id="personAlbumName">Joseph's Album</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -70,20 +70,21 @@
         <section class="jumbotron text-center">
             <div class="container">
                 <!--Header Title-->
-                <h1 class="jumbotron-heading">Delcastillo III, Joseph</h1>
+                <h1 class="jumbotron-heading"><strong id="personName">Delcastillo III, Joseph</strong></h1>
                 <!--Header Text-->
-                <p class="lead text-muted">
+                <p class="lead text-muted"  id="personDescription">
                     This is a page designed me, Joseph Delcastillo III, in an attempt to show off what I can (and have) done with technology, in a home to convinvce its reader to help support me through college and to hopefully help me get a job.
                 </p>
                 <p class="col-12">
                     <br />
                     <label onclick="window.open('../../index.html');" class="btn btn-outline-primary col-lg-6 col-md-12 col-sm-12">Home</label>
                     <br />
-                    <div class="col-12">
-                        <label class="col-lg-5 col-md-12 col-sm-12 btn btn-outline-danger">Projects Only</label>
-                        <label class="col-lg-5 col-md-12 col-sm-12 btn btn-outline-warning">Awards/Accreditations Only</label>
+                    <div class="col-12" id="ProjectsVsAwardsBtns" >
+                        <label onclick="hideAwardsEtc();" class="col-lg-5 col-md-12 col-sm-12 btn btn-outline-danger">Projects Only</label>
+                        <label onclick="hideProjects();" class="col-lg-5 col-md-12 col-sm-12 btn btn-outline-warning">Awards/Accreditations Only</label>
                     </div>
                 </p>
+
             </div>
         </section>
 
@@ -94,6 +95,19 @@
 
                 <!--Output For the cards-->
                 <div class="card-columns" id="cardOutput">ERROR! GOTO to <a href="../../index.html">Home</a> and try again</div>
+
+                
+                <!--The Reset Button-->
+                <div class="row" id="cardResetButton" style="display: none;">
+                    <div class="col-12">
+                        <hr />
+                        <h2 class="jumbotron-heading" style="text-align:center;">
+                            <label class="btn btn-block btn-outline-danger" onclick="resetCardsSubmit();">
+                                Go Back
+                            </label>
+                        </h2>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -135,8 +149,96 @@
             document.getElementById('cardOutput').innerHTML = fin;
 
             giveCardsData();
+            createContacts();
+            createDescription();
         }
         
+        //Auto Fill Description
+        function createDescription(){
+            document.getElementById('personDescription').innerHTML = allData.People[currentMakerIndex].Description;
+            document.getElementById('personAlbumName').innerHTML = allData.People[currentMakerIndex]["First Name"] + '\'s Album';
+            document.getElementById('personName').innerHTML = allData.People[currentMakerIndex]["Last Name"] + ', ' + allData.People[currentMakerIndex]["First Name"];
+        }
+
+        //Auto update contacts
+        function createContacts(){
+            var output = '\n' +
+                '<!--Home Page Link -->\n' +
+                '<li><a href="../../index.html" target="_blank" class="text-white">Home Page</a></li>\n' +
+                '<!--Class Link-->\n' +
+                '<li><a href="http://charlottemorrison.com/" target="_blank" class="text-white">Mrs. Morrisons Class Site</a></li>\n';
+            for (i in allData.People[currentMakerIndex].Contact){
+                var id = allData.People[currentMakerIndex].Contact[i].ID;
+                var name = allData.People[currentMakerIndex].Contact[i].Name;
+                var url = allData.People[currentMakerIndex].Contact[i].URL;
+
+                output += '<!--' + id + ' Link -->\n' +
+                '<li><a href="' + url + '" target="_blank" class="text-white">' + name + '</a></li>\n';
+            }
+            document.getElementById('contactList').innerHTML = output;
+        }
+
+        //Hides all the Projects
+        function hideProjects(){
+            for(i in allData.Projects){
+                if(allData.Projects[i].MakerID == currentMakerID){
+                    var idName = allData.Projects[i].ID + 'Card';
+                    document.getElementById(idName).style.display = 'none';
+                }
+            }
+            showAwardsEtc();
+            
+            document.getElementById('cardResetButton').style.display = "block";
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        
+        //Shows all the Projects
+        function showProjects(){
+            for(i in allData.Projects){
+                if(allData.Projects[i].MakerID == currentMakerID){
+                    var idName = allData.Projects[i].ID + 'Card';
+                    document.getElementById(idName).style.display = 'inline-block';
+                }
+            }
+        }
+
+        //Hides all the Awards/Accreditations
+        function hideAwardsEtc(){
+            for(i in allData.People[currentMakerIndex]["Acheivements"]){
+                var idName = allData.People[currentMakerIndex]["Acheivements"][i].ID + 'Card';
+                document.getElementById(idName).style.display = 'none';
+            }
+            for(i in allData.People[currentMakerIndex]["Accreditations"]){
+                var idName = allData.People[currentMakerIndex]["Accreditations"][i].ID + 'Card';
+                document.getElementById(idName).style.display = 'none';
+            }
+            showProjects();
+            
+            document.getElementById('cardResetButton').style.display = "block";
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }
+        
+        //Shows all cards
+        function resetCardsSubmit(){
+            showAwardsEtc();
+            showProjects();
+            document.getElementById('cardResetButton').style.display = 'none';
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        //Show all the Awards/Accreditations
+        function showAwardsEtc(){
+            for(i in allData.People[currentMakerIndex]["Acheivements"]){
+                var idName = allData.People[currentMakerIndex]["Acheivements"][i].ID + 'Card';
+                document.getElementById(idName).style.display = 'inline-block';
+            }
+            for(i in allData.People[currentMakerIndex]["Accreditations"]){
+                var idName = allData.People[currentMakerIndex]["Accreditations"][i].ID + 'Card';
+                document.getElementById(idName).style.display = 'inline-block';
+            }
+        }
+
         //Populates the page with the cards
         function makeAllCards(){
             var finalCode = buildProjectCardsArray().concat(buildAccreditationsCardsArray().concat(buildAcheivementCardsArray()));
@@ -170,7 +272,7 @@
 
         //Assigns the cards there data
         function giveCardsData() {
-            for (var i = 0; i < allData.Projects.length; i++) {
+            for (i in allData.Projects) {
                 if (!isMobile.any) {
                     var idName = allData.Projects[i].ID + 'Card';
                     $('#' + idName).tilt({
