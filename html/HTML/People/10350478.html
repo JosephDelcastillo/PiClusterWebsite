@@ -145,12 +145,13 @@
         window.onload = function init(){
             allData = JSON.parse(localStorage.getItem('allData'));
             
+            createContacts();
+            createDescription();
+            
             var fin = makeAllCards();
             document.getElementById('cardOutput').innerHTML = fin;
 
             giveCardsData();
-            createContacts();
-            createDescription();
         }
         
         //Auto Fill Description
