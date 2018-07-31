@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="addToSite">
+        <meta name="author" content="Delcastillo III, Joseph">
+
+        <title>Signin Template for Bootstrap</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="https://getbootstrap.com/docs/4.1/examples/sign-in/signin.css" rel="stylesheet">
+    </head>
+
+    <body class="text-center">
+        <form class="form-signin">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
+            <h1 class="h3 mb-3 font-weight-normal">Enter Passphrase</h1>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" onkeypress="return searchKeyPress(event);" class="form-control" placeholder="Password" required>
+
+            <br />
+
+            <label class="btn btn-lg btn-primary btn-block" id="submitBtn" onclick="checkPass();" type="submit">Sign in</label>
+
+            <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+
+        </form>
+
+        <script src="../JS/jquery-3.3.1.min.js"></script>
+        <script>
+            window.onload = function () { if (localStorage.getItem('allData') == null || localStorage.getItem('allData') == undefined) { window.open('../index.html'); } }
+            var allData = JSON.parse(localStorage.getItem('allData'));
+
+            window.onload = function init() {
+                localStorage.setItem('pass', false);
+            }
+
+            function searchKeyPress(e) {
+                // look for window.event in case event isn't passed in
+                e = e || window.event;
+                if (e.keyCode == 13) {
+                    document.getElementById('submitBtn').click();
+                    return false;
+                }
+                return true;
+            }
+
+            function checkPass() {
+                a = document.getElementById('inputPassword').value;
+                window.open('data.html?try=' + a + '.#..|');
+
+                window.open('changeForm.html');
+                if (localStorage.getItem('pass') == 'true') {
+                    window.close();
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

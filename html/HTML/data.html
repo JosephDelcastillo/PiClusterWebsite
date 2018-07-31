@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    
+</head>
+
+<body class="text-center">
+  
+    <script>
+        window.onload = function init(){
+            var currentURL = window.location.href;
+            var input = currentURL.substring(currentURL.indexOf('try=') + 4, currentURL.indexOf('.#..|'));
+            if (input == 'raspberryPi') {
+                localStorage.setItem('pass', true);
+                window.open('add.html');
+            } else {
+                localStorage.setItem('pass', false);
+            }
+                window.close();
+        }
+
+    </script>
+
+</body>
+</html>
