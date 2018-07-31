@@ -4,177 +4,300 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Pi Cluster Demo Site">
-    <meta name="author" content="Joseph Delcastillo III">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
 
-    <title>Album example for Bootstrap</title>
+    <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.1/examples/album/album.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.1/examples/carousel/carousel.css" rel="stylesheet">
 </head>
-
 <body>
-    <!--Nav Bar Kinda Thing-->
-    <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <!--NavBar Title-->
-                        <h4 class="text-white">About</h4>
-                        <!--NavBar Text-->
-                        <p class="text-muted">
-                            This is a website all about computing projects. A great thing to note is that this is even being hosted on a raspberry pi cluster. Composed of a number of thses micro ARM proccess, the Pi cluster offers a fairly sufficient amount of power, more than enough in order to handle the power of a webserver. Feel free to check out other such project below!
-                        </p>
-                    </div>
-                    <!--Contact-->
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <!--Contact Header-->
-                        <h4 class="text-white">Contact</h4>
-                        <!--Contact Links-->
-                        <ul class="list-unstyled">
-                            <!--Twitter Link-->
-                            <li>
-                                <a href="https://twitter.com/JDelcastilloIII?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @JDelcastilloIII</a>
-                                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                            </li>
-                            <!--Email Link-->
-                            <li><a href="Mailto: delcastillo3j@gmail.com" class="text-white">Email Me (Joseph)</a></li>
-                            <!--Class Link-->
-                            <li><a href="http://charlottemorrison.com/" target="_blank" class="text-white">Morrisons Computers Class</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    <strong>Album</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </div>
-    </header>
 
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Pi Cluster</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../index.html" target="_blank">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main role="main">
 
-        <!--Header-->
-        <section class="jumbotron text-center">
-            <div class="container">
-                <!--Header Title-->
-                <h1 class="jumbotron-heading">Delcastillo III, Joseph</h1>
-                <!--Header Text-->
-                <p class="lead text-muted">
-                    This is a page designed me, Joseph Delcastillo III, in an attempt to show off what I can (and have) done with technology, in a home to convinvce its reader to help support me through college and to hopefully help me get a job.
-                </p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="card-columns">
-                    <div class="card">
-                        <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164d1e06aef%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164d1e06aef%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.71875%22%20y%3D%22120.1359375%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title that wraps to a new line</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                    </div>
-                    <div class="card p-3">
-                        <blockquote class="blockquote mb-0 card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">
-                                <small class="text-muted">
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                </small>
-                            </footer>
-                        </blockquote>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" alt="Thumbnail [100%x116]" style="height: 116px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164d1e06aef%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164d1e06aef%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.71875%22%20y%3D%22120.1359375%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="card bg-primary text-white text-center p-3">
-                        <blockquote class="blockquote mb-0">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-                            <footer class="blockquote-footer">
-                                <small>
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                </small>
-                            </footer>
-                        </blockquote>
-                    </div>
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164d1e06aef%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164d1e06aef%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.71875%22%20y%3D%22120.1359375%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
-                    </div>
-                    <div class="card p-3 text-right">
-                        <blockquote class="blockquote mb-0">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">
-                                <small class="text-muted">
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                </small>
-                            </footer>
-                        </blockquote>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption text-left">
+                            <h1>Introducing the Pi Cluster</h1>
+                            <p>Cross threading multiple Pi 3 B+ modules for maximum power.</p>
+                            <!--<p><a class="btn btn-lg btn-primary" role="button">Button</a></p>-->
                         </div>
                     </div>
                 </div>
+                <div class="carousel-item">
+                    <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Sleek and Simple</h1>
+                            <p>Simple design allows for maximum possiblities of growth.</p>
+                            <!--<p><a class="btn btn-lg btn-primary" role="button">Button</a></p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Carrets-->
+            <!--Back-->
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <!--Next-->
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="container marketing">
+
+            <!-- People -->
+            <div class="row text-center" id="peopleCards">
+                <div class="col-lg-6">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Delcastillo, Joseph</h2>
+                    <p>Developer details.</p>
+                    <p><a class="btn btn-secondary" href="../person.html?maker=10350478.html!" target="_blank" role="button">View Person &raquo;</a></p>
+                </div>
+
+                <div class="col-lg-6">
+                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Charlotte</h2>
+                    <p>Developer Details</p>
+                    <p><a class="btn btn-secondary" href="../person.html?maker=MorrisonC.html!" target="_blank" role="button">View Person &raquo;</a></p>
+                </div>
+            </div>
+
+
+            <!-- THE FEATURETTES -->
+            <div id="featurettes">
 
             </div>
+
+            <hr class="featurette-divider">
         </div>
 
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
     </main>
-
-    <footer class="text-muted">
-        <div class="container">
-            <br />
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-            <br />
-        </div>
-    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="JS/popper.min.js"></script>
-    <script src="JS/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+    <script>
+        window.onload = function () { if (localStorage.getItem('allData') == null || localStorage.getItem('allData') == undefined) { window.open('../index.html'); } }
+        var allData = JSON.parse(localStorage.getItem('allData'));
+
+        var currentProjectIndex = findProjectIndexByID('PiCluster');
+
+        window.onload = function init() {
+            makePeopleCards();
+
+            if (allData.Projects[currentProjectIndex].Features != null || allData.Projects[currentProjectIndex].Features != undefined) {
+                makeFeaturettes();
+            }
+
+        }
+
+        //Mobile Detection
+        !function (a) { var b = /iPhone/i, c = /iPod/i, d = /iPad/i, e = /(?=.*\bAndroid\b)(?=.*\bMobile\b)/i, f = /Android/i, g = /(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i, h = /(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i, i = /IEMobile/i, j = /(?=.*\bWindows\b)(?=.*\bARM\b)/i, k = /BlackBerry/i, l = /BB10/i, m = /Opera Mini/i, n = /(CriOS|Chrome)(?=.*\bMobile\b)/i, o = /(?=.*\bFirefox\b)(?=.*\bMobile\b)/i, p = new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)", "i"), q = function (a, b) { return a.test(b) }, r = function (a) { var r = a || navigator.userAgent, s = r.split("[FBAN"); return "undefined" != typeof s[1] && (r = s[0]), s = r.split("Twitter"), "undefined" != typeof s[1] && (r = s[0]), this.apple = { phone: q(b, r), ipod: q(c, r), tablet: !q(b, r) && q(d, r), device: q(b, r) || q(c, r) || q(d, r) }, this.amazon = { phone: q(g, r), tablet: !q(g, r) && q(h, r), device: q(g, r) || q(h, r) }, this.android = { phone: q(g, r) || q(e, r), tablet: !q(g, r) && !q(e, r) && (q(h, r) || q(f, r)), device: q(g, r) || q(h, r) || q(e, r) || q(f, r) }, this.windows = { phone: q(i, r), tablet: q(j, r), device: q(i, r) || q(j, r) }, this.other = { blackberry: q(k, r), blackberry10: q(l, r), opera: q(m, r), firefox: q(o, r), chrome: q(n, r), device: q(k, r) || q(l, r) || q(m, r) || q(o, r) || q(n, r) }, this.seven_inch = q(p, r), this.any = this.apple.device || this.android.device || this.windows.device || this.other.device || this.seven_inch, this.phone = this.apple.phone || this.android.phone || this.windows.phone, this.tablet = this.apple.tablet || this.android.tablet || this.windows.tablet, "undefined" == typeof window ? this : void 0 }, s = function () { var a = new r; return a.Class = r, a }; "undefined" != typeof module && module.exports && "undefined" == typeof window ? module.exports = r : "undefined" != typeof module && module.exports && "undefined" != typeof window ? module.exports = s() : "function" == typeof define && define.amd ? define("isMobile", [], a.isMobile = s()) : a.isMobile = s() }(this);
+
+        //makes all the code for the featurettes
+        function makeFeaturettes() {
+            var output = '';
+            for (i in allData.Projects[currentProjectIndex].Features) {
+                if ((i % 2) == 1) { var d = 'l' } else { var d = 'r' }
+                output += makeFeaturetteCode(allData.Projects[currentProjectIndex].Features[i], d);
+            }
+            document.getElementById('featurettes').innerHTML = output;
+            for (i in allData.Projects[currentProjectIndex].Features) {
+                var idName = allData.Projects[currentProjectIndex].Features[i].ID + 'Img';
+
+                if (allData.Projects[currentProjectIndex].Features[i].img == "" || allData.Projects[currentProjectIndex].Features[i].img == "random") {
+                    var color = makeColorCombo();
+                    document.getElementById(idName).src = 'data:image/svg+xml;charset=UTF-8, <svg%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewox%3D"0%200%20348%20225"%20preserveAspectRatio%3D"none"> <defs> <style%20type%3D"text%2Fcss"> %23holder_164d1e06aef%20text%20%7B%20 fill%3A%23' + color.fg + '%3B font-weight%3Abold%3B font-family%3AArial%2Open%20Sans%2C%20sans-serif%2C%20monospace%3B font-size%3A17pt%20%7D %20 <%2Fstyle> <%2Fdefs> <g%20id%3D"holder_164d1e06aef"> <rect%20width%3D"500px"%20height%3D"500px"%20fill%3D"%23' + color.bg + '"> <%2Frect> <g> <text%20text-anchor%3D"middle"%20x%3D"50%"%20y%3D"50%">' + allData.Projects[currentProjectIndex].Features[i].Title + '<%2Ftext> <%2Fg> <%2Fg> <%2Fsvg>';
+                } else {
+                    document.getElementById(idName).src = allData.Projects[currentProjectIndex].Features[i].img;
+                }
+
+                if (!isMobile.any) {
+                    $('#' + idName).tilt({
+                        scale: 1.1,
+                        perspective: 750,
+                        glare: true,
+                        maxGlare: 1
+                    });
+                }
+            }
+
+        }
+
+        //Makes code for featurettes
+        function makeFeaturetteCode(x, d) {
+            var id = x.ID;
+            var title = x.Title;
+            var subTitle = x.SubTitle;
+            var description = x.Description;
+
+            if (d == 'l') {
+                output = ' \n' +
+                    '<hr class="featurette-divider">\n' +
+                    '<div class="row featurette" id="' + id + 'Card">\n' +
+                    '  <div class="col-md-5">\n' +
+                    '      <img id="' + id + 'Img" class="featurette-image img-fluid mx-auto" style="width: 500px; height: 500px;" src="test.png" alt="' + id + 'Image">\n' +
+                    '  </div>\n' +
+                    '  <div class="col-md-7">\n' +
+                    '      <h2 class="featurette-heading">' + title + '<span class="text-muted">' + subTitle + '</span></h2>\n' +
+                    '      <p class="lead">' + description + '</p>\n' +
+                    '  </div>\n' +
+                    '</div>\n';
+            } else {
+                output = ' \n' +
+                    '<hr class="featurette-divider">\n' +
+                    '<div class="row featurette" id="' + id + 'Card">\n' +
+                    '  <div class="col-md-7">\n' +
+                    '      <h2 class="featurette-heading">' + title + '<span class="text-muted">' + subTitle + '</span></h2>\n' +
+                    '      <p class="lead">' + description + '</p>\n' +
+                    '  </div>\n' +
+                    '  <div class="col-md-5">\n' +
+                    '      <img id="' + id + 'Img" class="featurette-image img-fluid mx-auto" style="width: 500px; height: 500px;" src="test.png" alt="' + id + 'Image">\n' +
+                    '  </div>\n' +
+                    '</div>\n';
+            }
+
+            return output;
+        }
+
+        //Makes Object with random .bg color and either black or white .fg color
+        function makeColorCombo() {
+            output = new Object();
+
+            output.bg = Math.floor(Math.random() * 16777215).toString(16);
+            output.fg = getContrastYIQ(output.bg);
+
+            return output;
+        }
+
+        //Input hex, return either FFF or 000
+        function getContrastYIQ(hexcolor) {
+            var r = parseInt(hexcolor.substr(0, 2), 16);
+            var g = parseInt(hexcolor.substr(2, 2), 16);
+            var b = parseInt(hexcolor.substr(4, 2), 16);
+            var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            return (yiq >= 128) ? '000' : 'FFF';
+        }
+
+        //Runs through and makes cards for all the people involved
+        function makePeopleCards() {
+            var output = '';
+            for (i in allData.Projects[currentProjectIndex].Makers) {
+                output += makePeopleCardCode(allData.Projects[currentProjectIndex].Makers[i].ID);
+            }
+            document.getElementById('peopleCards').innerHTML = output;
+            for (i in allData.Projects[currentProjectIndex].Makers) {
+
+                var idName = allData.Projects[currentProjectIndex].Makers[i].ID + 'Img';
+                if (!isMobile.any) {
+                    $('#' + idName).tilt({
+                        scale: 1.1,
+                        perspective: 750,
+                        glare: true,
+                        maxGlare: 1
+                    });
+                }
+            }
+        }
+
+        //Makes the code for an inputed person
+        function makePeopleCardCode(id) {
+            var index = findPersonIndexByID(id);
+            var name = allData.People[index]["Last Name"];
+            if (allData.People[index]["First Name"] != null && allData.People[index]["First Name"] != "") { name += ', ' + allData.People[index]["First Name"]; }
+
+            var position = allData.Projects[currentProjectIndex].Makers[index].Position;
+            var description = allData.Projects[currentProjectIndex].Makers[index].Description;
+
+            var output = ' \n' +
+                '<div class="col-lg-6" id="' + id + 'Card">\n' +
+                '   <img class="rounded-circle" id="' + id + 'Img" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="' + name + '" width="140" height="140">\n' +
+                '   <h2>' + name + '</h2>\n' +
+                '   <p><strong>' + position + ',</strong> ' + description + '</p>\n' +
+                '   <p><a class="btn btn-secondary" href="../person.html?maker=' + id + '.html!" target="_blank" role="button">View Person &raquo;</a></p>\n' +
+                '</div>\n';
+
+            return output;
+        }
+
+        //Input = Person ID| Output = allData.People[] index
+        function findPersonIndexByID(value) {
+            for (i in allData.People) {
+                if (allData.People[i]["ID"] == value) {
+                    return i;
+                }
+            }
+        }
+
+        //Input = Person ID| Output = allData.Projects[].Makers[] index
+        function findPersonProjectIndexByID(value) {
+            for (i in allData.Projects[currentProjectIndex].Makers) {
+                if (allData.Projects[currentProjectIndex].Makers == value) {
+                    console.log(i);
+                    return i;
+                }
+            }
+        }
+
+
+        //Input = Person ID| Output = allData.Projects[] index
+        function findProjectIndexByID(value) {
+            for (i in allData.Projects) {
+                if (allData.Projects[i]["ID"] == value) {
+                    return i;
+                }
+            }
+        }
+
+
+    </script>
+    <script src="https://gijsroge.github.io/tilt.js/js/jquery.slim.min.js"></script>
+    <script src="https://unpkg.com/tilt.js@1.1.21/dest/tilt.jquery.min.js"></script>
+    <script src="https://gijsroge.github.io/tilt.js/dest/app.js"></script>
+
 </body>
 </html>
