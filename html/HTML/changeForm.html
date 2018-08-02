@@ -311,14 +311,14 @@
                                 <!-- Padding -->
                                 <div class="row col-12"><br /></div>
 
-                                <div id="infoContactsMod" class="row col-12" style="display: none;">
-                                    <div id="idInfoContactsMod" class="row col-12">
+                                <div id="infoInputsContactsMod" class="row col-12" >
+                                    <div id="idForInfoContactsMod" class="row col-12">
                                         <!--ID-->
                                         <div class="input-group col-12">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="idModInfoContactsModLabel">id:</span>
                                             </div>
-                                            <input type="text" class="form-control" id="nameAddInfoContactsModInput">
+                                            <input type="text" class="form-control" id="idModInfoContactsModInput">
                                         </div>
                                     </div>
                                     <!-- Padding -->
@@ -342,14 +342,14 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="nameModInfoContactsModLabel">Name:</span>
                                             </div>
-                                            <input type="text" class="form-control" id="nameAddInfoContactsModInput">
+                                            <input type="text" class="form-control" id="nameAddInfoContactModInput">
                                         </div>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <div id="submitInfoContactsMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Submit</label>
+                                        <label class="btn btn-block btn-outline-success" onclick="submitContactMod();">Submit</label>
                                     </div>
                                 </div>
                             </div>
@@ -1455,17 +1455,31 @@
                 temp += '<label class="dropdown-item text-center" onclick="selectModContactInfoMod(\'' + array[i].ID + '\')">' + array[i].Name + '</label>\n';
             }
             document.getElementById('listModContactsMod').innerHTML = temp;
-            
-            document.getElementById('infoContactsMod').style.display = 'none';
+            document.getElementById('infoInputsContactsMod').style.display = 'none';
             document.getElementById('delContactsMod').style.display = 'none';
             document.getElementById('addContactsMod').style.display = 'none';
             document.getElementById('modContactsMod').style.display = 'block';
         }
+        var selectModContactInfoModNumber = 0;
         function selectModContactInfoMod(a) {
-            var selectModContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
-            document.getElementById('headerOptionModContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectDelContactInfoModNumber].Name;
+            selectModContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
+            console.log(selectModContactInfoModNumber);
+            document.getElementById('headerOptionModContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].Name;
 
-            document.getElementById('infoContactsMod').style.display = 'block';
+            document.getElementById('idModInfoContactsModInput').value = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].ID;
+            document.getElementById('urlModInfoContactsModInput').value = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].URL;
+            document.getElementById('nameAddInfoContactModInput').value = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].Name;
+
+            document.getElementById('infoInputsContactsMod').style.display = 'block';
+        }
+        function submitContactMod() {
+            var id = document.getElementById('idModInfoContactsModInput').value;
+            var url = document.getElementById('urlModInfoContactsModInput').value;
+            var name = document.getElementById('nameAddInfoContactModInput').value;
+
+            allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].ID = id;
+            allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].URL = url;
+            allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].Name = name;
         }
 
         //Add
