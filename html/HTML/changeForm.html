@@ -36,39 +36,38 @@
                 <div class="row col-7">
 
                     <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
-                        <label class="btn btn-outline-primary active col-6">
-                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Modify
+                        <label class="btn btn-outline-primary active col-6" onclick="modifyInit();">
+                            <input type="radio"> Modify
                         </label>
-                        <label class="btn btn-outline-primary col-6">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Add
+                        <label class="btn btn-outline-primary col-6" onclick="addInit();">
+                            <input type="radio"> Add
                         </label>
                     </div>
                 </div>
 
                 <div class="row col-12"><br /></div>
 
-                <!--People-->
-                <div class="row col-12" id="modify">
+                <div class="row col-12" id="modify" style="display: none;">
                     <!-- START MODIFY -->
                     <!--People Vs Project-->
                     <div id="peopleVsProjMod" class="row col-12">
                         <div class="row col-7">
                             <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
-                                <label class="btn btn-outline-success active col-6">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> People
+                                <label class="btn btn-outline-success active col-6" onclick="peopleModInit();">
+                                    <input type="radio"checked> People
                                 </label>
-                                <label class="btn btn-outline-success col-6">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> Projects
+                                <label class="btn btn-outline-success col-6" onclick="projectModInit();">
+                                    <input type="radio"> Projects
                                 </label>
                             </div>
                         </div>
                     </div>
 
                     <!-- Padding -->
-
                     <div class="row col-12"><br /></div>
 
-                    <div id="peopleMod" class="row col-12">
+                    <!--People-->
+                    <div id="peopleMod" class="row col-12" style="display: none;">
                         <!-- START PEOPLE -->
                         <div class="col-12">
                             <h2>People</h2>
@@ -80,20 +79,17 @@
                         <!--CHOOSE PERSON-->
                         <div class="row col-6">
                             <div class="btn-group col-12">
-                                <button type="button" class="btn btn-danger col-11">Choose Person Name </button>
+                                <button type="button" class="btn btn-danger col-11" id="nameListTitlePersonMod">Choose Person Name </button>
                                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                    <label class="dropdown-item text-center">Action</label>
-                                    <label class="dropdown-item text-center">Another action</label>
-                                    <label class="dropdown-item text-center">Something else here</label>
+                                <div class="dropdown-menu dropdown-menu-right col-12" id="nameListPersonMod" style="overflow-x: hidden; max-height: 200px;">
                                 </div>
                             </div>
                         </div>
 
                         <!--GENERAL INFO-->
-                        <div id="generalInfoMod" class="row col-12">
+                        <div id="generalInfoMod" class="row col-12"  style="display: none;">
                             <!-- Padding -->
                             <div class="row col-12"><br /></div>
                             <!-- Padding -->
@@ -195,10 +191,10 @@
 
                         </div>
                         <!-- HORIZONTAL LINE BREAK -->
-                        <div class="col-12"><hr /></div>
+                        <div class="col-12"><br /></div>
 
                         <!--CONTACT INFO-->
-                        <div id="contactInfoMod" class="row col-12">
+                        <div id="contactInfoMod" class="row col-12"  style="display: none;">
                             <!--Contact Information Header-->
                             <div id="generalInfoModHeader" class="row col-12 text-center">
                                 <h4 class="col-12" style="margin-bottom:0;">Contact Information </h4>
@@ -356,10 +352,10 @@
                             </div>
                         </div>
                         <!-- HORIZONTAL LINE BREAK -->
-                        <div class="col-12"><hr /></div>
+                        <div class="col-12"><br /></div>
 
                         <!--ACHIEVEMENTS INFO-->
-                        <div id="achievementsInfoMod" class="row col-12">
+                        <div id="achievementsInfoMod" class="row col-12"  style="display: none;">
                             <!--Achievements Information Header-->
                             <div id="generalInfoModHeader" class="row col-12 text-center">
                                 <h4 class="col-12" style="margin-bottom:0;">Achievements Information </h4>
@@ -545,10 +541,10 @@
                             </div>
                         </div>
                         <!-- HORIZONTAL LINE BREAK -->
-                        <div class="col-12"><hr /></div>
+                        <div class="col-12"><br /></div>
 
                         <!--ACREDDITATIONS INFO-->
-                        <div id="AcreddidationsInfoMod" class="row col-12">
+                        <div id="AcreddidationsInfoMod" class="row col-12" style="display: none;">
                             <!--Acredit Information Header-->
                             <div id="generalInfoModHeader" class="row col-12 text-center">
                                 <h4 class="col-12" style="margin-bottom:0;">Acredditation Information</h4>
@@ -782,7 +778,8 @@
                         <!-- END PEOPLE -->
                     </div>
 
-                    <div id="projectsMod" class="col-12">
+                    <!--Project-->
+                    <div id="projectsMod" class="col-12" style="display: none;">
                         <!-- START PROJECTS -->
                         <div class="col-12">
                             <h2>Projects</h2>
@@ -1310,16 +1307,15 @@
                     <!--END MODIFY-->
                 </div>
 
-                <!--Projects-->
-                <div class="row" id="add" hidden>
+                <div class="row" id="add" style="display: none;">
                     <!--START ADD-->
                     <div class="row col-12">
                         <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
                             <label class="btn btn-outline-success active col-6">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> People
+                                <input type="radio"checked> People
                             </label>
                             <label class="btn btn-outline-success col-6">
-                                <input type="radio" name="options" id="option2" autocomplete="off"> Projects
+                                <input type="radio"> Projects
                             </label>
                         </div>
                     </div>
@@ -1353,7 +1349,122 @@
         var allData = JSON.parse(localStorage.getItem('allData'));
 
         window.onload = function verify() { if (localStorage.getItem('pass') != 'true') { window.close(); } }
+
+        /**********************************************************************************
+        *                             Modify Portion
+        **********************************************************************************/
+
+        //********************* Variables *********************
+
+
+        //********************* Functions *********************
+        function modifyInit() {
+            document.getElementById('modify').style.display = 'flex';
+            document.getElementById('add').style.display = 'none';
+        }
+
+        /******** People ********/
+        function peopleModInit() {
+            setUpPeopleList();
+
+
+            document.getElementById('peopleMod').style.display = 'flex';
+            document.getElementById('projectsMod').style.display = 'none';
+        }
+
+        function setUpPeopleList() {
+            var listCode = '';
+            var list = [];
+
+            for (i in allData.People) {
+                list.push(allData.People[i]);
+                list.slice();
+            };
+
+            list = sortByLastNameAlpha(list);
+
+            for (i in list) {
+                listCode += makePersonListOptionCode(list[i]);
+            }
+
+            document.getElementById('nameListPersonMod').innerHTML = listCode;
+        }
+
+        function makePersonListOptionCode(x) {
+            var name = x["Last Name"] + ', ' + x["First Name"];
+            return '<label class="dropdown-item text-center" onclick="choosePersonMod(\'' + x.ID + '\');">' + name + '</label>'
+        }
+
+        function choosePersonMod(id) {
+            var index = findPersonIndexByID(id);
+            document.getElementById('nameListTitlePersonMod').innerHTML = 'Edit: ' + allData.People[index]["Last Name"] + ', ' + allData.People[index]["First Name"];
+        }
         
+        /******** People ********/
+        function projectModInit() {
+            document.getElementById('projectsMod').style.display = 'block';
+            document.getElementById('peopleMod').style.display = 'none';
+        }
+
+        /**********************************************************************************
+        *                              Add Portion
+        **********************************************************************************/
+
+        //********************* Variables *********************
+
+
+        //********************* Functions *********************
+        function addInit() {
+            document.getElementById('add').style.display = 'flex';
+            document.getElementById('modify').style.display = 'none';
+        }
+
+
+        /**********************************************************************************
+        *                            Everything Uses This
+        **********************************************************************************/
+        
+        //Sort Array alphabetically
+        function sortByLastNameAlpha(a) {
+            a.splice();
+            var u = [];
+            for (i in a) {
+
+                var x = (a[i]["Last Name"].trim() + a[i]["First Name"].trim());
+                if (i == 0) {
+                    u.push(a[i]);
+                    //console.log('init');
+                }
+                else {
+                    for (r in u) {
+                        var y = (u[r]["Last Name"].trim() + u[r]["First Name"].trim());
+                        //console.log(x + ' Vs ' + y + '');
+                        if ((x.localeCompare(y) > 0) && ( r == (u.length - 1))) {
+                            //console.log('Add ' + x + ' After: ' + u[(r)]["Last Name"]);
+                            u.push(a[i]);
+                        } else if(x.localeCompare(y) < 0){
+                            //console.log('Add ' + x + ' Before: ' + u[(r)]["Last Name"]);
+                            u.splice((r - i), 0, a[i]);
+                            //console.log('slice: ' + (r - 1));
+                            break;
+                        }
+
+                    }
+                }
+            }
+            return u;
+        }
+
+        //Input = Person ID| Output = allData.People[] index
+        function findPersonIndexByID(value) {
+            for (var i = 0; i < allData.People.length; i++) {
+                if (allData.People[i]["ID"] == value) {
+                    return i;
+                }
+            }
+        }
+
+
     </script>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
