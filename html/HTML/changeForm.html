@@ -137,23 +137,27 @@
 
                             <!-- Padding -->
                             <div class="row col-12"><br /></div>
-                            <!--Level-->
-                            <div id="levelGenMod" class="col-6">
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonLevelLabel">Grade Level:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="generalInfoPersonLevelInput">
-                                </div>
-                            </div>
 
-                            <!--Age-->
-                            <div id="ageGenMod" class="col-6">
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonAgeLabel">Age:</span>
+                            <!--Level and Age-->
+                            <div class="row col-12">
+                                <!--Level-->
+                                <div id="levelGenMod" class="col-6">
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="generalInfoPersonLevelLabel">Grade Level:</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="generalInfoPersonLevelInput">
                                     </div>
-                                    <input type="text" class="form-control" id="generalInfoPersonAgeInput">
+                                </div>
+
+                                <!--Age-->
+                                <div id="ageGenMod" class="col-6">
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="generalInfoPersonAgeLabel">Age:</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="generalInfoPersonAgeInput">
+                                    </div>
                                 </div>
                             </div>
 
@@ -194,7 +198,7 @@
                         <div class="col-12"><br /></div>
 
                         <!--CONTACT INFO-->
-                        <div id="contactInfoMod" class="row col-12"  style="display: none;">
+                        <div id="contactInfoMod" class="row col-12" style="display: none;">
                             <!--Contact Information Header-->
                             <div id="generalInfoModHeader" class="row col-12 text-center">
                                 <h4 class="col-12" style="margin-bottom:0;">Contact Information </h4>
@@ -215,9 +219,9 @@
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Modify Exsiting Contact</label>
-                                            <label class="dropdown-item text-center">Delete Contact</label>
-                                            <label class="dropdown-item text-center">Add Contact</label>
+                                            <label class="dropdown-item text-center" onclick="modContactInfoModInit();">Modify Exsiting Contact</label>
+                                            <label class="dropdown-item text-center" onclick="delContactInfoModInit();">Delete Contact</label>
+                                            <label class="dropdown-item text-center" onclick="addContactInfoModInit();">Add Contact</label>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +231,7 @@
                             <!-- Padding -->
                             <div class="row col-12"><br /></div>
                             <!--Delete Contact-->
-                            <div id="delContactsMod" class="row col-12">
+                            <div id="delContactsMod" class="row col-12"  style="display: none;">
                                 <div id="idInfoContactsMod" class="row col-6">
                                     <div class="btn-group col-12">
                                         <button type="button" class="btn btn-danger col-11">Choose Contact</button>
@@ -248,7 +252,7 @@
                             </div>
 
                             <!--Add Contact-->
-                            <div id="addContactsMod" class="row col-12">
+                            <div id="addContactsMod" class="row col-12"  style="display: none;">
                                 <div id="infoContactsMod" class="row col-12">
                                     <div id="idAddInfoContactsMod" class="row col-12">
                                         <!--ID-->
@@ -293,7 +297,7 @@
                             </div>
 
                             <!--Mod Contact-->
-                            <div id="modContactsMod" class="row col-12">
+                            <div id="modContactsMod" class="row col-12" style="display: none;">
                                 <div id="idListContactsMod" class="row col-8">
                                     <div class="btn-group col-12">
                                         <button type="button" class="btn btn-success col-11">Choose Contact</button>
@@ -386,7 +390,7 @@
                             <div class="row col-12"><br /></div>
 
                             <!--Delete Achievement-->
-                            <div id="delAchieveMod" class="row col-12">
+                            <div id="delAchieveMod" class="row col-12" style="display: none;">
                                 <div id="idInfoAchieveMod" class="row col-6">
                                     <div class="btn-group col-12">
                                         <button type="button" class="btn btn-danger col-11">Choose Achievment</button>
@@ -407,7 +411,7 @@
                             </div>
 
                             <!--Add Achievment-->
-                            <div id="addAchieveMod" class="row col-12">
+                            <div id="addAchieveMod" class="row col-12" style="display: none;">
                                 <div id="infoAchieveMod" class="row col-12">
                                     <!--ID-->
                                     <div id="idAddInfoAchieveMod" class="col-6">
@@ -471,7 +475,7 @@
                             </div>
 
                             <!--Modify Achievement-->
-                            <div id="modAchieveMod" class="row col-12">
+                            <div id="modAchieveMod" class="row col-12" style="display: none;">
                                 <div id="idListAchieveMod" class="row col-12">
                                     <!--Select list of all IDs-->
                                 </div>
@@ -544,7 +548,7 @@
                         <div class="col-12"><br /></div>
 
                         <!--ACREDDITATIONS INFO-->
-                        <div id="AcreddidationsInfoMod" class="row col-12" style="display: none;">
+                        <div id="acreddidationsInfoMod" class="row col-12" style="display: none;">
                             <!--Acredit Information Header-->
                             <div id="generalInfoModHeader" class="row col-12 text-center">
                                 <h4 class="col-12" style="margin-bottom:0;">Acredditation Information</h4>
@@ -575,7 +579,7 @@
                             <div class="row col-12"><br /></div>
 
                             <!--Delete Acredit-->
-                            <div id="delAcreditMod" class="row col-12">
+                            <div id="delAcreditMod" class="row col-12" style="display: none;">
                                 <!--List-->
                                 <div id="idInfoAcreditMod" class="row col-12">
                                     <div class="row col-6">
@@ -600,7 +604,7 @@
                             </div>
 
                             <!--Add Acredit-->
-                            <div id="addAcreditMod" class="row col-12">
+                            <div id="addAcreditMod" class="row col-12" style="display: none;">
                                 <div id="infoAcreditMod" class="row col-12">
                                     <!--ID-->
                                     <div id="idAddInfoAcreditMod" class="row col-12">
@@ -679,7 +683,7 @@
                             </div>
 
                             <!--Modify Acredit-->
-                            <div id="modAcreditMod" class="row col-12">
+                            <div id="modAcreditMod" class="row col-12" style="display: none;">
                                 <!--List of all Acredits-->
                                 <div id="idListAcreditMod" class="row col-12">
                                     <div id="idListContactsMod" class="row col-8">
@@ -1398,9 +1402,52 @@
         function choosePersonMod(id) {
             var index = findPersonIndexByID(id);
             document.getElementById('nameListTitlePersonMod').innerHTML = 'Edit: ' + allData.People[index]["Last Name"] + ', ' + allData.People[index]["First Name"];
+
+            generalInfoModInit();
+            contactInfoModInit();
+            achievementsInfoModInit();
+            AcreddidationsInfoModInit();
+        }
+
+        /********* Init Major States *********/
+        /* General Info */
+        function generalInfoModInit() {
+
+            document.getElementById('generalInfoMod').style.display = 'block';
+        }
+
+        /*Contact Info*/
+        function contactInfoModInit() {
+
+            document.getElementById('contactInfoMod').style.display = 'block';
+        }
+
+        //Mod
+        function modContactInfoModInit() {
+
+        }
+        //Add
+        function modContactInfoModInit() {
+
+        }
+        //Del
+        function modContactInfoModInit() {
+
+        }
+
+        /*Contact Info*/
+        function achievementsInfoModInit() {
+
+            document.getElementById('achievementsInfoMod').style.display = 'block';
+        }
+
+        /*Contact Info*/
+        function AcreddidationsInfoModInit() {
+
+            document.getElementById('acreddidationsInfoMod').style.display = 'block';
         }
         
-        /******** People ********/
+        /******** Projects ********/
         function projectModInit() {
             document.getElementById('projectsMod').style.display = 'block';
             document.getElementById('peopleMod').style.display = 'none';
