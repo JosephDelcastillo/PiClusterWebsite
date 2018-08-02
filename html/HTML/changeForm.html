@@ -214,7 +214,7 @@
                                 <!--Del, Add, Modify Contacts-->
                                 <div class="row col-6">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-info col-11">Choose you type of action:</button>
+                                        <button type="button" class="btn btn-info col-11" id="contactsChooseOptionMod">Choose you type of action:</button>
                                         <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
@@ -374,14 +374,14 @@
                                 <!--Del, Add, Modify-->
                                 <div class="row col-6">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-info col-11">Choose you type of action:</button>
+                                        <button type="button" class="btn btn-info col-11" id="headerOptionListAchieveMod">Choose you type of action:</button>
                                         <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Modify Exsiting Achievment</label>
-                                            <label class="dropdown-item text-center">Delete Achievment</label>
-                                            <label class="dropdown-item text-center">Add Achievment</label>
+                                            <label class="dropdown-item text-center" onclick="modAchievementInfoModInit();">Modify Exsiting Achievment</label>
+                                            <label class="dropdown-item text-center" onclick="delAchievementInfoModInit();">Delete Achievment</label>
+                                            <label class="dropdown-item text-center" onclick="addAchievementInfoModInit();">Add Achievment</label>
                                         </div>
                                     </div>
                                 </div>
@@ -477,7 +477,17 @@
                             <!--Modify Achievement-->
                             <div id="modAchieveMod" class="row col-12" style="display: none;">
                                 <div id="idListAchieveMod" class="row col-12">
-                                    <!--Select list of all IDs-->
+                                    <div class="row col-6">
+                                        <div class="btn-group col-12">
+                                            <button type="button" class="btn btn-success col-11">Choose Achievement:</button>
+                                            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right col-12">
+                                                <label class="dropdown-item text-center">Achievment 1</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Padding -->
                                 <div class="row col-12"><br /></div>
@@ -563,14 +573,14 @@
                             <div id="optionListAcreditMod" class="row col-12">
                                 <div class="row col-6">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-info col-11">Choose you type of action:</button>
+                                        <button type="button" class="btn btn-info col-11" id="headerOptionListAcreditMod">Choose you type of action:</button>
                                         <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Modify Exsiting Acredditation</label>
-                                            <label class="dropdown-item text-center">Delete Acredditation</label>
-                                            <label class="dropdown-item text-center">Add Acredditation</label>
+                                            <label class="dropdown-item text-center" onclick="modAcreddidationsInfoModInit();">Modify Exsiting Acredditation</label>
+                                            <label class="dropdown-item text-center" onclick="delAcreddidationsInfoModInit();">Delete Acredditation</label>
+                                            <label class="dropdown-item text-center" onclick="addAcreddidationsInfoModInit();">Add Acredditation</label>
                                         </div>
                                     </div>
                                 </div>
@@ -773,7 +783,7 @@
 
                                     <!--Submit-->
                                     <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary">Modify Accreditation</label>
+                                        <label class="btn btn-block btn-outline-success">Modify Accreditation</label>
                                     </div>
                                 </div>
                             </div>
@@ -1412,39 +1422,117 @@
         /********* Init Major States *********/
         /* General Info */
         function generalInfoModInit() {
+            //TODO: Add code to populate text boxes
 
             document.getElementById('generalInfoMod').style.display = 'block';
         }
 
+
+
         /*Contact Info*/
         function contactInfoModInit() {
-
             document.getElementById('contactInfoMod').style.display = 'block';
         }
-
         //Mod
         function modContactInfoModInit() {
+            document.getElementById('contactsChooseOptionMod').innerHTML = 'Modify Contact';
 
+            //TODO: Populate Fields
+            
+            document.getElementById('delContactsMod').style.display = 'none';
+            document.getElementById('addContactsMod').style.display = 'none';
+            document.getElementById('modContactsMod').style.display = 'block';
         }
         //Add
-        function modContactInfoModInit() {
+        function addContactInfoModInit() {
+            document.getElementById('contactsChooseOptionMod').innerHTML = 'Add Contact';
 
+            document.getElementById('delContactsMod').style.display = 'none';
+            document.getElementById('modContactsMod').style.display = 'none';
+            document.getElementById('addContactsMod').style.display = 'block';
         }
         //Del
-        function modContactInfoModInit() {
+        function delContactInfoModInit() {
+            document.getElementById('contactsChooseOptionMod').innerHTML = 'Delete Contact';
 
+            //TODO: Populate Fields
+
+            document.getElementById('addContactsMod').style.display = 'none';
+            document.getElementById('modContactsMod').style.display = 'none';
+            document.getElementById('delContactsMod').style.display = 'block';
         }
 
-        /*Contact Info*/
+
+
+        /*Achievement Info*/
         function achievementsInfoModInit() {
+
 
             document.getElementById('achievementsInfoMod').style.display = 'block';
         }
+        //Mod
+        function modAchievementInfoModInit() {
+            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Modify Contact';
 
-        /*Contact Info*/
+            //TODO: Populate Fields
+
+            document.getElementById('delAchieveMod').style.display = 'none';
+            document.getElementById('addAchieveMod').style.display = 'none';
+            document.getElementById('modAchieveMod').style.display = 'block';
+        }
+         //Add
+        function addAchievementInfoModInit() {
+            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Add Contact';
+
+            document.getElementById('delAchieveMod').style.display = 'none';
+            document.getElementById('modAchieveMod').style.display = 'none';
+            document.getElementById('addAchieveMod').style.display = 'block';
+        }
+        //Del
+        function delAchievementInfoModInit() {
+            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Delete Contact';
+
+            //TODO: Populate Fields
+
+            document.getElementById('addAchieveMod').style.display = 'none';
+            document.getElementById('modAchieveMod').style.display = 'none';
+            document.getElementById('delAchieveMod').style.display = 'block';
+        }
+
+
+
+        /*Acredditations Info*/
         function AcreddidationsInfoModInit() {
 
             document.getElementById('acreddidationsInfoMod').style.display = 'block';
+        }
+        //Mod
+        function modAcreddidationsInfoModInit() {
+            document.getElementById('headerOptionListAcreditMod').innerHTML = 'Modify Contact';
+
+            //TODO: Populate Fields
+
+            document.getElementById('delAcreditMod').style.display = 'none';
+            document.getElementById('addAcreditMod').style.display = 'none';
+            document.getElementById('modAcreditMod').style.display = 'block';
+        }
+        //Add
+        function addAcreddidationsInfoModInit() {
+            document.getElementById('headerOptionListAcreditMod').innerHTML = 'Add Contact';
+
+            document.getElementById('delAcreditMod').style.display = 'none';
+            document.getElementById('modAcreditMod').style.display = 'none';
+            document.getElementById('addAcreditMod').style.display = 'block';
+        }
+        //Del
+        function delAcreddidationsInfoModInit() {
+            document.getElementById('headerOptionListAcreditMod').innerHTML = 'Delete Contact';
+
+            //TODO: Populate Fields
+
+            document.getElementById('addAcreditMod').style.display = 'none';
+            document.getElementById('modAcreditMod').style.display = 'none';
+            document.getElementById('delAcreditMod').style.display = 'block';
         }
         
         /******** Projects ********/
