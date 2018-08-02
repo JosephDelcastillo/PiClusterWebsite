@@ -109,7 +109,7 @@
                             <div id="idGenMod" class="row col-12">
                                 <div class="input-group col-12">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonIDLabel">ID:</span>
+                                        <span class="input-group-text" >ID:</span>
                                     </div>
                                     <input type="text" class="form-control" id="generalInfoPersonIDInput">
                                 </div>
@@ -122,14 +122,14 @@
                                 <!--First Name-->
                                 <div class="input-group col-6">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonFirstNameLabel">First Name:</span>
+                                        <span class="input-group-text">First Name:</span>
                                     </div>
                                     <input type="text" class="form-control" id="generalInfoPersonFirstNameInput">
                                 </div>
                                 <!--Last Name-->
                                 <div class="input-group col-6">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonLastNameLabel">Last Name:</span>
+                                        <span class="input-group-text">Last Name:</span>
                                     </div>
                                     <input type="text" class="form-control" id="generalInfoPersonLastNameInput">
                                 </div>
@@ -144,7 +144,7 @@
                                 <div id="levelGenMod" class="col-6">
                                     <div class="input-group col-12">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="generalInfoPersonLevelLabel">Grade Level:</span>
+                                            <span class="input-group-text">Grade Level:</span>
                                         </div>
                                         <input type="text" class="form-control" id="generalInfoPersonLevelInput">
                                     </div>
@@ -154,7 +154,7 @@
                                 <div id="ageGenMod" class="col-6">
                                     <div class="input-group col-12">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="generalInfoPersonAgeLabel">Age:</span>
+                                            <span class="input-group-text">Age:</span>
                                         </div>
                                         <input type="text" class="form-control" id="generalInfoPersonAgeInput">
                                     </div>
@@ -167,7 +167,7 @@
                             <div id="descriptionGenMod" class="row col-12">
                                 <div class="input-group col-12">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonDescriptionLabel">Description:</span>
+                                        <span class="input-group-text">Description:</span>
                                     </div>
                                     <textarea class="form-control" id="generalInfoPersonDescriptionInput"></textarea>
                                 </div>
@@ -179,7 +179,7 @@
                             <div id="knowGenMod" class="row col-12">
                                 <div class="input-group col-12">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="generalInfoPersonKnowLabel">Programming Knowledge:</span>
+                                        <span class="input-group-text">Programming Knowledge:</span>
                                     </div>
                                     <textarea class="form-control" id="generalInfoPersonKnowInput"></textarea>
                                 </div>
@@ -234,11 +234,11 @@
                             <div id="delContactsMod" class="row col-12"  style="display: none;">
                                 <div id="idInfoContactsMod" class="row col-6">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11">Choose Contact</button>
+                                        <button type="button" class="btn btn-danger col-11" id="headerOptionDelContactsMod">Choose Contact</button>
                                         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
+                                        <div class="dropdown-menu dropdown-menu-right col-12" id="optionsListDelContactsMod">
                                             <label class="dropdown-item text-center">Contact 1</label>
                                         </div>
                                     </div>
@@ -247,7 +247,7 @@
                                 <div class="row col-12"><br /></div>
 
                                 <div id="subBtnInfoContactsMod" class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger" id="deletePersonBtn">Delete Contact</label>
+                                    <label class="btn btn-block btn-outline-danger" onclick="subDelContactInfoMod();">Delete Contact</label>
                                 </div>
                             </div>
 
@@ -300,19 +300,18 @@
                             <div id="modContactsMod" class="row col-12" style="display: none;">
                                 <div id="idListContactsMod" class="row col-8">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-success col-11">Choose Contact</button>
+                                        <button type="button" class="btn btn-success col-11" id="headerOptionModContactsMod">Choose Contact</button>
                                         <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Contact 1</label>
+                                        <div class="dropdown-menu dropdown-menu-right col-12" id="listModContactsMod">
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Padding -->
                                 <div class="row col-12"><br /></div>
 
-                                <div id="infoContactsMod" class="row col-12">
+                                <div id="infoContactsMod" class="row col-12" style="display: none;">
                                     <div id="idInfoContactsMod" class="row col-12">
                                         <!--ID-->
                                         <div class="input-group col-12">
@@ -1344,9 +1343,7 @@
             </div>
 
             <div class="card-footer">
-                <label class="btn btn-block btn-outline-danger">
-                    Submit
-                </label>
+                AllData Changer By Joseph Delcastillo III &copy; 2018
             </div>
         </div>
 
@@ -1378,6 +1375,8 @@
         }
 
         /******** People ********/
+        var chosenPersonIndex = 0;
+
         function peopleModInit() {
             setUpPeopleList();
 
@@ -1412,6 +1411,7 @@
         function choosePersonMod(id) {
             var index = findPersonIndexByID(id);
             document.getElementById('nameListTitlePersonMod').innerHTML = 'Edit: ' + allData.People[index]["Last Name"] + ', ' + allData.People[index]["First Name"];
+            chosenPersonIndex = index;
 
             generalInfoModInit();
             contactInfoModInit();
@@ -1423,6 +1423,13 @@
         /* General Info */
         function generalInfoModInit() {
             //TODO: Add code to populate text boxes
+            document.getElementById('generalInfoPersonIDInput').value = allData.People[chosenPersonIndex].ID;
+            document.getElementById('generalInfoPersonFirstNameInput').value = allData.People[chosenPersonIndex]["First Name"];
+            document.getElementById('generalInfoPersonLastNameInput').value = allData.People[chosenPersonIndex]["Last Name"];
+            document.getElementById('generalInfoPersonLevelInput').value = allData.People[chosenPersonIndex].Level;
+            document.getElementById('generalInfoPersonAgeInput').value = allData.People[chosenPersonIndex].Age;
+            document.getElementById('generalInfoPersonDescriptionInput').value = allData.People[chosenPersonIndex].Description;
+            document.getElementById('generalInfoPersonKnowInput').value = allData.People[chosenPersonIndex]["Programming Knowledge"];
 
             document.getElementById('generalInfoMod').style.display = 'block';
         }
@@ -1431,18 +1438,36 @@
 
         /*Contact Info*/
         function contactInfoModInit() {
+            document.getElementById('delContactsMod').style.display = 'none';
+            document.getElementById('addContactsMod').style.display = 'none';
+            document.getElementById('modContactsMod').style.display = 'none';
+
             document.getElementById('contactInfoMod').style.display = 'block';
         }
         //Mod
         function modContactInfoModInit() {
             document.getElementById('contactsChooseOptionMod').innerHTML = 'Modify Contact';
+            document.getElementById('headerOptionModContactsMod').innerHTML = 'Choose Contact';
 
-            //TODO: Populate Fields
+            var temp = '';
+            array = sortByInputAlpha(allData.People[chosenPersonIndex].Contact, 'Name');
+            for (i in array) {
+                temp += '<label class="dropdown-item text-center" onclick="selectModContactInfoMod(\'' + array[i].ID + '\')">' + array[i].Name + '</label>\n';
+            }
+            document.getElementById('listModContactsMod').innerHTML = temp;
             
+            document.getElementById('infoContactsMod').style.display = 'none';
             document.getElementById('delContactsMod').style.display = 'none';
             document.getElementById('addContactsMod').style.display = 'none';
             document.getElementById('modContactsMod').style.display = 'block';
         }
+        function selectModContactInfoMod(a) {
+            var selectModContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
+            document.getElementById('headerOptionModContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectDelContactInfoModNumber].Name;
+
+            document.getElementById('infoContactsMod').style.display = 'block';
+        }
+
         //Add
         function addContactInfoModInit() {
             document.getElementById('contactsChooseOptionMod').innerHTML = 'Add Contact';
@@ -1454,15 +1479,31 @@
         //Del
         function delContactInfoModInit() {
             document.getElementById('contactsChooseOptionMod').innerHTML = 'Delete Contact';
+            document.getElementById('headerOptionDelContactsMod').innerHTML = 'Choose Contact';
 
-            //TODO: Populate Fields
+            var temp = '';
+            var array = sortByInputAlpha(allData.People[chosenPersonIndex].Contact, 'Name');
+            for (i in array) {
+                temp += '<label class="dropdown-item text-center" onclick="selectDelContactInfoMod(\'' + array[i].ID + '\')">' + array[i].Name + '</label>\n';
+            }
+            document.getElementById('optionsListDelContactsMod').innerHTML = temp;
 
             document.getElementById('addContactsMod').style.display = 'none';
             document.getElementById('modContactsMod').style.display = 'none';
             document.getElementById('delContactsMod').style.display = 'block';
         }
-
-
+        var selectDelContactInfoModNumber = 0;
+        function selectDelContactInfoMod(a) {
+            selectDelContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
+            document.getElementById('headerOptionDelContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectDelContactInfoModNumber].Name;
+        }
+        function subDelContactInfoMod() {
+            var r = confirm("Are you sure you want to remove '" + allData.People[chosenPersonIndex].Contact[selectDelContactInfoModNumber].Name + "'!");
+            if (r == true) {
+                allData.People[chosenPersonIndex].Contact.splice(selectDelContactInfoModNumber, 1);
+                delContactInfoModInit();
+            }
+        }
 
         /*Achievement Info*/
         function achievementsInfoModInit() {
@@ -1558,8 +1599,41 @@
         /**********************************************************************************
         *                            Everything Uses This
         **********************************************************************************/
-        
-        //Sort Array alphabetically
+
+
+        //Sort Array alphabetically by last name
+        function sortByInputAlpha(a, j) {
+            a.splice();
+            var u = [];
+            for (i in a) {
+
+                var x = a[i][j];
+                if (i == 0) {
+                    u.push(a[i]);
+                    //console.log('init');
+                }
+                else {
+                    for (r in u) {
+                        var y = u[r][j];
+                        //console.log(x + ' Vs ' + y + '');
+                        if ((x.localeCompare(y) > 0) && (r == (u.length - 1))) {
+                            //console.log('Add ' + x + ' After: ' + u[(r)]["Last Name"]);
+                            u.push(a[i]);
+                        } else if (x.localeCompare(y) < 0) {
+                            //console.log('Add ' + x + ' Before: ' + u[(r)]["Last Name"]);
+                            u.splice((r - i), 0, a[i]);
+                            //console.log('slice: ' + (r - 1));
+                            break;
+                        }
+
+                    }
+                }
+            }
+            return u;
+        }
+
+
+        //Sort Array alphabetically by last name
         function sortByLastNameAlpha(a) {
             a.splice();
             var u = [];
@@ -1589,6 +1663,16 @@
             }
             return u;
         }
+
+        //Input = Array and ID| Output = array index
+        function findIndexInArrayByID(array, id) {
+            for (i in array) {
+                if (array[i].ID == id) {
+                    return i;
+                }
+            }
+        }
+
 
         //Input = Person ID| Output = allData.People[] index
         function findPersonIndexByID(value) {
