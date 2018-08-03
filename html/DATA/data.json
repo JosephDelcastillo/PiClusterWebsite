@@ -1,8 +1,6 @@
 {
-
   "People": [
-    //Mrs. Morrison
-    {
+        {
       "ID": "MorrisonC",
       "First Name": "Charlotte",
       "Last Name": "Morrison",
@@ -39,14 +37,13 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
 
     },
-    //10350478
-    {
+        {
       "ID": "10350478",
       "First Name": "Joseph",
       "Last Name": "Delcastillo III",
@@ -56,14 +53,12 @@
       "Programming Knowledge": "HTML, CSS, JS, BAT, DOS, Java, Python, C#(Limited), Linux/Windows Compatable, (Some OSX experience)",
       "TotalCards": 3,
       "Contact": [
-        //Number
-        {
+                {
           "ID": "Number",
           "Name": "Text Joseph",
           "URL": "tel+:9049904780"
         },
-        //Email
-        {
+                {
           "ID": "Email",
           "Name": "Email Joseph",
           "URL": "mailto:delcastillo3j@gmail.com"
@@ -114,7 +109,7 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         },
         {
@@ -123,14 +118,12 @@
           "Speaker": {
             "Name": "Joe Delcastillo III",
             "Title": "Bachelors in Electronics",
-            "Connections": "http://www.all-done-appliances.com/"
-
+            "Connections": "http://www.all-done-appliances.com"
           }
         }
       ]
     },
-    //10254811
-    {
+        {
       "ID": "10254811",
       "First Name": "Nick",
       "Last Name": "Cirell",
@@ -167,16 +160,15 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Blake
-    {
+        {
       "ID": "Blake",
       "First Name": "Blake",
-      "Last Name": "",
+      "Last Name": "Null",
       "Level": "Senior",
       "Description": "",
       "Age": 18,
@@ -210,13 +202,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //10288645
-    {
+        {
       "ID": "10288645",
       "First Name": "Devyn",
       "Last Name": "Rhoden",
@@ -253,13 +244,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //08013237
-    {
+        {
       "ID": "08013237",
       "First Name": "Breanna",
       "Last Name": "Aylesbury",
@@ -296,13 +286,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //FreshMeat
-    {
+        {
       "ID": "FreshMeat",
       "First Name": "Fresh",
       "Last Name": "Man",
@@ -339,13 +328,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Sophmore
-    {
+        {
       "ID": "Sophmore",
       "First Name": "Soph",
       "Last Name": "More",
@@ -382,13 +370,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Junior1
-    {
+        {
       "ID": "Junior1",
       "First Name": "Under",
       "Last Name": "Classman",
@@ -425,13 +412,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Sophmore2
-    {
+        {
       "ID": "Sophmore2",
       "First Name": "SophM",
       "Last Name": "More",
@@ -468,13 +454,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Senior1
-    {
+        {
       "ID": "Senior1",
       "First Name": "Upper",
       "Last Name": "ClassMan",
@@ -511,13 +496,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Freshman3
-    {
+        {
       "ID": "Freshman3",
       "First Name": "Freshest",
       "Last Name": "Man",
@@ -554,13 +538,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Senior
-    {
+        {
       "ID": "Senior",
       "First Name": "UpperClass",
       "Last Name": "Man",
@@ -597,13 +580,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Freshman2
-    {
+        {
       "ID": "Freshman2",
       "First Name": "Fresher",
       "Last Name": "Man",
@@ -640,13 +622,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Junior2
-    {
+        {
       "ID": "Junior2",
       "First Name": "UnderRegion",
       "Last Name": "Classman",
@@ -683,13 +664,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Sophmore3
-    {
+        {
       "ID": "Sophmore3",
       "First Name": "Sophest",
       "Last Name": "More",
@@ -726,13 +706,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Junior3
-    {
+        {
       "ID": "Junior3",
       "First Name": "UnderClass",
       "Last Name": "Man",
@@ -769,13 +748,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Senior3
-    {
+        {
       "ID": "Senior3",
       "First Name": "Upper",
       "Last Name": "Class",
@@ -812,13 +790,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Freshman4
-    {
+        {
       "ID": "Freshman4",
       "First Name": "Fresherest",
       "Last Name": "Man",
@@ -855,13 +832,12 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     },
-    //Junior
-    {
+        {
       "ID": "Junior",
       "First Name": "Underc",
       "Last Name": "LassMan",
@@ -903,8 +879,7 @@
         }
       ]
     },
-    //Senior4
-    {
+        {
       "ID": "Senior4",
       "First Name": "Upper",
       "Last Name": "ClassMan",
@@ -941,28 +916,25 @@
           "Speaker": {
             "Name": "Charlotte Morrison",
             "Title": "MHS Computers Teacher, Computer Science PhD",
-            "Connections": "MorrisonC.html",
+            "Connections": "MorrisonC.html"
           }
         }
       ]
     }
   ],
   "Projects": [
-    //PiCluster
-    {
+        {
       "ID": "PiCluster",
       "Name": "Pi Cluster Project",
       "Description": "",
       "MakerID": "MorrisonC",
       "Makers": [
-        //MorrisonC
-        {
+                {
           "ID": "MorrisonC",
           "Position": "Leader Maker",
           "Description": "I am Charlotte Morrison."
         },
-        //10350478
-        {
+                {
           "ID": "10350478",
           "Position": "Assistant Maker",
           "Description": "I am Joseph Delcastillo III."
@@ -1027,7 +999,6 @@
         }
       ],
       "Features": [
-        //Expandable
         {
           "ID": "expandable",
           "Title": "Simple and Expandable",
@@ -1035,7 +1006,6 @@
           "Description": "The Pi Cluster is easily able to be expanded upon and blah blah blah. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tempus massa eget rhoncus interdum. Etiam a rutrum nisi, vel posuere dui. Vestibulum ac neque at enim fringilla malesuada. Curabitur et eros in turpis lacinia finibus. In imperdiet facilisis erat ut luctus. Nunc quis maximus lacus, a porta nisi. Integer molestie ante sit amet convallis varius. Aenean sed augue sit amet tortor auctor maximus sed sed purus. Integer ac eros vitae velit accumsan eleifend vitae et augue. Vestibulum sed sem at lectus lacinia tincidunt vitae et lorem. Ut vestibulum volutpat felis. Morbi tellus magna, ultricies non magna vel, semper sodales lorem. Sed facilisis neque ut ipsum sagittis, ut dapibus ex accumsan.",
           "img": "random"
         },
-        //loremIspum
         {
           "ID": "loremIpsum",
           "Title": "Lorem Ipsum dolor sit",
@@ -1046,7 +1016,6 @@
       ],
       "Custom": "<img src='https://getbootstrap.com/docs/4.1/assets/img/bootstrap-stack.png'>;"
     },
-    //PiSite
     {
       "ID": "PiSite",
       "Name": "Pi Site Project",
@@ -1060,71 +1029,61 @@
         }
       ]
     },
-    //Fill1
-    {
+        {
       "ID": "Fill1",
       "Name": "Filler Project 1",
       "Description": "This is Filler Number 1",
       "MakerID": "MorrisonC"
     },
-    //Fill2
-    {
+        {
       "ID": "Fill2",
       "Name": "Filler Project 2",
       "Description": "This is Filler Number 2",
       "MakerID": "10350478"
     },
-    //Fill3
-    {
+        {
       "ID": "Fill3",
       "Name": "Filler Project 3",
       "Description": "This is Filler Number 3",
       "MakerID": "10350478"
     },
-    //Fill4
-    {
+        {
       "ID": "Fill4",
       "Name": "Filler Project 4",
       "Description": "This is Filler Number 4",
       "MakerID": "10350478"
     },
-    //Fill5
-    {
+        {
       "ID": "Fill5",
       "Name": "Filler Project 5",
       "Description": "This is Filler Number 5",
       "MakerID": "10350478"
     },
-    //Fill6
-    {
+        {
       "ID": "Fill6",
       "Name": "Filler Project 6",
       "Description": "This is Filler Number 6",
       "MakerID": "10350478"
     },
-    //Fill7
-    {
+        {
       "ID": "Fill7",
       "Name": "Filler Project 7",
       "Description": "This is Filler Number 7",
       "MakerID": "10350478"
     },
-    //Fill8
-    {
+        {
       "ID": "Fill8",
       "Name": "Filler Project 8",
       "Description": "This is Filler Number 8",
       "MakerID": "10350478"
     },
-    //Fill9
-    {
+        {
       "ID": "Fill9",
       "Name": "Filler Project 9",
       "Description": "This is Filler Number 9",
       "MakerID": "10350478"
     },
-    //Fill10
-    {
+        {
       "ID": "Fill10",
       "Name": "Filler Project 10",
       "Description": "This is Filler Number 10",
@@ -1221,4 +1180,3 @@
     }
   }
 }
-        

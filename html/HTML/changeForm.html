@@ -11,7 +11,12 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+
+    <!--JSON Viewer-->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.js"></script>
+    <link href="https://rawgit.com/abodelot/jquery.json-viewer/master/json-viewer/jquery.json-viewer.css" type="text/css" rel="stylesheet" />
+
     <!--Center Form CSS-->
     <link href="../CSS/form.css" rel="stylesheet">
 
@@ -19,1312 +24,1324 @@
 
 <body class="text-center" style="background: #e8f3f9;">
 
-    <div class="container">
-        <!-- Padding -->
-        <div class="row col-12"><br /></div>
-        <!-- Padding -->
-        <div class="row col-12"><br /></div>
-        <div class="card">
-            <div class="card-header">
-                <h1>
-                    Edit Pi Sites AllData
-                </h1>
-            </div>
-            <div class="card-body">
-
-                <!--Main Question-->
-                <div class="row col-7">
-
-                    <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
-                        <label class="btn btn-outline-primary active col-6" onclick="modifyInit();">
-                            <input type="radio"> Modify
-                        </label>
-                        <label class="btn btn-outline-primary col-6" onclick="addInit();">
-                            <input type="radio"> Add
-                        </label>
+    <div class="custom-container">
+        <div class="row col-12" style="width: 95%">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>
+                            Edit Pi Sites AllData
+                        </h1>
                     </div>
-                </div>
+                    <div class="card-body">
 
-                <div class="row col-12"><br /></div>
-
-                <div class="row col-12" id="modify" style="display: none;">
-                    <!-- START MODIFY -->
-                    <!--People Vs Project-->
-                    <div id="peopleVsProjMod" class="row col-12">
+                        <!--Main Question-->
                         <div class="row col-7">
+
                             <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
-                                <label class="btn btn-outline-success active col-6" onclick="peopleModInit();">
-                                    <input type="radio"checked> People
+                                <label class="btn btn-outline-primary active col-6" onclick="modifyInit();">
+                                    <input type="radio"> Modify
                                 </label>
-                                <label class="btn btn-outline-success col-6" onclick="projectModInit();">
-                                    <input type="radio"> Projects
+                                <label class="btn btn-outline-primary col-6" onclick="addInit();">
+                                    <input type="radio"> Add
                                 </label>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Padding -->
-                    <div class="row col-12"><br /></div>
+                        <div class="row col-12"><br /></div>
 
-                    <!--People-->
-                    <div id="peopleMod" class="row col-12" style="display: none;">
-                        <!-- START PEOPLE -->
-                        <div class="col-12">
-                            <h2>People</h2>
-                            <hr style="border-color: #000; margin-bottom: 0;" />
-                            <hr style="border-color: #000; margin: 0;" />
-                            <br />
-                        </div>
-
-                        <!--CHOOSE PERSON-->
-                        <div class="row col-6">
-                            <div class="btn-group col-12">
-                                <button type="button" class="btn btn-danger col-11" id="nameListTitlePersonMod">Choose Person Name </button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right col-12" id="nameListPersonMod" style="overflow-x: hidden; max-height: 200px;">
+                        <div class="row col-12" id="modify" style="display: none;">
+                            <!-- START MODIFY -->
+                            <!--People Vs Project-->
+                            <div id="peopleVsProjMod" class="row col-12">
+                                <div class="row col-7">
+                                    <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
+                                        <label class="btn btn-outline-success active col-6" onclick="peopleModInit();">
+                                            <input type="radio" checked> People
+                                        </label>
+                                        <label class="btn btn-outline-success col-6" onclick="projectModInit();">
+                                            <input type="radio"> Projects
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!--GENERAL INFO-->
-                        <div id="generalInfoMod" class="row col-12"  style="display: none;">
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
                             <!-- Padding -->
                             <div class="row col-12"><br /></div>
 
-                            <!--General Information Header-->
-                            <div id="generalInfoModHeader" class="row col-12 text-center">
-                                <h4 class="col-12" style="margin-bottom:0;">General Information </h4>
+                            <!--People-->
+                            <div id="peopleMod" class="row col-12" style="display: none;">
+                                <!-- START PEOPLE -->
                                 <div class="col-12">
-                                    <hr style="border-color: #000;margin-bottom: 0;" />
-                                </div>
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--ID-->
-                            <div id="idGenMod" class="row col-12">
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" >ID:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="generalInfoPersonIDInput">
-                                </div>
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--Name-->
-                            <div id="nameGenMod" class="row col-12">
-                                <!--First Name-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">First Name:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="generalInfoPersonFirstNameInput">
-                                </div>
-                                <!--Last Name-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Last Name:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="generalInfoPersonLastNameInput">
-                                </div>
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-
-                            <!--Level and Age-->
-                            <div class="row col-12">
-                                <!--Level-->
-                                <div id="levelGenMod" class="col-6">
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Grade Level:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="generalInfoPersonLevelInput">
-                                    </div>
+                                    <h2>People</h2>
+                                    <hr style="border-color: #000; margin-bottom: 0;" />
+                                    <hr style="border-color: #000; margin: 0;" />
+                                    <br />
                                 </div>
 
-                                <!--Age-->
-                                <div id="ageGenMod" class="col-6">
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Age:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="generalInfoPersonAgeInput">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--Description-->
-                            <div id="descriptionGenMod" class="row col-12">
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Description:</span>
-                                    </div>
-                                    <textarea class="form-control" id="generalInfoPersonDescriptionInput"></textarea>
-                                </div>
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--Knowledge-->
-                            <div id="knowGenMod" class="row col-12">
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Programming Knowledge:</span>
-                                    </div>
-                                    <textarea class="form-control" id="generalInfoPersonKnowInput"></textarea>
-                                </div>
-                            </div>
-
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--Submit-->
-                            <div class="row col-5">
-                                <label class="btn btn-block btn-outline-info" onclick="subGeneralInfoModInit();">Submit</label>
-                            </div>
-
-                        </div>
-                        <!-- HORIZONTAL LINE BREAK -->
-                        <div class="col-12"><br /></div>
-
-                        <!--CONTACT INFO-->
-                        <div id="contactInfoMod" class="row col-12" style="display: none;">
-                            <!--Contact Information Header-->
-                            <div id="generalInfoModHeader" class="row col-12 text-center">
-                                <h4 class="col-12" style="margin-bottom:0;">Contact Information </h4>
-                                <div class="col-12">
-                                    <hr style="border-color: #000;margin-bottom: 0;" />
-                                </div>
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--Option List-->
-                            <div id="optionListContactsMod" class="row col-12">
-                                <!--Del, Add, Modify Contacts-->
+                                <!--CHOOSE PERSON-->
                                 <div class="row col-6">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-info col-11" id="contactsChooseOptionMod">Choose you type of action:</button>
-                                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center" onclick="modContactInfoModInit();">Modify Exsiting Contact</label>
-                                            <label class="dropdown-item text-center" onclick="delContactInfoModInit();">Delete Contact</label>
-                                            <label class="dropdown-item text-center" onclick="addContactInfoModInit();">Add Contact</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-                            <!--Delete Contact-->
-                            <div id="delContactsMod" class="row col-12"  style="display: none;">
-                                <div id="idInfoContactsMod" class="row col-6">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11" id="headerOptionDelContactsMod">Choose Contact</button>
+                                        <button type="button" class="btn btn-danger col-11" id="nameListTitlePersonMod">Choose Person Name </button>
                                         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12" id="optionsListDelContactsMod">
-                                            <label class="dropdown-item text-center">Contact 1</label>
+                                        <div class="dropdown-menu dropdown-menu-right col-12" id="nameListPersonMod" style="overflow-x: hidden; max-height: 200px;">
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Padding -->
-                                <div class="row col-12"><br /></div>
 
-                                <div id="subBtnInfoContactsMod" class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger" onclick="subDelContactInfoMod();">Delete Contact</label>
-                                </div>
-                            </div>
-
-                            <!--Add Contact-->
-                            <div id="addContactsMod" class="row col-12"  style="display: none;">
-                                <div id="infoContactsMod" class="row col-12">
-                                    <div id="idAddInfoContactsMod" class="row col-12">
-                                        <!--ID-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="idAddInfoContactsModLabel">ID:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="idAddInfoContactsModInput">
-                                        </div>
-                                    </div>
+                                <!--GENERAL INFO-->
+                                <div id="generalInfoMod" class="row col-12" style="display: none;">
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
-                                    <div id="urlAddInfoContactsMod" class="row col-12">
-                                        <!--URL-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="urlAddInfoContactsModLabel">URL:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="urlAddInfoContactsModInput">
+                                    <!--General Information Header-->
+                                    <div id="generalInfoModHeader" class="row col-12 text-center">
+                                        <h4 class="col-12" style="margin-bottom:0;">General Information </h4>
+                                        <div class="col-12">
+                                            <hr style="border-color: #000;margin-bottom: 0;" />
                                         </div>
                                     </div>
+
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
-
-                                    <div id="nameAddInfoContactsMod" class="row col-12">
-                                        <!--Name-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="nameAddInfoContactsModLabel">Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="nameAddInfoContactsModInput">
-                                        </div>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <div id="subAddInfoContactsMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary" onclick="subAddContactInfoMod();"> Add Contact</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Mod Contact-->
-                            <div id="modContactsMod" class="row col-12" style="display: none;">
-                                <div id="idListContactsMod" class="row col-8">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-success col-11" id="headerOptionModContactsMod">Choose Contact</button>
-                                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12" id="listModContactsMod">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Padding -->
-                                <div class="row col-12"><br /></div>
-
-                                <div id="infoInputsContactsMod" class="row col-12" >
-                                    <div id="idForInfoContactsMod" class="row col-12">
-                                        <!--ID-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="idModInfoContactsModLabel">id:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="idModInfoContactsModInput">
-                                        </div>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <div id="urlInfoContactsMod" class="row col-12">
-                                        <!--URL-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="urlModInfoContactsModLabel">URL:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="urlModInfoContactsModInput">
-                                        </div>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <div id="nameInfoContactsMod" class="row col-12">
-                                        <!--Name-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="nameModInfoContactsModLabel">Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="nameAddInfoContactModInput">
-                                        </div>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <div id="submitInfoContactsMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-success" onclick="submitContactMod();">Submit</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- HORIZONTAL LINE BREAK -->
-                        <div class="col-12"><br /></div>
-
-                        <!--ACHIEVEMENTS INFO-->
-                        <div id="achievementsInfoMod" class="row col-12"  style="display: none;">
-                            <!--Achievements Information Header-->
-                            <div id="generalInfoModHeader" class="row col-12 text-center">
-                                <h4 class="col-12" style="margin-bottom:0;">Achievements Information </h4>
-                                <div class="col-12">
-                                    <hr style="border-color: #000;margin-bottom: 0;" />
-                                </div>
-                            </div>
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-
-                            <div id="optionListAchieveMod" class="row col-12">
-                                <!--Del, Add, Modify-->
-                                <div class="row col-6">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-info col-11" id="headerOptionListAchieveMod">Choose you type of action:</button>
-                                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center" onclick="modAchievementInfoModInit();">Modify Exsiting Achievement</label>
-                                            <label class="dropdown-item text-center" onclick="delAchievementInfoModInit();">Delete Achievement</label>
-                                            <label class="dropdown-item text-center" onclick="addAchievementInfoModInit();">Add Achievement</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
-
-                            <!--Delete Achievement-->
-                            <div id="delAchieveMod" class="row col-12" style="display: none;">
-                                <div id="idInfoAchieveMod" class="row col-6">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11" id="headerOptionListDelAchieveMod">Choose Achievement</button>
-                                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12" id="optionListDelAchieveMod">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Padding -->
-                                <div class="row col-12"><br /></div>
-
-                                <div id="subBtnInfoAchieveMod" class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger" onclick="subDelAchievementInfoMod();"> Delete Achievement</label>
-                                </div>
-                            </div>
-
-                            <!--Add Achievment-->
-                            <div id="addAchieveMod" class="row col-12" style="display: none;">
-                                <div id="infoAchieveMod" class="row col-12">
                                     <!--ID-->
-                                    <div id="idAddInfoAchieveMod" class="col-6">
+                                    <div id="idGenMod" class="row col-12">
                                         <div class="input-group col-12">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">ID:</span>
                                             </div>
-                                            <input type="text" class="form-control" id="idAddAchieveMod">
+                                            <input type="text" class="form-control" id="generalInfoPersonIDInput">
                                         </div>
                                     </div>
 
-                                    <!--Time-->
-                                    <div id="timeAddInfoAchieveMod" class="col-6">
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+                                    <!--Name-->
+                                    <div id="nameGenMod" class="row col-12">
+                                        <!--First Name-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">First Name:</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="generalInfoPersonFirstNameInput">
+                                        </div>
+                                        <!--Last Name-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Last Name:</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="generalInfoPersonLastNameInput">
+                                        </div>
+                                    </div>
+
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+
+                                    <!--Level and Age-->
+                                    <div class="row col-12">
+                                        <!--Level-->
+                                        <div id="levelGenMod" class="col-6">
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Grade Level:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="generalInfoPersonLevelInput">
+                                            </div>
+                                        </div>
+
+                                        <!--Age-->
+                                        <div id="ageGenMod" class="col-6">
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Age:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="generalInfoPersonAgeInput">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+                                    <!--Description-->
+                                    <div id="descriptionGenMod" class="row col-12">
                                         <div class="input-group col-12">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Date/Year(s):</span>
+                                                <span class="input-group-text">Description:</span>
                                             </div>
-                                            <input type="text" class="form-control" id="timeAddAchieveMod">
+                                            <textarea class="form-control" id="generalInfoPersonDescriptionInput"></textarea>
                                         </div>
                                     </div>
+
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
-
-                                    <!--Name-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Name:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="nameAddAchieveMod">
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <!--Description-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Description:</span>
-                                        </div>
-                                        <textarea type="text" class="form-control" id="descriptionAddAchieveMod"></textarea>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <!--Submit-->
-                                    <div id="subAddInfoAchieveMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary" onclick="subAddAchieveMod();">Add Acheivement</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Modify Achievement-->
-                            <div id="modAchieveMod" class="row col-12" style="display: none;">
-                                <div id="idListAchieveMod" class="row col-12">
-                                    <div class="row col-6">
-                                        <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-success col-11" id="headerOptionModAchieveMod">Choose Achievement:</button>
-                                            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right col-12" id="optionListModAchieveMod">
+                                    <!--Knowledge-->
+                                    <div id="knowGenMod" class="row col-12">
+                                        <div class="input-group col-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Programming Knowledge:</span>
                                             </div>
+                                            <textarea class="form-control" id="generalInfoPersonKnowInput"></textarea>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Padding -->
-                                <div class="row col-12"><br /></div>
 
-                                <div id="modInfoAchieveMod" class="row col-12">
-                                    <div class="row col-12">
-                                        <!--ID-->
-                                        <div id="idInfoAchieveMod" class="row col-6">
-                                            <div class="input-group col-12">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">ID:</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="idModAcheiveMod">
-                                            </div>
-                                        </div>
 
-                                        <!--Time-->
-                                        <div id="timeInfoAchieveMod" class="col-6">
-                                            <div class="input-group col-12">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Date/Year(s):</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="timeModAcheiveMod">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
-
-                                    <!--Name-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Name:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="nameModAcheiveMod">
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <!--Description-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Description:</span>
-                                        </div>
-                                        <textarea type="text" class="form-control" id="descriptionModAcheiveMod"></textarea>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
                                     <!--Submit-->
                                     <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success" onclick="subModAchievemenInfoMod()">Modify Achievement</label>
+                                        <label class="btn btn-block btn-outline-info" onclick="subGeneralInfoModInit();">Submit</label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- HORIZONTAL LINE BREAK -->
-                        <div class="col-12"><br /></div>
 
-                        <!--ACREDDITATIONS INFO-->
-                        <div id="acreddidationsInfoMod" class="row col-12" style="display: none;">
-                            <!--Acredit Information Header-->
-                            <div id="generalInfoModHeader" class="row col-12 text-center">
-                                <h4 class="col-12" style="margin-bottom:0;">Acredditation Information</h4>
-                                <div class="col-12">
-                                    <hr style="border-color: #000;margin-bottom: 0;" />
                                 </div>
-                            </div>
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
+                                <!-- HORIZONTAL LINE BREAK -->
+                                <div class="col-12"><br /></div>
 
-                            <!--Del, Add, Modify-->
-                            <div id="optionListAcreditMod" class="row col-12">
-                                <div class="row col-6">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-info col-11" id="headerOptionListAcreditMod">Choose you type of action:</button>
-                                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center" onclick="modAcreddidationsInfoModInit();">Modify Exsiting Acredditation</label>
-                                            <label class="dropdown-item text-center" onclick="delAcreddidationsInfoModInit();">Delete Acredditation</label>
-                                            <label class="dropdown-item text-center" onclick="addAcreddidationsInfoModInit();">Add Acredditation</label>
+                                <!--CONTACT INFO-->
+                                <div id="contactInfoMod" class="row col-12" style="display: none;">
+                                    <!--Contact Information Header-->
+                                    <div id="generalInfoModHeader" class="row col-12 text-center">
+                                        <h4 class="col-12" style="margin-bottom:0;">Contact Information </h4>
+                                        <div class="col-12">
+                                            <hr style="border-color: #000;margin-bottom: 0;" />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <!-- Padding -->
-                            <div class="row col-12"><br /></div>
 
-                            <!--Delete Acredit-->
-                            <div id="delAcreditMod" class="row col-12" style="display: none;">
-                                <!--List-->
-                                <div id="idInfoAcreditMod" class="row col-12">
-                                    <div class="row col-6">
-                                        <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-danger col-11" id="headerOptionListIDInfoAcreditMod">Choose Acredditation: </button>
-                                            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right col-12" id="optionListIDInfoAcreditMod">
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+                                    <!--Option List-->
+                                    <div id="optionListContactsMod" class="row col-12">
+                                        <!--Del, Add, Modify Contacts-->
+                                        <div class="row col-6">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-info col-11" id="contactsChooseOptionMod">Choose you type of action:</button>
+                                                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center" onclick="modContactInfoModInit();">Modify Exsiting Contact</label>
+                                                    <label class="dropdown-item text-center" onclick="delContactInfoModInit();">Delete Contact</label>
+                                                    <label class="dropdown-item text-center" onclick="addContactInfoModInit();">Add Contact</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+                                    <!--Delete Contact-->
+                                    <div id="delContactsMod" class="row col-12" style="display: none;">
+                                        <div id="idInfoContactsMod" class="row col-6">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-danger col-11" id="headerOptionDelContactsMod">Choose Contact</button>
+                                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionsListDelContactsMod">
+                                                    <label class="dropdown-item text-center">Contact 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Padding -->
+                                        <div class="row col-12"><br /></div>
+
+                                        <div id="subBtnInfoContactsMod" class="row col-5">
+                                            <label class="btn btn-block btn-outline-danger" onclick="subDelContactInfoMod();">Delete Contact</label>
+                                        </div>
+                                    </div>
+
+                                    <!--Add Contact-->
+                                    <div id="addContactsMod" class="row col-12" style="display: none;">
+                                        <div id="infoContactsMod" class="row col-12">
+                                            <div id="idAddInfoContactsMod" class="row col-12">
+                                                <!--ID-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="idAddInfoContactsModLabel">ID:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="idAddInfoContactsModInput">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <div id="urlAddInfoContactsMod" class="row col-12">
+                                                <!--URL-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="urlAddInfoContactsModLabel">URL:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="urlAddInfoContactsModInput">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <div id="nameAddInfoContactsMod" class="row col-12">
+                                                <!--Name-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="nameAddInfoContactsModLabel">Name:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="nameAddInfoContactsModInput">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <div id="subAddInfoContactsMod" class="row col-5">
+                                                <label class="btn btn-block btn-outline-primary" onclick="subAddContactInfoMod();"> Add Contact</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Mod Contact-->
+                                    <div id="modContactsMod" class="row col-12" style="display: none;">
+                                        <div id="idListContactsMod" class="row col-8">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-success col-11" id="headerOptionModContactsMod">Choose Contact</button>
+                                                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="listModContactsMod">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Padding -->
+                                        <div class="row col-12"><br /></div>
+
+                                        <div id="infoInputsContactsMod" class="row col-12">
+                                            <div id="idForInfoContactsMod" class="row col-12">
+                                                <!--ID-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="idModInfoContactsModLabel">id:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="idModInfoContactsModInput">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <div id="urlInfoContactsMod" class="row col-12">
+                                                <!--URL-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="urlModInfoContactsModLabel">URL:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="urlModInfoContactsModInput">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <div id="nameInfoContactsMod" class="row col-12">
+                                                <!--Name-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="nameModInfoContactsModLabel">Name:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="nameAddInfoContactModInput">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <div id="submitInfoContactsMod" class="row col-5">
+                                                <label class="btn btn-block btn-outline-success" onclick="submitContactMod();">Submit</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Padding -->
-                                <div class="row col-12"><br /></div>
+                                <!-- HORIZONTAL LINE BREAK -->
+                                <div class="col-12"><br /></div>
 
-                                <!--Submit-->
-                                <div id="subBtnInfoAccreditMod" class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger" onclick="subDelAchievementInfoMod();">Delete Acredditation</label>
-                                </div>
-                            </div>
-
-                            <!--Add Acredit-->
-                            <div id="addAcreditMod" class="row col-12" style="display: none;">
-                                <div id="infoAcreditMod" class="row col-12">
-                                    <!--ID-->
-                                    <div id="idAddInfoAcreditMod" class="row col-12">
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">ID:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="idAddInfoAcreditModText">
+                                <!--ACHIEVEMENTS INFO-->
+                                <div id="achievementsInfoMod" class="row col-12" style="display: none;">
+                                    <!--Achievements Information Header-->
+                                    <div id="generalInfoModHeader" class="row col-12 text-center">
+                                        <h4 class="col-12" style="margin-bottom:0;">Achievements Information </h4>
+                                        <div class="col-12">
+                                            <hr style="border-color: #000;margin-bottom: 0;" />
                                         </div>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
-                                    <!--Speaker Information-->
-                                    <div id="speakerAddInfoAcreditMod" class="row col-12">
-                                        <!--Name-->
-                                        <div id="nameSpeakerAddInfoAcreditMod" class="row col-12">
+                                    <div id="optionListAchieveMod" class="row col-12">
+                                        <!--Del, Add, Modify-->
+                                        <div class="row col-6">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-info col-11" id="headerOptionListAchieveMod">Choose you type of action:</button>
+                                                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center" onclick="modAchievementInfoModInit();">Modify Exsiting Achievement</label>
+                                                    <label class="dropdown-item text-center" onclick="delAchievementInfoModInit();">Delete Achievement</label>
+                                                    <label class="dropdown-item text-center" onclick="addAchievementInfoModInit();">Add Achievement</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+
+                                    <!--Delete Achievement-->
+                                    <div id="delAchieveMod" class="row col-12" style="display: none;">
+                                        <div id="idInfoAchieveMod" class="row col-6">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-danger col-11" id="headerOptionListDelAchieveMod">Choose Achievement</button>
+                                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListDelAchieveMod">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Padding -->
+                                        <div class="row col-12"><br /></div>
+
+                                        <div id="subBtnInfoAchieveMod" class="row col-5">
+                                            <label class="btn btn-block btn-outline-danger" onclick="subDelAchievementInfoMod();"> Delete Achievement</label>
+                                        </div>
+                                    </div>
+
+                                    <!--Add Achievment-->
+                                    <div id="addAchieveMod" class="row col-12" style="display: none;">
+                                        <div id="infoAchieveMod" class="row col-12">
+                                            <!--ID-->
+                                            <div id="idAddInfoAchieveMod" class="col-6">
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">ID:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="idAddAchieveMod">
+                                                </div>
+                                            </div>
+
+                                            <!--Time-->
+                                            <div id="timeAddInfoAchieveMod" class="col-6">
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Date/Year(s):</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="timeAddAchieveMod">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Name-->
                                             <div class="input-group col-12">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">Name:</span>
                                                 </div>
-                                                <input type="text" class="form-control" id="nameSpeakerAddAcreditMod">
+                                                <input type="text" class="form-control" id="nameAddAchieveMod">
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Description-->
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Description:</span>
+                                                </div>
+                                                <textarea type="text" class="form-control" id="descriptionAddAchieveMod"></textarea>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div id="subAddInfoAchieveMod" class="row col-5">
+                                                <label class="btn btn-block btn-outline-primary" onclick="subAddAchieveMod();">Add Acheivement</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Modify Achievement-->
+                                    <div id="modAchieveMod" class="row col-12" style="display: none;">
+                                        <div id="idListAchieveMod" class="row col-12">
+                                            <div class="row col-6">
+                                                <div class="btn-group col-12">
+                                                    <button type="button" class="btn btn-success col-11" id="headerOptionModAchieveMod">Choose Achievement:</button>
+                                                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right col-12" id="optionListModAchieveMod">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- Padding -->
                                         <div class="row col-12"><br /></div>
 
-                                        <!--Title-->
-                                        <div id="titleSpeakerAddInfoAcreditMod" class="col-6">
+                                        <div id="modInfoAchieveMod" class="row col-12">
+                                            <div class="row col-12">
+                                                <!--ID-->
+                                                <div id="idInfoAchieveMod" class="row col-6">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">ID:</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="idModAcheiveMod">
+                                                    </div>
+                                                </div>
+
+                                                <!--Time-->
+                                                <div id="timeInfoAchieveMod" class="col-6">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Date/Year(s):</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="timeModAcheiveMod">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Name-->
                                             <div class="input-group col-12">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">Title:</span>
+                                                    <span class="input-group-text">Name:</span>
                                                 </div>
-                                                <input type="text" class="form-control" id="titleSpeakerAddAcreditMod">
+                                                <input type="text" class="form-control" id="nameModAcheiveMod">
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Description-->
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Description:</span>
+                                                </div>
+                                                <textarea type="text" class="form-control" id="descriptionModAcheiveMod"></textarea>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div class="row col-5">
+                                                <label class="btn btn-block btn-outline-success" onclick="subModAchievemenInfoMod()">Modify Achievement</label>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <!-- HORIZONTAL LINE BREAK -->
+                                <div class="col-12"><br /></div>
 
-                                        <!--Connection-->
-                                        <div id="connectionSpeakerAddInfoAcreditMod" class="col-6">
-                                            <div class="input-group col-12">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Connection(URL):</span>
+                                <!--ACREDDITATIONS INFO-->
+                                <div id="acreddidationsInfoMod" class="row col-12" style="display: none;">
+                                    <!--Acredit Information Header-->
+                                    <div id="generalInfoModHeader" class="row col-12 text-center">
+                                        <h4 class="col-12" style="margin-bottom:0;">Acredditation Information</h4>
+                                        <div class="col-12">
+                                            <hr style="border-color: #000;margin-bottom: 0;" />
+                                        </div>
+                                    </div>
+                                    <!-- Padding -->
+                                    <div class="row col-12"><br /></div>
+
+                                    <!--Del, Add, Modify-->
+                                    <div id="optionListAcreditMod" class="row col-12">
+                                        <div class="row col-6">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-info col-11" id="headerOptionListAcreditMod">Choose you type of action:</button>
+                                                <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center" onclick="modAcreddidationsInfoModInit();">Modify Exsiting Acredditation</label>
+                                                    <label class="dropdown-item text-center" onclick="delAcreddidationsInfoModInit();">Delete Acredditation</label>
+                                                    <label class="dropdown-item text-center" onclick="addAcreddidationsInfoModInit();">Add Acredditation</label>
                                                 </div>
-                                                <input type="text" class="form-control" id="connectionSpeakerAddAcreditMod">
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
+                                    <!--Delete Acredit-->
+                                    <div id="delAcreditMod" class="row col-12" style="display: none;">
+                                        <!--List-->
+                                        <div id="idInfoAcreditMod" class="row col-12">
+                                            <div class="row col-6">
+                                                <div class="btn-group col-12">
+                                                    <button type="button" class="btn btn-danger col-11" id="headerOptionListIDInfoAcreditMod">Choose Acredditation: </button>
+                                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right col-12" id="optionListIDInfoAcreditMod">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Padding -->
+                                        <div class="row col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div id="subBtnInfoAccreditMod" class="row col-5">
+                                            <label class="btn btn-block btn-outline-danger" onclick="subDelAchievementInfoMod();">Delete Acredditation</label>
+                                        </div>
+                                    </div>
+
+                                    <!--Add Acredit-->
+                                    <div id="addAcreditMod" class="row col-12" style="display: none;">
+                                        <div id="infoAcreditMod" class="row col-12">
+                                            <!--ID-->
+                                            <div id="idAddInfoAcreditMod" class="row col-12">
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">ID:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="idAddInfoAcreditModText">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Speaker Information-->
+                                            <div id="speakerAddInfoAcreditMod" class="row col-12">
+                                                <!--Name-->
+                                                <div id="nameSpeakerAddInfoAcreditMod" class="row col-12">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Name:</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="nameSpeakerAddAcreditMod">
+                                                    </div>
+                                                </div>
+                                                <!-- Padding -->
+                                                <div class="row col-12"><br /></div>
+
+                                                <!--Title-->
+                                                <div id="titleSpeakerAddInfoAcreditMod" class="col-6">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Title:</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="titleSpeakerAddAcreditMod">
+                                                    </div>
+                                                </div>
+
+                                                <!--Connection-->
+                                                <div id="connectionSpeakerAddInfoAcreditMod" class="col-6">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Connection(URL):</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="connectionSpeakerAddAcreditMod">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Description-->
+                                            <div id="descriptionAddInfoAcreditMod" class="row col-12">
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Description:</span>
+                                                    </div>
+                                                    <textarea type="text" class="form-control" id="descriptionAddAcreditMod"></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div id="subAddInfoAcreditMod" class="row col-5">
+                                                <label class="btn btn-block btn-outline-primary" onclick="subAddAcredditationsInfoMod();">Add Acredditation</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Modify Acredit-->
+                                    <div id="modAcreditMod" class="row col-12" style="display: none;">
+                                        <!--List of all Acredits-->
+                                        <div id="idListAcreditMod" class="row col-12">
+                                            <div id="idListAcreditMod" class="row col-8">
+                                                <div class="btn-group col-12">
+                                                    <button type="button" class="btn btn-success col-11" id="headerOptionListModIdListAcreditMod">Choose Acredditation</button>
+                                                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right col-12" id="optionListIdListAcreditMod">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Padding -->
+                                        <div class="row col-12"><br /></div>
+
+                                        <div id="modInfoAcreditMod" class="row col-12">
+                                            <!--ID-->
+                                            <div id="idInfoAcreditMod" class="row col-12">
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">ID:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="idSpeakerModAcreditMod">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Speaker Info-->
+                                            <div id="speakerAddInfoAcreditMod" class="row col-12">
+                                                <!--Name-->
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Name:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="nameSpeakerModAcreditMod">
+                                                </div>
+                                                <!-- Padding -->
+                                                <div class="row col-12"><br /></div>
+
+                                                <!--Title-->
+                                                <div id="titleSpeakerModInfoAcreditMod" class="col-6">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Title:</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="titleSpeakerModAcreditMod">
+                                                    </div>
+                                                </div>
+
+                                                <!--Connection-->
+                                                <div id="connectionSpeakerModInfoAcreditMod" class="col-6">
+                                                    <div class="input-group col-12">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Connection(URL):</span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="connectionSpeakerModAcreditMod">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Description-->
+                                            <div id="descriptionInfoAcreditMod" class="row col-12">
+                                                <div class="input-group col-12">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Description:</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="descriptionSpeakerModAcreditMod">
+                                                </div>
+                                            </div>
+                                            <!-- Padding -->
+                                            <div class="row col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div class="row col-5">
+                                                <label class="btn btn-block btn-outline-success" onclick="subModAcreditInfoMod();">Modify Accreditation</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- END PEOPLE -->
+                            </div>
+
+                            <!--Project-->
+                            <div id="projectsMod" class="col-12" style="display: none;">
+                                <!-- START PROJECTS -->
+                                <div class="col-12">
+                                    <h2>Projects</h2>
+                                    <hr style="border-color: #000; margin-bottom: 0;" />
+                                    <hr style="border-color: #000; margin: 0;" />
+                                    <br />
+                                </div>
+
+                                <div class="row col-7">
+                                    <div class="btn-group col-12">
+                                        <button type="button" class="btn btn-danger col-11">Choose Project Name</button>
+                                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right col-12">
+                                            <label class="dropdown-item text-center">Project 1</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- GENERAL INFO -->
+                                <div id="genInfoProjMod" class="row col-12">
+                                    <div class="col-12"><br /></div>
+
+                                    <div class="text-center col-12">
+                                        <h4> Project General Information </h4>
+                                        <hr style="border-color: #000;margin-bottom: 0;" />
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Name-->
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Name:</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="nameGenInfoProjMod">
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--MakerID-->
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Maker ID:</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="makerIDGenInfoProjMod">
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
                                     <!--Description-->
-                                    <div id="descriptionAddInfoAcreditMod" class="row col-12">
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Description:</span>
+                                        </div>
+                                        <textarea type="text" class="form-control" id="descriptionGenInfoProjMod"></textarea>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Submit-->
+                                    <div class="row col-5">
+                                        <label class="btn btn-block btn-outline-success">Change Information</label>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <hr />
+                                    </div>
+                                </div>
+
+                                <!-- MAKERS -->
+                                <div id="makersProjMod" class="row col-12">
+                                    <div class="col-12">
+                                        <h4>Makers Information</h4>
+                                        <hr style="border-color: #000;margin-bottom: 0;" />
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Options-->
+                                    <div class="row col-6">
+                                        <div class="btn-group col-12">
+                                            <button type="button" class="btn btn-danger col-11">Choose Action:</button>
+                                            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right col-12">
+                                                <label class="dropdown-item text-center">Add Maker</label>
+                                                <label class="dropdown-item text-center">Delete Maker</label>
+                                                <label class="dropdown-item text-center">Modify Maker</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Add-->
+                                    <div id="addMakerProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-6">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-primary col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Position-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Position:</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="positionAddMakerProjMod">
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Description-->
                                         <div class="input-group col-12">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Description:</span>
                                             </div>
-                                            <textarea type="text" class="form-control" id="descriptionAddAcreditMod"></textarea>
+                                            <textarea type="text" class="form-control" id="makerDescriptionAddMakerProjMod"></textarea>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div class="row col-5">
+                                            <label class="btn btn-block btn-outline-primary">Add Maker</label>
                                         </div>
                                     </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
 
-                                    <!--Submit-->
-                                    <div id="subAddInfoAcreditMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary" onclick="subAddAcredditationsInfoMod();">Add Acredditation</label>
-                                    </div>
-                                </div>
-                            </div>
+                                    <!--Modify-->
+                                    <div id="modMakersProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-7">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-success col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><br /></div>
 
-                            <!--Modify Acredit-->
-                            <div id="modAcreditMod" class="row col-12" style="display: none;">
-                                <!--List of all Acredits-->
-                                <div id="idListAcreditMod" class="row col-12">
-                                    <div id="idListAcreditMod" class="row col-8">
-                                        <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-success col-11" id="headerOptionListModIdListAcreditMod">Choose Acredditation</button>
-                                            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right col-12" id="optionListIdListAcreditMod">
+                                        <!--Maker Info-->
+                                        <div id="infoModMakersProjMod" class="row col-12">
+                                            <!--ID-->
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">ID:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="idModMakerProjMod">
+                                            </div>
+
+                                            <!--Position-->
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Position:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="positionModMakerProjMod">
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Description-->
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Description:</span>
+                                                </div>
+                                                <textarea type="text" class="form-control" id="descriptionModMakerProjMod"></textarea>
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div class="row col-5">
+                                                <label class="btn btn-block btn-outline-success">Modify Maker</label>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Padding -->
-                                <div class="row col-12"><br /></div>
 
-                                <div id="modInfoAcreditMod" class="row col-12">
-                                    <!--ID-->
-                                    <div id="idInfoAcreditMod" class="row col-12">
-                                        <div class="input-group col-12">
+                                    <!--Delete-->
+                                    <div id="delMakersProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-7">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-danger col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div class="row col-5">
+                                            <label class="btn btn-block btn-outline-danger">Delete Maker</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FEATURES -->
+                                <div id="featuresProjMod" class="row col-12">
+                                    <div class="col-12">
+                                        <h4>Features Information</h4>
+                                        <hr style="border-color: #000;margin-bottom: 0;" />
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Options-->
+                                    <div class="row col-6">
+                                        <div class="btn-group col-12">
+                                            <button type="button" class="btn btn-danger col-11">Choose Action:</button>
+                                            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right col-12">
+                                                <label class="dropdown-item text-center">Add Feature</label>
+                                                <label class="dropdown-item text-center">Delete Feature</label>
+                                                <label class="dropdown-item text-center">Modify Feature</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Add-->
+                                    <div id="addFeatureProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="input-group col-6">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">ID:</span>
                                             </div>
-                                            <input type="text" class="form-control" id="idSpeakerModAcreditMod">
+                                            <input type="text" class="form-control" id="idAddFeatureProjMod">
                                         </div>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
-
-                                    <!--Speaker Info-->
-                                    <div id="speakerAddInfoAcreditMod" class="row col-12">
-                                        <!--Name-->
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="nameSpeakerModAcreditMod">
-                                        </div>
-                                        <!-- Padding -->
-                                        <div class="row col-12"><br /></div>
 
                                         <!--Title-->
-                                        <div id="titleSpeakerModInfoAcreditMod" class="col-6">
-                                            <div class="input-group col-12">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Title:</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="titleSpeakerModAcreditMod">
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Title:</span>
                                             </div>
+                                            <input type="text" class="form-control" id="titleAddFeatureProjMod">
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Sub Title-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">SubTitle:</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="subTitleAddFeatureProjMod">
                                         </div>
 
-                                        <!--Connection-->
-                                        <div id="connectionSpeakerModInfoAcreditMod" class="col-6">
-                                            <div class="input-group col-12">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Connection(URL):</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="connectionSpeakerModAcreditMod">
+                                        <!--Img-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Background Image:</span>
                                             </div>
+                                            <input type="text" class="form-control" id="imgAddFeatureProjMod">
                                         </div>
-                                    </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
+                                        <div class="col-12"><br /></div>
 
-                                    <!--Description-->
-                                    <div id="descriptionInfoAcreditMod" class="row col-12">
+                                        <!--Description-->
                                         <div class="input-group col-12">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Description:</span>
                                             </div>
-                                            <input type="text" class="form-control" id="descriptionSpeakerModAcreditMod">
+                                            <textarea type="text" class="form-control" id="descriptionAddFeatureProjMod"></textarea>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div class="row col-5">
+                                            <label class="btn btn-block btn-outline-primary">Add Feature</label>
                                         </div>
                                     </div>
-                                    <!-- Padding -->
-                                    <div class="row col-12"><br /></div>
 
-                                    <!--Submit-->
-                                    <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success" onclick="subModAcreditInfoMod();">Modify Accreditation</label>
+                                    <!--Modify-->
+                                    <div id="modFeatureProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-7">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-success col-11">Choose Features:</button>
+                                                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Feature 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Maker Info-->
+                                        <div id="infoModMakersProjMod" class="row col-12">
+                                            <!--ID-->
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">ID:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="idModMakerProjMod">
+                                            </div>
+
+                                            <!--Position-->
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Position:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="positionModMakerProjMod">
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Description-->
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Description:</span>
+                                                </div>
+                                                <textarea type="text" class="form-control" id="descriptionModMakerProjMod"></textarea>
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div class="row col-5">
+                                                <label class="btn btn-block btn-outline-success">Modify Maker</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Delete-->
+                                    <div id="delFeatureProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-7">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-danger col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div class="row col-5">
+                                            <label class="btn btn-block btn-outline-danger">Delete Maker</label>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <!-- CAROUSEL -->
+                                <div id="carouselProjMod" class="row col-12">
+                                    <!--Carousel Header-->
+                                    <div class="col-12">
+                                        <h4>Carousel Information</h4>
+                                        <hr style="border-color: #000;margin-bottom: 0;" />
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Options-->
+                                    <div class="row col-6">
+                                        <div class="btn-group col-12">
+                                            <button type="button" class="btn btn-danger col-11">Choose Action:</button>
+                                            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right col-12">
+                                                <label class="dropdown-item text-center">Add Carousel Slide</label>
+                                                <label class="dropdown-item text-center">Delete Carousel Slide</label>
+                                                <label class="dropdown-item text-center">Modify Carousel Slide</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
+                                    <!--Add-->
+                                    <div id="addCarouselProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">ID:</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="idAddCarouselProjMod">
+                                        </div>
+
+                                        <!--Title-->
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Title:</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="titleAddCarouselProjMod">
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Image -->
+                                        <div class="input-group col-9">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Image: </span>
+                                            </div>
+                                            <input type="text" class="form-control" id="imgAddCarouselProjMod">
+                                        </div>
+
+                                        <!--Align-->
+                                        <div class="input-group col-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Align (l/c/r):</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="alignAddCarouselProjMod">
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Text-->
+                                        <div class="input-group col-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Text:</span>
+                                            </div>
+                                            <textarea type="text" class="form-control" id="textAddCarouselProjMod"></textarea>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div class="row col-5">
+                                            <label class="btn btn-block btn-outline-primary">Add Carousel Slide</label>
+                                        </div>
+                                    </div>
+
+                                    <!--Modify-->
+                                    <div id="modCarouselProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-7">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-success col-11">Choose Carousel Slide:</button>
+                                                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Slide 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Maker Info-->
+                                        <div id="infoModCarouselProjMod" class="row col-12">
+                                            <!--ID-->
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">ID:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="idModCarouselProjMod">
+                                            </div>
+
+                                            <!--Title-->
+                                            <div class="input-group col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Title:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="titleModCarouselProjMod">
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Img-->
+                                            <div class="input-group col-9">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Image:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="imgModCarouselProjMod">
+                                            </div>
+
+                                            <!--Align-->
+                                            <div class="input-group col-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Align (l/c/r):</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="alignModCarouselProjMod">
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Text-->
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Text:</span>
+                                                </div>
+                                                <textarea type="text" class="form-control" id="textModCarouselProjMod"></textarea>
+                                            </div>
+                                            <div class="col-12"><br /></div>
+
+                                            <!--Submit-->
+                                            <div class="row col-5">
+                                                <label class="btn btn-block btn-outline-success">Modify Carousel Slide</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Delete-->
+                                    <div id="delMakersProjMod" class="row col-12">
+                                        <!--ID-->
+                                        <div class="row col-7">
+                                            <div class="btn-group col-12">
+                                                <button type="button" class="btn btn-danger col-11">Choose Carousel Slide:</button>
+                                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right col-12">
+                                                    <label class="dropdown-item text-center">Slide 1</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12"><br /></div>
+
+                                        <!--Submit-->
+                                        <div class="row col-5">
+                                            <label class="btn btn-block btn-outline-danger">Delete Carousel Slide</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- END PROJECTS -->
                             </div>
+
+                            <!--END MODIFY-->
                         </div>
 
-                        <!-- END PEOPLE -->
+                        <!--START ADD-->
+                        <div class="row" id="add" style="display: none;">
+                            <div class="row col-7">
+                                <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
+                                    <label class="btn btn-outline-success active col-6">
+                                        <input type="radio" checked> People
+                                    </label>
+                                    <label class="btn btn-outline-success col-6">
+                                        <input type="radio"> Projects
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!--END ADD-->
+                        </div>
+
+                        <!--END CARD BODY-->
                     </div>
-
-                    <!--Project-->
-                    <div id="projectsMod" class="col-12" style="display: none;">
-                        <!-- START PROJECTS -->
-                        <div class="col-12">
-                            <h2>Projects</h2>
-                            <hr style="border-color: #000; margin-bottom: 0;" />
-                            <hr style="border-color: #000; margin: 0;" />
-                            <br />
-                        </div>
-
-                        <div class="row col-7">
-                            <div class="btn-group col-12">
-                                <button type="button" class="btn btn-danger col-11">Choose Project Name</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                    <label class="dropdown-item text-center">Project 1</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- GENERAL INFO -->
-                        <div id="genInfoProjMod" class="row col-12">
-                            <div class="col-12"><br /></div>
-
-                            <div class="text-center col-12">
-                                <h4> Project General Information </h4>
-                                <hr style="border-color: #000;margin-bottom: 0;" />
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Name-->
-                            <div class="input-group col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Name:</span>
-                                </div>
-                                <input type="text" class="form-control" id="nameGenInfoProjMod">
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--MakerID-->
-                            <div class="input-group col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Maker ID:</span>
-                                </div>
-                                <input type="text" class="form-control" id="makerIDGenInfoProjMod">
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Description-->
-                            <div class="input-group col-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Description:</span>
-                                </div>
-                                <textarea type="text" class="form-control" id="descriptionGenInfoProjMod"></textarea>
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Submit-->
-                            <div class="row col-5">
-                                <label class="btn btn-block btn-outline-success">Change Information</label>
-                            </div>
-
-                            <div class="col-12">
-                                <hr />
-                            </div>
-                        </div>
-
-                        <!-- MAKERS -->
-                        <div id="makersProjMod" class="row col-12">
-                            <div class="col-12">
-                                <h4>Makers Information</h4>
-                                <hr style="border-color: #000;margin-bottom: 0;" />
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Options-->
-                            <div class="row col-6">
-                                <div class="btn-group col-12">
-                                    <button type="button" class="btn btn-danger col-11">Choose Action:</button>
-                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right col-12">
-                                        <label class="dropdown-item text-center">Add Maker</label>
-                                        <label class="dropdown-item text-center">Delete Maker</label>
-                                        <label class="dropdown-item text-center">Modify Maker</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Add-->
-                            <div id="addMakerProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-6">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-primary col-11">Choose Maker:</button>
-                                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Maker 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Position-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Position:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="positionAddMakerProjMod">
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Description-->
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Description:</span>
-                                    </div>
-                                    <textarea type="text" class="form-control" id="makerDescriptionAddMakerProjMod"></textarea>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Submit-->
-                                <div class="row col-5">
-                                    <label class="btn btn-block btn-outline-primary">Add Maker</label>
-                                </div>
-                            </div>
-
-                            <!--Modify-->
-                            <div id="modMakersProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-7">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-success col-11">Choose Maker:</button>
-                                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Maker 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Maker Info-->
-                                <div id="infoModMakersProjMod" class="row col-12">
-                                    <!--ID-->
-                                    <div class="input-group col-6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">ID:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="idModMakerProjMod">
-                                    </div>
-
-                                    <!--Position-->
-                                    <div class="input-group col-6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Position:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="positionModMakerProjMod">
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Description-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Description:</span>
-                                        </div>
-                                        <textarea type="text" class="form-control" id="descriptionModMakerProjMod"></textarea>
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Submit-->
-                                    <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Modify Maker</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Delete-->
-                            <div id="delMakersProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-7">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11">Choose Maker:</button>
-                                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Maker 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Submit-->
-                                <div class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger">Delete Maker</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FEATURES -->
-                        <div id="featuresProjMod" class="row col-12">
-                            <div class="col-12">
-                                <h4>Features Information</h4>
-                                <hr style="border-color: #000;margin-bottom: 0;" />
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Options-->
-                            <div class="row col-6">
-                                <div class="btn-group col-12">
-                                    <button type="button" class="btn btn-danger col-11">Choose Action:</button>
-                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right col-12">
-                                        <label class="dropdown-item text-center">Add Feature</label>
-                                        <label class="dropdown-item text-center">Delete Feature</label>
-                                        <label class="dropdown-item text-center">Modify Feature</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Add-->
-                            <div id="addFeatureProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">ID:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="idAddFeatureProjMod">
-                                </div>
-
-                                <!--Title-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Title:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="titleAddFeatureProjMod">
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Sub Title-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">SubTitle:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="subTitleAddFeatureProjMod">
-                                </div>
-
-                                <!--Img-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Background Image:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="imgAddFeatureProjMod">
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Description-->
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Description:</span>
-                                    </div>
-                                    <textarea type="text" class="form-control" id="descriptionAddFeatureProjMod"></textarea>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Submit-->
-                                <div class="row col-5">
-                                    <label class="btn btn-block btn-outline-primary">Add Feature</label>
-                                </div>
-                            </div>
-
-                            <!--Modify-->
-                            <div id="modFeatureProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-7">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-success col-11">Choose Features:</button>
-                                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Feature 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Maker Info-->
-                                <div id="infoModMakersProjMod" class="row col-12">
-                                    <!--ID-->
-                                    <div class="input-group col-6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">ID:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="idModMakerProjMod">
-                                    </div>
-
-                                    <!--Position-->
-                                    <div class="input-group col-6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Position:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="positionModMakerProjMod">
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Description-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Description:</span>
-                                        </div>
-                                        <textarea type="text" class="form-control" id="descriptionModMakerProjMod"></textarea>
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Submit-->
-                                    <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Modify Maker</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Delete-->
-                            <div id="delFeatureProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-7">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11">Choose Maker:</button>
-                                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Maker 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Submit-->
-                                <div class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger">Delete Maker</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CAROUSEL -->
-                        <div id="carouselProjMod" class="row col-12">
-                            <!--Carousel Header-->
-                            <div class="col-12">
-                                <h4>Carousel Information</h4>
-                                <hr style="border-color: #000;margin-bottom: 0;" />
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Options-->
-                            <div class="row col-6">
-                                <div class="btn-group col-12">
-                                    <button type="button" class="btn btn-danger col-11">Choose Action:</button>
-                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right col-12">
-                                        <label class="dropdown-item text-center">Add Carousel Slide</label>
-                                        <label class="dropdown-item text-center">Delete Carousel Slide</label>
-                                        <label class="dropdown-item text-center">Modify Carousel Slide</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12"><br /></div>
-
-                            <!--Add-->
-                            <div id="addCarouselProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">ID:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="idAddCarouselProjMod">
-                                </div>
-
-                                <!--Title-->
-                                <div class="input-group col-6">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Title:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="titleAddCarouselProjMod">
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Image -->
-                                <div class="input-group col-9">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Image: </span>
-                                    </div>
-                                    <input type="text" class="form-control" id="imgAddCarouselProjMod">
-                                </div>
-
-                                <!--Align-->
-                                <div class="input-group col-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Align (l/c/r):</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="alignAddCarouselProjMod">
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Text-->
-                                <div class="input-group col-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Text:</span>
-                                    </div>
-                                    <textarea type="text" class="form-control" id="textAddCarouselProjMod"></textarea>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Submit-->
-                                <div class="row col-5">
-                                    <label class="btn btn-block btn-outline-primary">Add Carousel Slide</label>
-                                </div>
-                            </div>
-
-                            <!--Modify-->
-                            <div id="modCarouselProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-7">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-success col-11">Choose Carousel Slide:</button>
-                                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Slide 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Maker Info-->
-                                <div id="infoModCarouselProjMod" class="row col-12">
-                                    <!--ID-->
-                                    <div class="input-group col-6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">ID:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="idModCarouselProjMod">
-                                    </div>
-
-                                    <!--Title-->
-                                    <div class="input-group col-6">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Title:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="titleModCarouselProjMod">
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Img-->
-                                    <div class="input-group col-9">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Image:</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="imgModCarouselProjMod">
-                                    </div>
-
-                                    <!--Align-->
-                                    <div class="input-group col-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Align (l/c/r):</span>
-                                        </div>
-                                        <input type="text" class="form-control" id="alignModCarouselProjMod">
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Text-->
-                                    <div class="input-group col-12">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Text:</span>
-                                        </div>
-                                        <textarea type="text" class="form-control" id="textModCarouselProjMod"></textarea>
-                                    </div>
-                                    <div class="col-12"><br /></div>
-
-                                    <!--Submit-->
-                                    <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Modify Carousel Slide</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Delete-->
-                            <div id="delMakersProjMod" class="row col-12">
-                                <!--ID-->
-                                <div class="row col-7">
-                                    <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11">Choose Carousel Slide:</button>
-                                        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Slide 1</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12"><br /></div>
-
-                                <!--Submit-->
-                                <div class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger">Delete Carousel Slide</label>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- END PROJECTS -->
+                    <div class="card-footer">
+                        <br />
+                        <label class="btn btn-block btn-outline-warning" onclick="submitAllChanges();">Submit All Changes</label>
+                        AllData Changer By Joseph Delcastillo III &copy; 2018
                     </div>
-
-                    <!--END MODIFY-->
                 </div>
-
-                <div class="row" id="add" style="display: none;">
-                    <!--START ADD-->
-                    <div class="row col-12">
-                        <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
-                            <label class="btn btn-outline-success active col-6">
-                                <input type="radio"checked> People
-                            </label>
-                            <label class="btn btn-outline-success col-6">
-                                <input type="radio"> Projects
-                            </label>
-                        </div>
-                    </div>
-
-
-
-
-                    <!--END ADD-->
-                </div>
-
-                <!--END CARD BODY-->
             </div>
 
-            <div class="card-footer">
-                <br />
-                <label class="btn btn-block btn-outline-warning" onclick="submitAllChanges();">Submit All Changes</label>
-                AllData Changer By Joseph Delcastillo III &copy; 2018
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>
+                            AllData Preview
+                        </h1>
+                    </div>
+                    <div class="card-body">
+                        <pre id="json-renderer" class="text-left"></pre>
+                    </div>
+                    <div class="card-footer">
+                        AllData Changer By Joseph Delcastillo III &copy; 2018
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Padding -->
-        <div class="row col-12"><br /></div>
-        <!-- Padding -->
-        <div class="row col-12"><br /></div>
-        <!-- Padding -->
-        <div class="row col-12"><br /></div>
     </div>
-
+    
     <script>
         window.onload = function () { if (localStorage.getItem('allData') == null || localStorage.getItem('allData') == undefined) { window.open('../index.html'); } }
         var allData = JSON.parse(localStorage.getItem('allData'));
 
         window.onload = function verify() { if (localStorage.getItem('pass') != 'true') { window.close(); } }
 
+        window.onload = $('#json-renderer').jsonViewer(allData, { collapsed: true });
         /**********************************************************************************
         *                             Modify Portion
         **********************************************************************************/
 
         //********************* Variables *********************
-
+        var chosenPersonIndex = 0;
+        var selectModContactInfoModNumber = 0;
+        var selectDelContactInfoModNumber = 0;
+        var selectModAchievementInfoModNumber = 0;
+        var selectDelAchievementInfoModNumber = 0;
+        var selectModAcreditInfoModNumber = 0;
+        var selectDelAcreditInfoModNumber = 0;
 
         //********************* Functions *********************
         function modifyInit() {
@@ -1333,7 +1350,6 @@
         }
 
         /******** People ********/
-        var chosenPersonIndex = 0;
 
         function peopleModInit() {
             setUpPeopleList();
@@ -1435,7 +1451,6 @@
             document.getElementById('addContactsMod').style.display = 'none';
             document.getElementById('modContactsMod').style.display = 'block';
         }
-        var selectModContactInfoModNumber = 0;
         function selectModContactInfoMod(a) {
             selectModContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
             document.getElementById('headerOptionModContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].Name;
@@ -1499,7 +1514,6 @@
             document.getElementById('modContactsMod').style.display = 'none';
             document.getElementById('delContactsMod').style.display = 'block';
         }
-        var selectDelContactInfoModNumber = 0;
         function selectDelContactInfoMod(a) {
             selectDelContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
             document.getElementById('headerOptionDelContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectDelContactInfoModNumber].Name;
@@ -1531,7 +1545,6 @@
             document.getElementById('addAchieveMod').style.display = 'none';
             document.getElementById('modAchieveMod').style.display = 'block';
         }
-        var selectModAchievementInfoModNumber = 0;
         function selModAchievemenInfoMod(x) {
             selectModAchievementInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Acheivements, x);
             document.getElementById('headerOptionModAchieveMod').innerHTML = allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Name;
@@ -1601,7 +1614,6 @@
             document.getElementById('modAchieveMod').style.display = 'none';
             document.getElementById('delAchieveMod').style.display = 'block';
         }
-        var selectDelAchievementInfoModNumber = 0;
         function selDelAchievementInfoMod(x) {
             selectDelAchievementInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Acheivements, (x));
             document.getElementById('headerOptionListDelAchieveMod').innerHTML = allData.People[chosenPersonIndex].Acheivements[selectDelAchievementInfoModNumber].Name;
@@ -1637,7 +1649,6 @@
             document.getElementById('addAcreditMod').style.display = 'none';
             document.getElementById('modAcreditMod').style.display = 'block';
         }
-        var selectModAcreditInfoModNumber = 0;
         function selModAcreditInfoMod(x) {
             selectModAcreditInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Accreditations, x);
             document.getElementById('headerOptionListModIdListAcreditMod').innerHTML = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Name;
@@ -1715,7 +1726,6 @@
             document.getElementById('modAcreditMod').style.display = 'none';
             document.getElementById('delAcreditMod').style.display = 'block';
         }
-        var selectDelAcreditInfoModNumber = 0;
         function selDelAcreditInfoMod(x) {
             selectDelAchievementInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Accreditations, (x));
             document.getElementById('headerOptionListIDInfoAcreditMod').innerHTML = allData.People[chosenPersonIndex].Accreditations[selectDelAcreditInfoModNumber].Speaker.Name;
@@ -1727,7 +1737,7 @@
                 delAcreddidationsInfoModInit();
             }
         }
-        
+
         /******** Projects ********/
         function projectModInit() {
             document.getElementById('projectsMod').style.display = 'block';
@@ -1743,7 +1753,7 @@
 
         //********************* Functions *********************
         function addInit() {
-            document.getElementById('add').style.display = 'flex';
+            document.getElementById('add').style.display = 'block';
             document.getElementById('modify').style.display = 'none';
         }
 
@@ -1828,10 +1838,10 @@
                     for (r in u) {
                         var y = (u[r]["Last Name"].trim() + u[r]["First Name"].trim());
                         //console.log(x + ' Vs ' + y + '');
-                        if ((x.localeCompare(y) > 0) && ( r == (u.length - 1))) {
+                        if ((x.localeCompare(y) > 0) && (r == (u.length - 1))) {
                             //console.log('Add ' + x + ' After: ' + u[(r)]["Last Name"]);
                             u.push(a[i]);
-                        } else if(x.localeCompare(y) < 0){
+                        } else if (x.localeCompare(y) < 0) {
                             //console.log('Add ' + x + ' Before: ' + u[(r)]["Last Name"]);
                             u.splice((r - i), 0, a[i]);
                             //console.log('slice: ' + (r - 1));
