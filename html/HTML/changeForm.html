@@ -569,12 +569,11 @@
                                 <div id="idInfoAcreditMod" class="row col-12">
                                     <div class="row col-6">
                                         <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-danger col-11">Choose Acredditation: </button>
+                                            <button type="button" class="btn btn-danger col-11" id="headerOptionListIDInfoAcreditMod">Choose Acredditation: </button>
                                             <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
-                                            <div class="dropdown-menu dropdown-menu-right col-12">
-                                                <label class="dropdown-item text-center">Acredditation 1</label>
+                                            <div class="dropdown-menu dropdown-menu-right col-12" id="optionListIDInfoAcreditMod">
                                             </div>
                                         </div>
                                     </div>
@@ -584,7 +583,7 @@
 
                                 <!--Submit-->
                                 <div id="subBtnInfoAccreditMod" class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger">Delete Acredditation</label>
+                                    <label class="btn btn-block btn-outline-danger" onclick="subDelAchievementInfoMod();">Delete Acredditation</label>
                                 </div>
                             </div>
 
@@ -607,19 +606,11 @@
                                     <div id="speakerAddInfoAcreditMod" class="row col-12">
                                         <!--Name-->
                                         <div id="nameSpeakerAddInfoAcreditMod" class="row col-12">
-                                            <!--First Name-->
-                                            <div class="input-group col-6">
+                                            <div class="input-group col-12">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">First Name:</span>
+                                                    <span class="input-group-text">Name:</span>
                                                 </div>
-                                                <input type="text" class="form-control" id="firstNameSpeakerAddAcreditMod">
-                                            </div>
-                                            <!--Last Name-->
-                                            <div class="input-group col-6">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Last Name:</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="lastNameSpeakerAddAcreditMod">
+                                                <input type="text" class="form-control" id="nameSpeakerAddAcreditMod">
                                             </div>
                                         </div>
                                         <!-- Padding -->
@@ -652,7 +643,7 @@
                                     <div id="descriptionAddInfoAcreditMod" class="row col-12">
                                         <div class="input-group col-12">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Last Name:</span>
+                                                <span class="input-group-text">Description:</span>
                                             </div>
                                             <textarea type="text" class="form-control" id="descriptionAddAcreditMod"></textarea>
                                         </div>
@@ -662,7 +653,7 @@
 
                                     <!--Submit-->
                                     <div id="subAddInfoAcreditMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary">Add Acredditation</label>
+                                        <label class="btn btn-block btn-outline-primary" onclick="subAddAcredditationsInfoMod();">Add Acredditation</label>
                                     </div>
                                 </div>
                             </div>
@@ -671,14 +662,13 @@
                             <div id="modAcreditMod" class="row col-12" style="display: none;">
                                 <!--List of all Acredits-->
                                 <div id="idListAcreditMod" class="row col-12">
-                                    <div id="idListContactsMod" class="row col-8">
+                                    <div id="idListAcreditMod" class="row col-8">
                                         <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-success col-11">Choose Acredditation</button>
+                                            <button type="button" class="btn btn-success col-11" id="headerOptionListModIdListAcreditMod">Choose Acredditation</button>
                                             <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
-                                            <div class="dropdown-menu dropdown-menu-right col-12">
-                                                <label class="dropdown-item text-center">Acredditation 1</label>
+                                            <div class="dropdown-menu dropdown-menu-right col-12" id="optionListIdListAcreditMod">
                                             </div>
                                         </div>
                                     </div>
@@ -686,7 +676,7 @@
                                 <!-- Padding -->
                                 <div class="row col-12"><br /></div>
 
-                                <div id="infoAcreditMod" class="row col-12">
+                                <div id="modInfoAcreditMod" class="row col-12">
                                     <!--ID-->
                                     <div id="idInfoAcreditMod" class="row col-12">
                                         <div class="input-group col-12">
@@ -702,21 +692,11 @@
                                     <!--Speaker Info-->
                                     <div id="speakerAddInfoAcreditMod" class="row col-12">
                                         <!--Name-->
-                                        <div id="nameSpeakerModInfoAcreditMod" class="row col-12">
-                                            <!--First Name-->
-                                            <div class="input-group col-6">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">First Name:</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="firstNameSpeakerModAcreditMod">
+                                        <div class="input-group col-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Name:</span>
                                             </div>
-                                            <!--Last Name-->
-                                            <div class="input-group col-6">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Last Name:</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="lastNameSpeakerModAcreditMod">
-                                            </div>
+                                            <input type="text" class="form-control" id="nameSpeakerModAcreditMod">
                                         </div>
                                         <!-- Padding -->
                                         <div class="row col-12"><br /></div>
@@ -758,7 +738,7 @@
 
                                     <!--Submit-->
                                     <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Modify Accreditation</label>
+                                        <label class="btn btn-block btn-outline-success" onclick="subModAcreditInfoMod();">Modify Accreditation</label>
                                     </div>
                                 </div>
                             </div>
@@ -1641,12 +1621,40 @@
         //Mod
         function modAcreddidationsInfoModInit() {
             document.getElementById('headerOptionListAcreditMod').innerHTML = 'Modify Contact';
+            document.getElementById('headerOptionListModIdListAcreditMod').innerHTML = 'Choose Acredditation';
 
-            //TODO: Populate Fields
-
+            var list = sortByTwoInputAlpha(allData.People[chosenPersonIndex].Accreditations, 'Speaker', 'Name');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selModAcreditInfoMod(\'' + list[i].ID + '\')">' + list[i].Speaker.Name + ' (' + list[i].ID + ')</label> \n';
+            }
+            document.getElementById('optionListIdListAcreditMod').innerHTML = temp;
+            document.getElementById('modInfoAcreditMod').style.display = 'none';
             document.getElementById('delAcreditMod').style.display = 'none';
             document.getElementById('addAcreditMod').style.display = 'none';
             document.getElementById('modAcreditMod').style.display = 'block';
+        }
+        var selectModAcreditInfoModNumber = 0;
+        function selModAcreditInfoMod(x) {
+            selectModAcreditInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Accreditations, x);
+            document.getElementById('headerOptionListModIdListAcreditMod').innerHTML = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Name;
+
+            document.getElementById('idSpeakerModAcreditMod').value = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].ID;
+            document.getElementById('nameSpeakerModAcreditMod').value = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Name;
+            document.getElementById('titleSpeakerModAcreditMod').value = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Title;
+            document.getElementById('connectionSpeakerModAcreditMod').value = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Connections;
+            document.getElementById('descriptionSpeakerModAcreditMod').value = allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Description;
+
+            document.getElementById('modInfoAcreditMod').style.display = 'block';
+            document.getElementById('modInfoAchieveMod').style.display = 'block';
+        }
+        function subModAcreditInfoMod() {
+            allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].ID = document.getElementById('idSpeakerModAcreditMod').value;
+            allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Name = document.getElementById('nameSpeakerModAcreditMod').value;
+            allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Title = document.getElementById('titleSpeakerModAcreditMod').value;
+            allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Speaker.Connections = document.getElementById('connectionSpeakerModAcreditMod').value;
+            allData.People[chosenPersonIndex].Accreditations[selectModAcreditInfoModNumber].Description = document.getElementById('descriptionSpeakerModAcreditMod').value;
         }
         //Add
         function addAcreddidationsInfoModInit() {
@@ -1656,15 +1664,66 @@
             document.getElementById('modAcreditMod').style.display = 'none';
             document.getElementById('addAcreditMod').style.display = 'block';
         }
+        function subAddAcredditationsInfoMod() {
+            var id = document.getElementById('idAddInfoAcreditModText').value;
+            var name = document.getElementById('nameSpeakerAddAcreditMod').value;
+            var title = document.getElementById('titleSpeakerAddAcreditMod').value;
+            var url = document.getElementById('connectionSpeakerAddAcreditMod').value;
+            var description = document.getElementById('descriptionAddAcreditMod').value;
+
+            for (i in allData.People[chosenPersonIndex].Accreditations) {
+                if (id == allData.People[chosenPersonIndex].Accreditations[i].ID) {
+                    var r = confirm("Their is another item with the ID '" + allData.People[chosenPersonIndex].Accreditations[i].ID + "'! Do you want to replace it?");
+                    if (r == true) {
+                        allData.People[chosenPersonIndex].Accreditations[i].ID = id;
+                        allData.People[chosenPersonIndex].Accreditations[i].Speaker.Name = name;
+                        allData.People[chosenPersonIndex].Accreditations[i].Speaker.Title = title;
+                        allData.People[chosenPersonIndex].Accreditations[i].Speaker.Connections = url;
+                        allData.People[chosenPersonIndex].Accreditations[i].Description = description;
+                    }
+                    break;
+                } else if (i == (allData.People[chosenPersonIndex].Accreditations.length - 1)) {
+                    var output = {
+                        "ID": id,
+                        "Speaker": {
+                            "Title": title,
+                            "Name": name,
+                            "Connections": url
+                        },
+                        "Description": description
+                    }
+                    allData.People[chosenPersonIndex].Accreditations.push(output);
+                }
+            }
+        }
         //Del
         function delAcreddidationsInfoModInit() {
-            document.getElementById('headerOptionListAcreditMod').innerHTML = 'Delete Contact';
+            document.getElementById('headerOptionListAcreditMod').innerHTML = 'Delete Acreditation';
+            document.getElementById('headerOptionListIDInfoAcreditMod').innerHTML = 'Choose Acreditation';
 
-            //TODO: Populate Fields
+            var list = sortByTwoInputAlpha(allData.People[chosenPersonIndex].Accreditations, 'Speaker', 'Name');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selDelAcreditInfoMod(\'' + list[i].ID + '\')">' + list[i].Speaker.Name + ' (' + list[i].ID + ')</label> \n';
+            }
+            document.getElementById('optionListIDInfoAcreditMod').innerHTML = temp;
 
             document.getElementById('addAcreditMod').style.display = 'none';
             document.getElementById('modAcreditMod').style.display = 'none';
             document.getElementById('delAcreditMod').style.display = 'block';
+        }
+        var selectDelAcreditInfoModNumber = 0;
+        function selDelAcreditInfoMod(x) {
+            selectDelAchievementInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Accreditations, (x));
+            document.getElementById('headerOptionListIDInfoAcreditMod').innerHTML = allData.People[chosenPersonIndex].Accreditations[selectDelAcreditInfoModNumber].Speaker.Name;
+        }
+        function subDelAchievementInfoMod() {
+            var r = confirm("Are you sure you want to remove '" + allData.People[chosenPersonIndex].Accreditations[selectDelAcreditInfoModNumber].Speaker.Name + "'!");
+            if (r == true) {
+                allData.People[chosenPersonIndex].Accreditations.splice(selectDelAcreditInfoModNumber, 1);
+                delAcreddidationsInfoModInit();
+            }
         }
         
         /******** Projects ********/
@@ -1691,8 +1750,37 @@
         *                            Everything Uses This
         **********************************************************************************/
 
+        //Sort Array alphabetically by twp depth value
+        function sortByTwoInputAlpha(a, j, f) {
+            a.splice();
+            var u = [];
+            for (i in a) {
 
-        //Sort Array alphabetically by last name
+                var x = a[i][j][f];
+                if (i == 0) {
+                    u.push(a[i]);
+                    //console.log('init');
+                }
+                else {
+                    for (r in u) {
+                        var y = u[r][j][f];
+                        //console.log(x + ' Vs ' + y + '');
+                        if ((x.localeCompare(y) > 0) && (r == (u.length - 1))) {
+                            //console.log('Add ' + x + ' After: ' + u[(r)]["Last Name"]);
+                            u.push(a[i]);
+                        } else if (x.localeCompare(y) < 0) {
+                            //console.log('Add ' + x + ' Before: ' + u[(r)]["Last Name"]);
+                            u.splice((r - i), 0, a[i]);
+                            //console.log('slice: ' + (r - 1));
+                            break;
+                        }
+                    }
+                }
+            }
+            return u;
+        }
+
+        //Sort Array alphabetically by single depth value
         function sortByInputAlpha(a, j) {
             a.splice();
             var u = [];
@@ -1716,7 +1804,6 @@
                             //console.log('slice: ' + (r - 1));
                             break;
                         }
-
                     }
                 }
             }
