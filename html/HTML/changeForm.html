@@ -1124,14 +1124,14 @@
                                     <!--Options-->
                                     <div class="row col-6">
                                         <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-danger col-11">Choose Action:</button>
+                                            <button type="button" class="btn btn-danger col-11" id="headerCarouselProjMod">Choose Action:</button>
                                             <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right col-12">
-                                                <label class="dropdown-item text-center">Add Carousel Slide</label>
-                                                <label class="dropdown-item text-center">Delete Carousel Slide</label>
-                                                <label class="dropdown-item text-center">Modify Carousel Slide</label>
+                                                <label class="dropdown-item text-center" onclick="addCarouselProjModInit();">Add Carousel Slide</label>
+                                                <label class="dropdown-item text-center" onclick="delCarouselProjModInit();">Delete Carousel Slide</label>
+                                                <label class="dropdown-item text-center" onclick="modCarouselProjModInit();">Modify Carousel Slide</label>
                                             </div>
                                         </div>
                                     </div>
@@ -1184,7 +1184,7 @@
 
                                         <!--Submit-->
                                         <div class="row col-5">
-                                            <label class="btn btn-block btn-outline-primary">Add Carousel Slide</label>
+                                            <label class="btn btn-block btn-outline-primary" onclick="subAddCarouselProjMod();">Add Carousel Slide</label>
                                         </div>
                                     </div>
 
@@ -1193,12 +1193,11 @@
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-success col-11">Choose Carousel Slide:</button>
+                                                <button type="button" class="btn btn-success col-11" id="headerOptionListModCarouselProjMod">Choose Carousel Slide:</button>
                                                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Slide 1</label>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListModCarouselProjMod">
                                                 </div>
                                             </div>
                                         </div>
@@ -1251,7 +1250,7 @@
 
                                             <!--Submit-->
                                             <div class="row col-5">
-                                                <label class="btn btn-block btn-outline-success">Modify Carousel Slide</label>
+                                                <label class="btn btn-block btn-outline-success" onclick="subModCarouselProjMod();">Modify Carousel Slide</label>
                                             </div>
                                         </div>
                                     </div>
@@ -1261,12 +1260,11 @@
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-danger col-11">Choose Carousel Slide:</button>
+                                                <button type="button" class="btn btn-danger col-11" id="headerOptionListDelCarouselProjMod">Choose Carousel Slide:</button>
                                                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Slide 1</label>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListDelCarouselProjMod">
                                                 </div>
                                             </div>
                                         </div>
@@ -1274,7 +1272,7 @@
 
                                         <!--Submit-->
                                         <div class="row col-5">
-                                            <label class="btn btn-block btn-outline-danger">Delete Carousel Slide</label>
+                                            <label class="btn btn-block btn-outline-danger" onclick="subDelCarouselProjMod();">Delete Carousel Slide</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1808,7 +1806,7 @@
         }
 
         /*** Makers Info ***/
-        var selDelMakersProjModNumber = 0
+        var selDelMakersProjModNumber = 0;
         var selModMakersProjModNumber = 0;
         function makersProjModInit() {
             document.getElementById('addMakerProjMod').style.display = 'none';
@@ -1910,7 +1908,7 @@
         }//Sub Mod
 
         /*** Features Info ***/
-        var selDelFeaturesProjModNumber = 0
+        var selDelFeaturesProjModNumber = 0;
         var selModFeaturesProjModNumber = 0;
         function featuresProjModInit() {
             document.getElementById('addFeatureProjMod').style.display = 'none';
@@ -2022,6 +2020,8 @@
         }//Sub Mod
 
         /*** Carousel Info ***/
+        var selDelCarouselProjModNumber = 0;
+        var selModCarouselProjModNumber = 0;
         function carouselProjModInit() {
             document.getElementById('addCarouselProjMod').style.display = 'none';
             document.getElementById('delCarouselProjMod').style.display = 'none';
@@ -2029,6 +2029,107 @@
 
             document.getElementById('carouselProjMod').style.display = 'flex';
         }
+        function addCarouselProjModInit() {
+            document.getElementById('delCarouselProjMod').style.display = 'none';
+            document.getElementById('modCarouselProjMod').style.display = 'none';
+            document.getElementById('headerCarouselProjMod').innerHTML = 'Add Carousel';
+            document.getElementById('addCarouselProjMod').style.display = 'flex';
+        } //Init Add
+        function subAddCarouselProjMod() {
+            var id = document.getElementById('idAddCarouselProjMod').value;
+            var title = document.getElementById('titleAddCarouselProjMod').value;
+            var img = document.getElementById('imgAddCarouselProjMod').value;
+            var align = document.getElementById('alignAddCarouselProjMod').value;
+            var text = document.getElementById('textAddCarouselProjMod').value;
+
+            var a = true;
+            for (i in allData.Projects[chosenProjectIndex].Carousel) {
+                if (allData.Projects[chosenProjectIndex].Carousel[i].ID == id) {
+                    a = false;
+                    var r = confirm("There is another Carousel Slide with the id \'" + id + "\'? Do you want to overwrite it?");
+                    if (r == true) {
+                        allData.Projects[chosenProjectIndex].Carousel[i].ID = id;
+                        allData.Projects[chosenProjectIndex].Carousel[i].Title = title;
+                        allData.Projects[chosenProjectIndex].Carousel[i].Image = img;
+                        allData.Projects[chosenProjectIndex].Carousel[i].Align = align;
+                        allData.Projects[chosenProjectIndex].Carousel[i].Text = text;
+                    }
+                    break;
+                } else {
+                    a = true;
+                }
+            }
+            if (a) {
+                temp = {
+                    "ID": id,
+                    "Title": title,
+                    "Align": align,
+                    "Image": img,
+                    "Text": text
+                }
+                allData.Projects[chosenProjectIndex].Carousel.push(temp);
+            }
+        }//Submit Add
+        function delCarouselProjModInit() {
+            document.getElementById('addCarouselProjMod').style.display = 'none';
+            document.getElementById('modCarouselProjMod').style.display = 'none';
+            document.getElementById('headerCarouselProjMod').innerHTML = 'Remove Carousel';
+            document.getElementById('headerOptionListDelCarouselProjMod').innerHTML = 'Choose Carousel:';
+
+            var list = sortByInputAlpha(allData.Projects[chosenProjectIndex].Carousel, 'ID');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selDelCarouselProjMod(\'' + list[i].ID + '\')">' + list[i].ID + '</label> \n';
+            }
+            document.getElementById('optionListDelCarouselProjMod').innerHTML = temp;
+
+            document.getElementById('delCarouselProjMod').style.display = 'flex';
+        } //Init Del
+        function selDelCarouselProjMod(x) {
+            selDelCarouselProjModNumber = findIndexInArrayByID(allData.Projects[chosenProjectIndex].Carousel, (x));
+            document.getElementById('headerOptionListDelCarouselProjMod').innerHTML = allData.Projects[chosenProjectIndex].Carousel[selDelCarouselProjModNumber].ID;
+        }//Sel Del
+        function subDelCarouselProjMod() {
+            var r = confirm("Are you sure you want to remove '" + allData.Projects[chosenProjectIndex].Carousel[selDelCarouselProjModNumber].ID + "'!");
+            if (r == true) {
+                allData.Projects[chosenProjectIndex].Carousel.splice(selDelCarouselProjModNumber, 1);
+                delCarouselProjModInit();
+            }
+        }//Sub Del
+        function modCarouselProjModInit() {
+            document.getElementById('addCarouselProjMod').style.display = 'none';
+            document.getElementById('delCarouselProjMod').style.display = 'none';
+            document.getElementById('infoModCarouselProjMod').style.display = 'none';
+            document.getElementById('headerCarouselProjMod').innerHTML = 'Modify Carousel';
+            document.getElementById('headerOptionListModCarouselProjMod').innerHTML = 'Choose Carousel: ';
+
+            var list = sortByInputAlpha(allData.Projects[chosenProjectIndex].Carousel, 'ID');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selModCarouselProjMod(\'' + list[i].ID + '\')">' + list[i].ID + '</label> \n';
+            }
+            document.getElementById('optionListModCarouselProjMod').innerHTML = temp;
+            document.getElementById('modCarouselProjMod').style.display = 'flex';
+        } //Init Mod
+        function selModCarouselProjMod(x) {
+            selModCarouselProjModNumber = findIndexInArrayByID(allData.Projects[chosenProjectIndex].Carousel, x);
+            document.getElementById('headerOptionListModCarouselProjMod').innerHTML = allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].ID;
+            document.getElementById('idModCarouselProjMod').value = allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].ID;
+            document.getElementById('titleModCarouselProjMod').value = allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Title;
+            document.getElementById('imgModCarouselProjMod').value = allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Image;
+            document.getElementById('alignModCarouselProjMod').value = allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Align;
+            document.getElementById('textModCarouselProjMod').value = allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Text;
+            document.getElementById('infoModCarouselProjMod').style.display = 'flex';
+        }//Sel Mod
+        function subModCarouselProjMod() {
+            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].ID = document.getElementById('idModCarouselProjMod').value;
+            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Title = document.getElementById('titleModCarouselProjMod').value;
+            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Image = document.getElementById('imgModCarouselProjMod').value;
+            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Align= document.getElementById('alignModCarouselProjMod').value;
+            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Text = document.getElementById('textModCarouselProjMod').value;
+        }//Sub Mod
 
         /**********************************************************************************
         *                              Add Portion
