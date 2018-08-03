@@ -190,7 +190,7 @@
                             <div class="row col-12"><br /></div>
                             <!--Submit-->
                             <div class="row col-5">
-                                <label class="btn btn-block btn-outline-info">Submit</label>
+                                <label class="btn btn-block btn-outline-info" onclick="subGeneralInfoModInit();">Submit</label>
                             </div>
 
                         </div>
@@ -291,7 +291,7 @@
                                     <div class="row col-12"><br /></div>
 
                                     <div id="subAddInfoContactsMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary"> Add Contact</label>
+                                        <label class="btn btn-block btn-outline-primary" onclick="subAddContactInfoMod();"> Add Contact</label>
                                     </div>
                                 </div>
                             </div>
@@ -1433,7 +1433,27 @@
 
             document.getElementById('generalInfoMod').style.display = 'block';
         }
+        function subGeneralInfoModInit() {
+            var id = document.getElementById('generalInfoPersonIDInput').value;
+            var first = document.getElementById('generalInfoPersonFirstNameInput').value;
+            var last = document.getElementById('generalInfoPersonLastNameInput').value;
+            var level = document.getElementById('generalInfoPersonLevelInput').value;
+            var age = document.getElementById('generalInfoPersonAgeInput').value;
+            var description = document.getElementById('generalInfoPersonDescriptionInput').value;
+            var know = document.getElementById('generalInfoPersonKnowInput').value;
 
+            var r = confirm("Are you sure you want to change this info for \'" + allData.People[chosenPersonIndex]["Last Name"] + ", " + allData.People[chosenPersonIndex]["First Name"] + "\'!");
+            if (r == true) {
+                allData.People[chosenPersonIndex].ID = id;
+                allData.People[chosenPersonIndex]["First Name"] = first;
+                allData.People[chosenPersonIndex]["Last Name"] = last;
+                allData.People[chosenPersonIndex].Level = level;
+                allData.People[chosenPersonIndex].Age = age;
+                allData.People[chosenPersonIndex].Description = description;
+                allData.People[chosenPersonIndex]["Programming Knowledge"] = know;
+            }
+
+        }
 
 
         /*Contact Info*/
@@ -1463,7 +1483,6 @@
         var selectModContactInfoModNumber = 0;
         function selectModContactInfoMod(a) {
             selectModContactInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Contact, a);
-            console.log(selectModContactInfoModNumber);
             document.getElementById('headerOptionModContactsMod').innerHTML = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].Name;
 
             document.getElementById('idModInfoContactsModInput').value = allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].ID;
@@ -1489,6 +1508,30 @@
             document.getElementById('delContactsMod').style.display = 'none';
             document.getElementById('modContactsMod').style.display = 'none';
             document.getElementById('addContactsMod').style.display = 'block';
+        }
+        function subAddContactInfoMod() {
+            var id = document.getElementById('idAddInfoContactsModInput').value;
+            var url = document.getElementById('urlAddInfoContactsModInput').value;
+            var name = document.getElementById('nameAddInfoContactsModInput').value;
+            console.log(id + ', ' + url + ', ' + name);
+
+            for (i in allData.People[chosenPersonIndex].Contact) {
+                if (id == allData.People[chosenPersonIndex].Contact[i].ID) {
+                    var r = confirm("Their is another item with the ID '" + allData.People[chosenPersonIndex].Contact[i].ID + "'! Do you want to replace it?");
+                    if (r == true) {
+                        console.log('True: ' + i);
+                        allData.People[chosenPersonIndex].Contact[i].ID = id;
+                        allData.People[chosenPersonIndex].Contact[i].URL = url;
+                        allData.People[chosenPersonIndex].Contact[i].Name = name;
+                        break;
+                    }
+                } else if (i == (allData.People[chosenPersonIndex].Contact.length - 1)) {
+                    console.log(i + 'END')
+                    var output = { "ID": id, "URL": url, "Name": name }
+                    allData.People[chosenPersonIndex].Contact.push(output);
+                }
+            }
+
         }
         //Del
         function delContactInfoModInit() {
