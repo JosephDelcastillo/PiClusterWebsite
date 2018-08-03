@@ -762,12 +762,11 @@
 
                                 <div class="row col-7">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11">Choose Project Name</button>
+                                        <button type="button" class="btn btn-danger col-11" id="headerListOfAllProjectsMod">Choose Project Name</button>
                                         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Project 1</label>
+                                        <div class="dropdown-menu dropdown-menu-right col-12" id="listOfAllProjectsMod">
                                         </div>
                                     </div>
                                 </div>
@@ -782,8 +781,16 @@
                                     </div>
                                     <div class="col-12"><br /></div>
 
+                                    <!--ID-->
+                                    <div class="input-group col-6">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">id:</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="idGenInfoProjMod">
+                                    </div>
+
                                     <!--Name-->
-                                    <div class="input-group col-12">
+                                    <div class="input-group col-6">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">Name:</span>
                                         </div>
@@ -809,9 +816,18 @@
                                     </div>
                                     <div class="col-12"><br /></div>
 
+                                    <!--Custom-->
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Custom Code:</span>
+                                        </div>
+                                        <textarea type="text" class="form-control" id="customGenInfoProjMod"></textarea>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+
                                     <!--Submit-->
                                     <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Change Information</label>
+                                        <label class="btn btn-block btn-outline-success" onclick="subGenInfoProjMod();">Change Information</label>
                                     </div>
 
                                     <div class="col-12">
@@ -830,14 +846,14 @@
                                     <!--Options-->
                                     <div class="row col-6">
                                         <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-danger col-11">Choose Action:</button>
+                                            <button type="button" class="btn btn-danger col-11" id="headerMakersProjMod">Choose Action:</button>
                                             <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right col-12">
-                                                <label class="dropdown-item text-center">Add Maker</label>
-                                                <label class="dropdown-item text-center">Delete Maker</label>
-                                                <label class="dropdown-item text-center">Modify Maker</label>
+                                                <label class="dropdown-item text-center" onclick="addMakersProjModInit();">Add Maker</label>
+                                                <label class="dropdown-item text-center" onclick="delMakersProjModInit();">Delete Maker</label>
+                                                <label class="dropdown-item text-center" onclick="modMakersProjModInit();">Modify Maker</label>
                                             </div>
                                         </div>
                                     </div>
@@ -846,16 +862,11 @@
                                     <!--Add-->
                                     <div id="addMakerProjMod" class="row col-12">
                                         <!--ID-->
-                                        <div class="row col-6">
-                                            <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-primary col-11">Choose Maker:</button>
-                                                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Maker 1</label>
-                                                </div>
+                                        <div class="input-group col-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">ID:</span>
                                             </div>
+                                            <input type="text" class="form-control" id="idAddMakerProjMod">
                                         </div>
 
                                         <!--Position-->
@@ -878,21 +889,20 @@
 
                                         <!--Submit-->
                                         <div class="row col-5">
-                                            <label class="btn btn-block btn-outline-primary">Add Maker</label>
+                                            <label class="btn btn-block btn-outline-primary" onclick="subAddMakersProjMod();">Add Maker</label>
                                         </div>
                                     </div>
 
                                     <!--Modify-->
-                                    <div id="modMakersProjMod" class="row col-12">
+                                    <div id="modMakerProjMod" class="row col-12">
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-success col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-success col-11" id="headerOptionListModMakerProjMod">Choose Maker:</button>
                                                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListModMakerProjMod">
                                                 </div>
                                             </div>
                                         </div>
@@ -928,22 +938,21 @@
 
                                             <!--Submit-->
                                             <div class="row col-5">
-                                                <label class="btn btn-block btn-outline-success">Modify Maker</label>
+                                                <label class="btn btn-block btn-outline-success" onclick="subModMakersProjMod();">Modify Maker</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!--Delete-->
-                                    <div id="delMakersProjMod" class="row col-12">
+                                    <div id="delMakerProjMod" class="row col-12">
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-danger col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-danger col-11" id="headerOptionListDelMakerProjMod">Choose Maker:</button>
                                                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListDelMakerProjMod">
                                                 </div>
                                             </div>
                                         </div>
@@ -951,7 +960,7 @@
 
                                         <!--Submit-->
                                         <div class="row col-5">
-                                            <label class="btn btn-block btn-outline-danger">Delete Maker</label>
+                                            <label class="btn btn-block btn-outline-danger" onclick="subDelMakersProjMod();">Delete Maker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1250,7 +1259,7 @@
                                     </div>
 
                                     <!--Delete-->
-                                    <div id="delMakersProjMod" class="row col-12">
+                                    <div id="delCarouselProjMod" class="row col-12">
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
@@ -1329,7 +1338,9 @@
 
         window.onload = function verify() { if (localStorage.getItem('pass') != 'true') { window.close(); } }
 
-        window.onload = $('#json-renderer').jsonViewer(allData, { collapsed: true });
+        window.onload = $('#json-renderer').jsonViewer(allData, { collapsed: false });
+        function renderJSON() { }
+
         /**********************************************************************************
         *                             Modify Portion
         **********************************************************************************/
@@ -1739,9 +1750,184 @@
         }
 
         /******** Projects ********/
+        var chosenProjectIndex = 0;
+
         function projectModInit() {
-            document.getElementById('projectsMod').style.display = 'block';
+            document.getElementById('genInfoProjMod').style.display = 'none';
+            document.getElementById('makersProjMod').style.display = 'none';
+            document.getElementById('featuresProjMod').style.display = 'none';
+            document.getElementById('carouselProjMod').style.display = 'none';
+            document.getElementById('headerListOfAllProjectsMod').innerHTML = 'Choose Project Name';
+
+            setUpProjectList();
+
             document.getElementById('peopleMod').style.display = 'none';
+            document.getElementById('projectsMod').style.display = 'block';
+        }
+        function setUpProjectList() {
+            var listCode = '';
+            var list = [];
+
+            list = sortByInputAlpha(allData.Projects, 'Name');
+            list.splice(0, 0);
+
+            for (i in list) {
+                listCode += makeProjectListOptionCode(list[i]);
+            }
+
+            document.getElementById('listOfAllProjectsMod').innerHTML = listCode;
+        }
+        function makeProjectListOptionCode(x) {
+            return '<label class="dropdown-item text-center" onclick="chooseProjectMod(\'' + x.ID + '\');">' + x.Name + '</label>';
+        }
+        function chooseProjectMod(id) {
+            var index = findProjectIndexByID(id);
+            document.getElementById('headerListOfAllProjectsMod').innerHTML = 'Edit: ' + allData.Projects[index].Name;
+            chosenProjectIndex = index;
+
+            genInfoProjModInit();
+            makersProjModInit();
+            featuresProjModInit();
+            carouselProjModInit();
+        }
+
+        /*** General Info ***/
+        function genInfoProjModInit() {
+            document.getElementById('idGenInfoProjMod').value = allData.Projects[chosenProjectIndex].ID;
+            document.getElementById('nameGenInfoProjMod').value = allData.Projects[chosenProjectIndex].Name;
+            document.getElementById('makerIDGenInfoProjMod').value = allData.Projects[chosenProjectIndex].MakerID;
+            document.getElementById('descriptionGenInfoProjMod').value = allData.Projects[chosenProjectIndex].Description;
+            document.getElementById('customGenInfoProjMod').value = allData.Projects[chosenProjectIndex].Custom;
+
+            document.getElementById('genInfoProjMod').style.display = 'flex';
+        }
+        function subGenInfoProjMod() {
+            allData.Projects[chosenProjectIndex].ID = document.getElementById('idGenInfoProjMod').value;
+            allData.Projects[chosenProjectIndex].Name = document.getElementById('nameGenInfoProjMod').value;
+            allData.Projects[chosenProjectIndex].MakerID = document.getElementById('makerIDGenInfoProjMod').value;
+            allData.Projects[chosenProjectIndex].Description = document.getElementById('descriptionGenInfoProjMod').value;
+            allData.Projects[chosenProjectIndex].Custom = document.getElementById('customGenInfoProjMod').value;
+            renderJSON();
+        }
+
+        /*** Makers Info ***/
+        var selDelMakersProjModNumber = 0
+        var selModMakersProjModNumber = 0;
+        function makersProjModInit() {
+            document.getElementById('addMakerProjMod').style.display = 'none';
+            document.getElementById('delMakerProjMod').style.display = 'none';
+            document.getElementById('modMakerProjMod').style.display = 'none';
+
+            document.getElementById('makersProjMod').style.display = 'flex';
+        }
+        function addMakersProjModInit() {
+            document.getElementById('delMakerProjMod').style.display = 'none';
+            document.getElementById('modMakerProjMod').style.display = 'none';
+            document.getElementById('headerMakersProjMod').innerHTML = 'Add Maker';
+            document.getElementById('addMakerProjMod').style.display = 'flex';
+        } //Init Add
+        function subAddMakersProjMod() {
+            var id = document.getElementById('idAddMakerProjMod').value;
+            var pos = document.getElementById('positionAddMakerProjMod').value;
+            var desc = document.getElementById('makerDescriptionAddMakerProjMod').value;
+
+            var a = true;
+            for (i in allData.Projects[chosenProjectIndex].Makers) {
+                if (allData.Projects[chosenProjectIndex].Makers[i].ID == id) {
+                    a = false;
+                    var r = confirm("There is another Maker with the id \'" + id + "\'? Do you want to overwrite it?");
+                    if (r == true) {
+                        allData.Projects[chosenProjectIndex].Makers[i].ID = id;
+                        allData.Projects[chosenProjectIndex].Makers[i].Position = pos;
+                        allData.Projects[chosenProjectIndex].Makers[i].Description = desc;
+                    }
+                    break;
+                } else {
+                    a = true;
+                }
+            }
+            if (a) {
+                temp = {
+                    "ID": id,
+                    "Position": pos,
+                    "Description": desc
+                }
+                allData.Projects[chosenProjectIndex].Makers.push(temp);
+            }
+        }//Submit Add
+        function delMakersProjModInit() {
+            document.getElementById('addMakerProjMod').style.display = 'none';
+            document.getElementById('modMakerProjMod').style.display = 'none';
+            document.getElementById('headerMakersProjMod').innerHTML = 'Remove Maker';
+            document.getElementById('headerOptionListDelMakerProjMod').innerHTML = 'Choose Maker:';
+
+            var list = sortByInputAlpha(allData.Projects[chosenProjectIndex].Makers, 'ID');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selDelMakersProjMod(\'' + list[i].ID + '\')">' + list[i].ID + '</label> \n';
+            }
+            document.getElementById('optionListDelMakerProjMod').innerHTML = temp;
+
+            document.getElementById('delMakerProjMod').style.display = 'flex';
+        } //Init Del
+        function selDelMakersProjMod(x) {
+            selDelMakersProjModNumber = findIndexInArrayByID(allData.Projects[chosenProjectIndex].Makers, (x));
+            document.getElementById('headerOptionListDelMakerProjMod').innerHTML = allData.Projects[chosenProjectIndex].Makers[selDelMakersProjModNumber].ID;
+        }//Sel Del
+        function subDelMakersProjMod() {
+            var r = confirm("Are you sure you want to remove '" + allData.Projects[chosenProjectIndex].Makers[selDelMakersProjModNumber].ID + "'!");
+            if (r == true) {
+                allData.Projects[chosenProjectIndex].Makers.splice(selDelMakersProjModNumber, 1);
+                delMakersProjModInit();
+            }
+        }//Sub Del
+        function modMakersProjModInit() {
+            document.getElementById('addMakerProjMod').style.display = 'none';
+            document.getElementById('delMakerProjMod').style.display = 'none';
+            document.getElementById('infoModMakersProjMod').style.display = 'none';
+            document.getElementById('headerMakersProjMod').innerHTML = 'Modify Maker';
+            document.getElementById('headerOptionListModMakerProjMod').innerHTML = 'Choose Maker: ';
+
+            var list = sortByInputAlpha(allData.Projects[chosenProjectIndex].Makers, 'ID');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selModMakersProjMod(\'' + list[i].ID + '\')">' + list[i].ID + '</label> \n';
+            }
+            document.getElementById('optionListModMakerProjMod').innerHTML = temp;
+            document.getElementById('modMakerProjMod').style.display = 'flex';
+        } //Init Mod
+        function selModMakersProjMod(x) {
+            selModMakersProjModNumber = findIndexInArrayByID(allData.Projects[chosenProjectIndex].Makers, x);
+            document.getElementById('headerOptionListModMakerProjMod').innerHTML = allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].ID;
+            document.getElementById('idModMakerProjMod').value = allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].ID;
+            document.getElementById('positionModMakerProjMod').value = allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].Position;
+            document.getElementById('descriptionModMakerProjMod').value = allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].Description;
+            document.getElementById('infoModMakersProjMod').style.display = 'flex';
+        }//Sel Mod
+        function subModMakersProjMod() {
+            allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].ID = document.getElementById('idModMakerProjMod').value;
+            allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].Position = document.getElementById('positionModMakerProjMod').value;
+            allData.Projects[chosenProjectIndex].Makers[selModMakersProjModNumber].Description = document.getElementById('descriptionModMakerProjMod').value;
+        }//Sub Mod
+
+        /*** Features Info ***/
+        function featuresProjModInit() {
+            document.getElementById('addFeatureProjMod').style.display = 'none';
+            document.getElementById('delFeatureProjMod').style.display = 'none';
+            document.getElementById('modFeatureProjMod').style.display = 'none';
+
+            document.getElementById('featuresProjMod').style.display = 'flex';
+        }
+
+        /*** Carousel Info ***/
+        function carouselProjModInit() {
+            document.getElementById('addCarouselProjMod').style.display = 'none';
+            document.getElementById('delCarouselProjMod').style.display = 'none';
+            document.getElementById('modCarouselProjMod').style.display = 'none';
+
+            document.getElementById('carouselProjMod').style.display = 'flex';
         }
 
         /**********************************************************************************
@@ -1753,10 +1939,14 @@
 
         //********************* Functions *********************
         function addInit() {
-            document.getElementById('add').style.display = 'block';
+
             document.getElementById('modify').style.display = 'none';
+            document.getElementById('add').style.display = 'block';
         }
 
+        /******** People ********/
+
+        /******** Projects ********/
 
         /**********************************************************************************
         *                            Everything Uses This
@@ -1858,6 +2048,15 @@
         function findIndexInArrayByID(array, id) {
             for (i in array) {
                 if (array[i].ID == id) {
+                    return i;
+                }
+            }
+        }
+
+        //Input = Project ID| Output = allData.People[] index
+        function findProjectIndexByID(value) {
+            for (i in allData.Projects) {
+                if (allData.Projects[i]["ID"] == value) {
                     return i;
                 }
             }
