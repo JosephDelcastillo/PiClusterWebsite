@@ -378,9 +378,9 @@
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center" onclick="modAchievementInfoModInit();">Modify Exsiting Achievment</label>
-                                            <label class="dropdown-item text-center" onclick="delAchievementInfoModInit();">Delete Achievment</label>
-                                            <label class="dropdown-item text-center" onclick="addAchievementInfoModInit();">Add Achievment</label>
+                                            <label class="dropdown-item text-center" onclick="modAchievementInfoModInit();">Modify Exsiting Achievement</label>
+                                            <label class="dropdown-item text-center" onclick="delAchievementInfoModInit();">Delete Achievement</label>
+                                            <label class="dropdown-item text-center" onclick="addAchievementInfoModInit();">Add Achievement</label>
                                         </div>
                                     </div>
                                 </div>
@@ -392,12 +392,11 @@
                             <div id="delAchieveMod" class="row col-12" style="display: none;">
                                 <div id="idInfoAchieveMod" class="row col-6">
                                     <div class="btn-group col-12">
-                                        <button type="button" class="btn btn-danger col-11">Choose Achievment</button>
+                                        <button type="button" class="btn btn-danger col-11" id="headerOptionListDelAchieveMod">Choose Achievement</button>
                                         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right col-12">
-                                            <label class="dropdown-item text-center">Achivement 1</label>
+                                        <div class="dropdown-menu dropdown-menu-right col-12" id="optionListDelAchieveMod">
                                         </div>
                                     </div>
                                 </div>
@@ -405,7 +404,7 @@
                                 <div class="row col-12"><br /></div>
 
                                 <div id="subBtnInfoAchieveMod" class="row col-5">
-                                    <label class="btn btn-block btn-outline-danger"> Delete Achievement</label>
+                                    <label class="btn btn-block btn-outline-danger" onclick="subDelAchievementInfoMod();"> Delete Achievement</label>
                                 </div>
                             </div>
 
@@ -418,7 +417,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">ID:</span>
                                             </div>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="idAddAchieveMod">
                                         </div>
                                     </div>
 
@@ -428,47 +427,35 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Date/Year(s):</span>
                                             </div>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="timeAddAchieveMod">
                                         </div>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <!--Name-->
-                                    <div id="nameAddInfoAchieveMod" class="row col-12">
-                                        <!--First Name-->
-                                        <div class="input-group col-6">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">First Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control">
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Name:</span>
                                         </div>
-                                        <!--Last Name-->
-                                        <div class="input-group col-6">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Last Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control">
-                                        </div>
+                                        <input type="text" class="form-control" id="nameAddAchieveMod">
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <!--Description-->
-                                    <div id="descriptionAddInfoAchieveMod" class="row col-12">
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Description:</span>
-                                            </div>
-                                            <textarea type="text" class="form-control"></textarea>
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Description:</span>
                                         </div>
+                                        <textarea type="text" class="form-control" id="descriptionAddAchieveMod"></textarea>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <!--Submit-->
                                     <div id="subAddInfoAchieveMod" class="row col-5">
-                                        <label class="btn btn-block btn-outline-primary">Add Acheivement</label>
+                                        <label class="btn btn-block btn-outline-primary" onclick="subAddAchieveMod();">Add Acheivement</label>
                                     </div>
                                 </div>
                             </div>
@@ -478,12 +465,11 @@
                                 <div id="idListAchieveMod" class="row col-12">
                                     <div class="row col-6">
                                         <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-success col-11">Choose Achievement:</button>
+                                            <button type="button" class="btn btn-success col-11" id="headerOptionModAchieveMod">Choose Achievement:</button>
                                             <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
-                                            <div class="dropdown-menu dropdown-menu-right col-12">
-                                                <label class="dropdown-item text-center">Achievment 1</label>
+                                            <div class="dropdown-menu dropdown-menu-right col-12" id="optionListModAchieveMod">
                                             </div>
                                         </div>
                                     </div>
@@ -491,64 +477,54 @@
                                 <!-- Padding -->
                                 <div class="row col-12"><br /></div>
 
-                                <div id="infoAchieveMod" class="row col-12">
-                                    <!--ID-->
-                                    <div id="idInfoAchieveMod" class="row col-6">
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">ID:</span>
+                                <div id="modInfoAchieveMod" class="row col-12">
+                                    <div class="row col-12">
+                                        <!--ID-->
+                                        <div id="idInfoAchieveMod" class="row col-6">
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">ID:</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="idModAcheiveMod">
                                             </div>
-                                            <input type="text" class="form-control" id="idModAcheiveMod">
                                         </div>
-                                    </div>
 
-                                    <!--Time-->
-                                    <div id="timeInfoAchieveMod" class="col-6">
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Date/Year(s):</span>
+                                        <!--Time-->
+                                        <div id="timeInfoAchieveMod" class="col-6">
+                                            <div class="input-group col-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Date/Year(s):</span>
+                                                </div>
+                                                <input type="text" class="form-control" id="timeModAcheiveMod">
                                             </div>
-                                            <input type="text" class="form-control" id="timeModAcheiveMod">
                                         </div>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <!--Name-->
-                                    <div id="nameInfoAchieveMod" class="row col-12">
-                                        <!--First Name-->
-                                        <div class="input-group col-6">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">First Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="firstNameModAcheiveMod">
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Name:</span>
                                         </div>
-                                        <!--Last Name-->
-                                        <div class="input-group col-6">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Last Name:</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="lastNameModAcheiveMod">
-                                        </div>
+                                        <input type="text" class="form-control" id="nameModAcheiveMod">
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <!--Description-->
-                                    <div id="descriptionInfoAchieveMod" class="row col-12">
-                                        <div class="input-group col-12">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">ID:</span>
-                                            </div>
-                                            <textarea type="text" class="form-control" id="idModAcheiveMod"></textarea>
+                                    <div class="input-group col-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Description:</span>
                                         </div>
+                                        <textarea type="text" class="form-control" id="descriptionModAcheiveMod"></textarea>
                                     </div>
                                     <!-- Padding -->
                                     <div class="row col-12"><br /></div>
 
                                     <!--Submit-->
                                     <div class="row col-5">
-                                        <label class="btn btn-block btn-outline-success">Modify Achievement</label>
+                                        <label class="btn btn-block btn-outline-success" onclick="subModAchievemenInfoMod()">Modify Achievement</label>
                                     </div>
                                 </div>
                             </div>
@@ -1384,7 +1360,6 @@
             document.getElementById('peopleMod').style.display = 'flex';
             document.getElementById('projectsMod').style.display = 'none';
         }
-
         function setUpPeopleList() {
             var listCode = '';
             var list = [];
@@ -1402,12 +1377,10 @@
 
             document.getElementById('nameListPersonMod').innerHTML = listCode;
         }
-
         function makePersonListOptionCode(x) {
             var name = x["Last Name"] + ', ' + x["First Name"];
             return '<label class="dropdown-item text-center" onclick="choosePersonMod(\'' + x.ID + '\');">' + name + '</label>'
         }
-
         function choosePersonMod(id) {
             var index = findPersonIndexByID(id);
             document.getElementById('nameListTitlePersonMod').innerHTML = 'Edit: ' + allData.People[index]["Last Name"] + ', ' + allData.People[index]["First Name"];
@@ -1420,7 +1393,7 @@
         }
 
         /********* Init Major States *********/
-        /* General Info */
+        /*** General Info ***/
         function generalInfoModInit() {
             //TODO: Add code to populate text boxes
             document.getElementById('generalInfoPersonIDInput').value = allData.People[chosenPersonIndex].ID;
@@ -1456,7 +1429,7 @@
         }
 
 
-        /*Contact Info*/
+        /*** Contact Info ***/
         function contactInfoModInit() {
             document.getElementById('delContactsMod').style.display = 'none';
             document.getElementById('addContactsMod').style.display = 'none';
@@ -1500,7 +1473,6 @@
             allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].URL = url;
             allData.People[chosenPersonIndex].Contact[selectModContactInfoModNumber].Name = name;
         }
-
         //Add
         function addContactInfoModInit() {
             document.getElementById('contactsChooseOptionMod').innerHTML = 'Add Contact';
@@ -1513,20 +1485,16 @@
             var id = document.getElementById('idAddInfoContactsModInput').value;
             var url = document.getElementById('urlAddInfoContactsModInput').value;
             var name = document.getElementById('nameAddInfoContactsModInput').value;
-            console.log(id + ', ' + url + ', ' + name);
-
             for (i in allData.People[chosenPersonIndex].Contact) {
                 if (id == allData.People[chosenPersonIndex].Contact[i].ID) {
                     var r = confirm("Their is another item with the ID '" + allData.People[chosenPersonIndex].Contact[i].ID + "'! Do you want to replace it?");
                     if (r == true) {
-                        console.log('True: ' + i);
                         allData.People[chosenPersonIndex].Contact[i].ID = id;
                         allData.People[chosenPersonIndex].Contact[i].URL = url;
                         allData.People[chosenPersonIndex].Contact[i].Name = name;
-                        break;
                     }
+                    break;
                 } else if (i == (allData.People[chosenPersonIndex].Contact.length - 1)) {
-                    console.log(i + 'END')
                     var output = { "ID": id, "URL": url, "Name": name }
                     allData.People[chosenPersonIndex].Contact.push(output);
                 }
@@ -1562,44 +1530,110 @@
             }
         }
 
-        /*Achievement Info*/
+        /*** Achievement Info ***/
         function achievementsInfoModInit() {
-
-
             document.getElementById('achievementsInfoMod').style.display = 'block';
         }
         //Mod
         function modAchievementInfoModInit() {
-            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Modify Contact';
+            document.getElementById('headerOptionModAchieveMod').innerHTML = 'Modify Achievement';
 
-            //TODO: Populate Fields
-
+            var temp = '';
+            array = sortByInputAlpha(allData.People[chosenPersonIndex].Acheivements, 'Name');
+            for (i in array) {
+                temp += '<label class="dropdown-item text-center" onclick="selModAchievemenInfoMod(\'' + array[i].ID + '\')">' + array[i].Name + '</label>\n';
+            }
+            document.getElementById('optionListModAchieveMod').innerHTML = temp;
+            document.getElementById('modInfoAchieveMod').style.display = 'none';
             document.getElementById('delAchieveMod').style.display = 'none';
             document.getElementById('addAchieveMod').style.display = 'none';
             document.getElementById('modAchieveMod').style.display = 'block';
         }
-         //Add
+        var selectModAchievementInfoModNumber = 0;
+        function selModAchievemenInfoMod(x) {
+            selectModAchievementInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Acheivements, x);
+            document.getElementById('headerOptionModAchieveMod').innerHTML = allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Name;
+
+            document.getElementById('idModAcheiveMod').value = allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].ID;
+            document.getElementById('timeModAcheiveMod').value = allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Time;
+            document.getElementById('nameModAcheiveMod').value = allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Name;
+            document.getElementById('descriptionModAcheiveMod').value = allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Description;
+
+            document.getElementById('modInfoAchieveMod').style.display = 'block';
+        }
+        function subModAchievemenInfoMod() {
+            allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].ID = document.getElementById('idModAcheiveMod').value;
+            allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Time = document.getElementById('timeModAcheiveMod').value;
+            allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Name = document.getElementById('nameModAcheiveMod').value;
+            allData.People[chosenPersonIndex].Acheivements[selectModAchievementInfoModNumber].Description = document.getElementById('descriptionModAcheiveMod').value;
+        }
+        //Add
         function addAchievementInfoModInit() {
-            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Add Contact';
+            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Add Achievement';
 
             document.getElementById('delAchieveMod').style.display = 'none';
             document.getElementById('modAchieveMod').style.display = 'none';
             document.getElementById('addAchieveMod').style.display = 'block';
         }
+        function subAddAchieveMod() {
+            var id = document.getElementById('idAddAchieveMod').value;
+            var time = document.getElementById('timeAddAchieveMod').value;
+            var name = document.getElementById('nameAddAchieveMod').value;
+            var description = document.getElementById('descriptionAddAchieveMod').value;
+
+            for (i in allData.People[chosenPersonIndex].Acheivements) {
+                if (id == allData.People[chosenPersonIndex].Acheivements[i].ID) {
+                    var r = confirm("Their is another item with the ID '" + allData.People[chosenPersonIndex].Acheivements[i].ID + "'! Do you want to replace it?");
+                    if (r == true) {
+                        allData.People[chosenPersonIndex].Acheivements[i].ID = id;
+                        allData.People[chosenPersonIndex].Acheivements[i].Time = time;
+                        allData.People[chosenPersonIndex].Acheivements[i].Name = name;
+                        allData.People[chosenPersonIndex].Acheivements[i].Description = description;
+                    }
+                    break;
+                } else if (i == (allData.People[chosenPersonIndex].Acheivements.length - 1)) {
+                    var output = {
+                        "ID": id,
+                        "Time": time,
+                        "Name": name,
+                        "Description": description
+                    }
+                    allData.People[chosenPersonIndex].Acheivements.push(output);
+                }
+            }
+        }
         //Del
         function delAchievementInfoModInit() {
-            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Delete Contact';
+            document.getElementById('headerOptionListAchieveMod').innerHTML = 'Delete Achievement';
+            document.getElementById('headerOptionListDelAchieveMod').innerHTML = 'Choose Achievement';
 
-            //TODO: Populate Fields
+            var list = sortByInputAlpha(allData.People[chosenPersonIndex].Acheivements, 'Name');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selDelAchievementInfoMod(\'' + list[i].ID + '\')">' + list[i].Name + ' (' + list[i].ID + ')</label> \n';
+            }
+            document.getElementById('optionListDelAchieveMod').innerHTML = temp;
 
             document.getElementById('addAchieveMod').style.display = 'none';
             document.getElementById('modAchieveMod').style.display = 'none';
             document.getElementById('delAchieveMod').style.display = 'block';
         }
+        var selectDelAchievementInfoModNumber = 0;
+        function selDelAchievementInfoMod(x) {
+            selectDelAchievementInfoModNumber = findIndexInArrayByID(allData.People[chosenPersonIndex].Acheivements, (x));
+            document.getElementById('headerOptionListDelAchieveMod').innerHTML = allData.People[chosenPersonIndex].Acheivements[selectDelAchievementInfoModNumber].Name;
+        }
+        function subDelAchievementInfoMod() {
+            var r = confirm("Are you sure you want to remove '" + allData.People[chosenPersonIndex].Acheivements[selectDelAchievementInfoModNumber].Name + "'!");
+            if (r == true) {
+                allData.People[chosenPersonIndex].Acheivements.splice(selectDelAchievementInfoModNumber, 1);
+                delAchievementInfoModInit();
+            }
+        }
 
 
-
-        /*Acredditations Info*/
+        /*** Acredditations Info ***/
         function AcreddidationsInfoModInit() {
 
             document.getElementById('acreddidationsInfoMod').style.display = 'block';
