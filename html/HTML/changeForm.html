@@ -1299,6 +1299,8 @@
             </div>
 
             <div class="card-footer">
+                <br />
+                <label class="btn btn-block btn-outline-warning" onclick="submitAllChanges();">Submit All Changes</label>
                 AllData Changer By Joseph Delcastillo III &copy; 2018
             </div>
         </div>
@@ -1861,6 +1863,17 @@
             }
         }
 
+
+        /**********************************************************************************
+        *                                      Final Submit
+        **********************************************************************************/
+
+        function submitAllChanges() {
+            var r = confirm("Are you sure you want to submit all changes! These will publish straight to the server!");
+            if (r == true) {
+                //localStorage.setItem('allData', JSON.stringify(allData));
+            }
+        }
 
     </script>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
