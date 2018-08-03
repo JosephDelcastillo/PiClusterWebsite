@@ -976,14 +976,14 @@
                                     <!--Options-->
                                     <div class="row col-6">
                                         <div class="btn-group col-12">
-                                            <button type="button" class="btn btn-danger col-11">Choose Action:</button>
+                                            <button type="button" class="btn btn-danger col-11" id="headerFeaturesProjMod">Choose Action:</button>
                                             <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right col-12">
-                                                <label class="dropdown-item text-center">Add Feature</label>
-                                                <label class="dropdown-item text-center">Delete Feature</label>
-                                                <label class="dropdown-item text-center">Modify Feature</label>
+                                                <label class="dropdown-item text-center" onclick="addFeaturesProjModInit();">Add Feature</label>
+                                                <label class="dropdown-item text-center" onclick="delFeaturesProjModInit();">Delete Feature</label>
+                                                <label class="dropdown-item text-center" onclick="modFeaturesProjModInit();">Modify Feature</label>
                                             </div>
                                         </div>
                                     </div>
@@ -1036,7 +1036,7 @@
 
                                         <!--Submit-->
                                         <div class="row col-5">
-                                            <label class="btn btn-block btn-outline-primary">Add Feature</label>
+                                            <label class="btn btn-block btn-outline-primary" onclick="subAddFeaturesProjMod();">Add Feature</label>
                                         </div>
                                     </div>
 
@@ -1045,19 +1045,18 @@
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-success col-11">Choose Features:</button>
+                                                <button type="button" class="btn btn-success col-11" id="headerOptionListModFeatureProjMod">Choose Features:</button>
                                                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Feature 1</label>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListModFeatureProjMod">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-12"><br /></div>
 
-                                        <!--Maker Info-->
-                                        <div id="infoModMakersProjMod" class="row col-12">
+                                        <!--Feature Info-->
+                                        <div id="infoModFeaturesProjMod" class="row col-12">
                                             <!--ID-->
                                             <div class="input-group col-6">
                                                 <div class="input-group-prepend">
@@ -1096,12 +1095,11 @@
                                         <!--ID-->
                                         <div class="row col-7">
                                             <div class="btn-group col-12">
-                                                <button type="button" class="btn btn-danger col-11">Choose Maker:</button>
+                                                <button type="button" class="btn btn-danger col-11" id="headerOptionListDelFeatureProjMod">Choose Maker:</button>
                                                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split col-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-right col-12">
-                                                    <label class="dropdown-item text-center">Maker 1</label>
+                                                <div class="dropdown-menu dropdown-menu-right col-12" id="optionListDelFeatureProjMod">
                                                 </div>
                                             </div>
                                         </div>
@@ -1109,7 +1107,7 @@
 
                                         <!--Submit-->
                                         <div class="row col-5">
-                                            <label class="btn btn-block btn-outline-danger">Delete Maker</label>
+                                            <label class="btn btn-block btn-outline-danger" onclick="subDelFeaturesProjMod();">Delete Maker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1339,7 +1337,6 @@
         window.onload = function verify() { if (localStorage.getItem('pass') != 'true') { window.close(); } }
 
         window.onload = $('#json-renderer').jsonViewer(allData, { collapsed: false });
-        function renderJSON() { }
 
         /**********************************************************************************
         *                             Modify Portion
@@ -1819,7 +1816,7 @@
             document.getElementById('modMakerProjMod').style.display = 'none';
 
             document.getElementById('makersProjMod').style.display = 'flex';
-        }
+        }//Init
         function addMakersProjModInit() {
             document.getElementById('delMakerProjMod').style.display = 'none';
             document.getElementById('modMakerProjMod').style.display = 'none';
@@ -1913,6 +1910,8 @@
         }//Sub Mod
 
         /*** Features Info ***/
+        var selDelFeaturesProjModNumber = 0
+        var selModFeaturesProjModNumber = 0;
         function featuresProjModInit() {
             document.getElementById('addFeatureProjMod').style.display = 'none';
             document.getElementById('delFeatureProjMod').style.display = 'none';
@@ -1920,6 +1919,107 @@
 
             document.getElementById('featuresProjMod').style.display = 'flex';
         }
+        function addFeaturesProjModInit() {
+            document.getElementById('delFeatureProjMod').style.display = 'none';
+            document.getElementById('modFeatureProjMod').style.display = 'none';
+            document.getElementById('headerFeaturesProjMod').innerHTML = 'Add Feature';
+            document.getElementById('addFeatureProjMod').style.display = 'flex';
+        } //Init Add
+        function subAddFeaturesProjMod() {
+            var id = document.getElementById('idAddFeatureProjMod').value;
+            var title = document.getElementById('titleAddFeatureProjMod').value;
+            var sub = document.getElementById('subTitleAddFeatureProjMod').value;
+            var img = document.getElementById('imgAddFeatureProjMod').value;
+            var desc = document.getElementById('descriptionAddFeatureProjMod').value;
+
+            var a = true;
+            for (i in allData.Projects[chosenProjectIndex].Features) {
+                if (allData.Projects[chosenProjectIndex].Features[i].ID == id) {
+                    a = false;
+                    var r = confirm("There is another Feature with the id \'" + id + "\'? Do you want to overwrite it?");
+                    if (r == true) {
+                        allData.Projects[chosenProjectIndex].Features[i].ID = id;
+                        allData.Projects[chosenProjectIndex].Features[i].Title = title;
+                        allData.Projects[chosenProjectIndex].Features[i].SubTitle = sub;
+                        allData.Projects[chosenProjectIndex].Features[i].img = img;
+                        allData.Projects[chosenProjectIndex].Features[i].Description = desc;
+                    }
+                    break;
+                } else {
+                    a = true;
+                }
+            }
+            if (a) {
+                temp = {
+                    "ID": id,
+                    "Title": title,
+                    "SubTitle": sub,
+                    "img": img,
+                    "Description": desc
+                }
+                allData.Projects[chosenProjectIndex].Features.push(temp);
+            }
+        }//Submit Add
+        function delFeaturesProjModInit() {
+            document.getElementById('addFeatureProjMod').style.display = 'none';
+            document.getElementById('modFeatureProjMod').style.display = 'none';
+            document.getElementById('headerFeaturesProjMod').innerHTML = 'Remove Feature';
+            document.getElementById('headerOptionListDelFeatureProjMod').innerHTML = 'Choose Feature:';
+
+            var list = sortByInputAlpha(allData.Projects[chosenProjectIndex].Features, 'ID');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selDelFeaturesProjMod(\'' + list[i].ID + '\')">' + list[i].ID + '</label> \n';
+            }
+            document.getElementById('optionListDelFeatureProjMod').innerHTML = temp;
+
+            document.getElementById('delFeatureProjMod').style.display = 'flex';
+        } //Init Del
+        function selDelFeaturesProjMod(x) {
+            selDelFeaturesProjModNumber = findIndexInArrayByID(allData.Projects[chosenProjectIndex].Features, (x));
+            document.getElementById('headerOptionListDelFeatureProjMod').innerHTML = allData.Projects[chosenProjectIndex].Features[selDelFeaturesProjModNumber].ID;
+        }//Sel Del
+        function subDelFeaturesProjMod() {
+            var r = confirm("Are you sure you want to remove '" + allData.Projects[chosenProjectIndex].Features[selDelFeaturesProjModNumber].ID + "'!");
+            if (r == true) {
+                allData.Projects[chosenProjectIndex].Features.splice(selDelFeaturesProjModNumber, 1);
+                delFeaturesProjModInit();
+            }
+        }//Sub Del
+        function modFeaturesProjModInit() {
+            document.getElementById('addFeatureProjMod').style.display = 'none';
+            document.getElementById('delFeatureProjMod').style.display = 'none';
+            document.getElementById('infoModFeaturesProjMod').style.display = 'none';
+            document.getElementById('headerFeaturesProjMod').innerHTML = 'Modify Feature';
+            document.getElementById('headerOptionListModFeatureProjMod').innerHTML = 'Choose Feature: ';
+
+            var list = sortByInputAlpha(allData.Projects[chosenProjectIndex].Features, 'ID');
+            list.splice(0, 0);
+            var temp = '';
+            for (i in list) {
+                temp += '<label class="dropdown-item text-center" onclick="selModFeaturesProjMod(\'' + list[i].ID + '\')">' + list[i].ID + '</label> \n';
+            }
+            document.getElementById('optionListModFeatureProjMod').innerHTML = temp;
+            document.getElementById('modFeatureProjMod').style.display = 'flex';
+        } //Init Mod
+        function selModFeaturesProjMod(x) {
+            selModFeaturesProjModNumber = findIndexInArrayByID(allData.Projects[chosenProjectIndex].Features, x);
+            document.getElementById('headerOptionListModFeatureProjMod').innerHTML = allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].ID;
+            document.getElementById('idAddFeatureProjMod').value = allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].ID;
+            document.getElementById('titleAddFeatureProjMod').value = allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].Title;
+            document.getElementById('subTitleAddFeatureProjMod').value = allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].SubTitle;
+            document.getElementById('imgAddFeatureProjMod').value = allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].img;
+            document.getElementById('descriptionAddFeatureProjMod').value = allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].Description;
+            document.getElementById('infoModFeaturesProjMod').style.display = 'flex';
+        }//Sel Mod
+        function subModFeaturesProjMod() {
+            allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].ID = document.getElementById('idAddFeatureProjMod').value;
+            allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].Title = document.getElementById('titleAddFeatureProjMod').value;
+            allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].SubTitle = document.getElementById('subTitleAddFeatureProjMod').value;
+            allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].img = document.getElementById('imgAddFeatureProjMod').value;
+            allData.Projects[chosenProjectIndex].Features[selModFeaturesProjModNumber].Description = document.getElementById('descriptionAddFeatureProjMod').value;
+        }//Sub Mod
 
         /*** Carousel Info ***/
         function carouselProjModInit() {
