@@ -1286,6 +1286,7 @@
 
                         <!--START ADD-->
                         <div class="row" id="add" style="display: none;">
+                            <!--Main Question-->
                             <div class="row col-7">
                                 <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
                                     <label class="btn btn-outline-success active col-6">
@@ -1297,7 +1298,92 @@
                                 </div>
                             </div>
 
-                            <!--END ADD-->
+                            <!-- PEOPLE START -->
+                            <div class=" row col-12" id="peopleAdd">
+                                <div class="col-12"><br /></div>
+                                <!-- START PEOPLE -->
+                                <div class="col-12">
+                                    <h2>People</h2>
+                                    <hr style="border-color: #000; margin-bottom: 0;" />
+                                    <hr style="border-color: #000; margin: 0;" />
+                                    <br />
+                                </div>
+
+                                <!--Create ID-->
+                                <div class="col-12">
+                                    <div class="form-inline">
+                                        <label class="col-3">Enter New Person ID</label>
+                                        <input type="text" onchange="selPeopleIDAdd(this.value)" class="form-control col-5">
+                                        <div class="col-1"></div>
+                                        <label class="btn col-3 btn-outline-primary" onclick="subPeopleIDAdd();">Create Person</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12"><br /></div>
+
+                                <!--All Person Info-->
+                                <div class="row col-12" id="allPersonAdd">
+                                    <!-- GENERAL INFO START -->
+                                    <!--Header-->
+                                    <div class="col-12">
+                                        <h3>General Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <!--Name-->
+                                    <div class="form-inline col-12">
+                                        <!--First Name-->
+                                        <div class="col-2">First Name:</div>
+                                        <input type="text" id="firstNameGeneralInfoPersonAdd" class="form-control col-3">
+                                        <label class="btn btn-outline-success col-1" onclick="subFirstNameGenInfoPersonAdd();">Submit</label>
+                                        <!--Last Name-->
+                                        <div class="col-2">Last Name:</div>
+                                        <input type="text" id="lastNameGeneralInfoPersonAdd" class="form-control col-3">
+                                        <label class="btn btn-outline-success col-1" onclick="subLastNameGenInfoPersonAdd();">Submit</label>
+                                    </div>
+                                    <div class="col-12"><br /></div><!--Padding-->
+                                    <!--Level/Age-->
+                                    <div class="form-inline col-12">
+                                        <!--Level-->
+                                        <div class="col-6">Grade Level (Senior/Junior/Sophmore/Freshman/Teacher)</div>
+                                        <input type="text" id="levelGeneralInfoPersonAdd" class="form-control col-2">
+                                        <label class="btn col-1 btn-outline-success" onclick="subLevelGenInfoPersonAdd();">Submit</label>
+                                        <!--Age-->
+                                        <div class="col-1">Age</div>
+                                        <input type="number" id="ageGeneralInfoPersonAdd" class="form-control col-1">
+                                        <label class="btn col-1 btn-outline-success" onclick="subAgeGenInfoPersonAdd();">Submit</label>
+                                    </div>
+                                    <div class="col-12"><br /></div><!--Padding-->
+                                    <!--Description-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-2">Description</div>
+                                        <textarea class="col-9" id="descriptionGeneralInfoPersonAdd" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
+                                        <label class="btn col-1 btn-outline-success" onclick="subDescriptionGenInfoPersonAdd();" style="height:48px;">Submit</label>
+                                    </div>
+                                    <div class="col-12"><br /></div><!--Padding-->
+                                    <!--Programming Knowledge-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-3">Programming Knowledge</div>
+                                        <textarea class="col-8" id="knowGeneralInfoPersonAdd" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
+                                        <label class="btn col-1 btn-outline-success" onclick="subKnowGenInfoPersonAdd();" style="height:48px;">Submit</label>
+                                    </div>
+                                    <!-- GENERAL INFO END -->
+
+
+
+                                </div>
+
+                                <!-- END PEOPLE -->
+                            </div>
+                            <!-- PEOPLE END -->
+
+                            <!-- PROJECTS START -->
+                            <div class="row col-12" id="projectsAdd">
+
+                            </div>
+                            <!-- PROJECTS END -->
+
+                            <!-- END ADD -->
                         </div>
 
                         <!--END CARD BODY-->
@@ -1334,7 +1420,7 @@
 
         window.onload = function verify() { if (localStorage.getItem('pass') != 'true') { window.close(); } }
 
-        window.onload = $('#json-renderer').jsonViewer(allData, { collapsed: false });
+        window.onload = $('#json-renderer').jsonViewer(allData, { collapsed: true });
 
         /**********************************************************************************
         *                             Modify Portion
@@ -2281,7 +2367,7 @@
         function submitAllChanges() {
             var r = confirm("Are you sure you want to submit all changes! These will publish straight to the server!");
             if (r == true) {
-                //localStorage.setItem('allData', JSON.stringify(allData));
+                localStorage.setItem('allData', JSON.stringify(allData));
             }
         }
 
