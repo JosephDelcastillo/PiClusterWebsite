@@ -1,0 +1,4 @@
+Tips and Tricks
+
+1.Shortcuts
+Ctrl + E (In Google Chrome) - Lets you search from anywhere in the browser

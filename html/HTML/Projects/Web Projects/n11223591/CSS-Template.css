@@ -1,0 +1,147 @@
+*
+{
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+  box-sizing: border-box;
+  font-family: 'Metrophobic', Arial, serif; font-weight: 400;
+}
+
+body
+{
+  background-image: url("images/1.jpg");
+  background-repeat: no-repeat;
+  background-size: 3000px 3000px;
+  background-color: #000000;
+  ;
+  padding: 50px;
+}
+
+header,
+nav,
+section,
+aside,
+footer
+{
+  text-align: center;
+  background-color: #484848;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+
+header,
+nav,
+footer
+{
+  width: 100%;
+  padding: 25px;
+}
+
+header
+{
+  margin-bottom: 50px;
+}
+
+h1
+{
+  margin: 0;
+  font-size: 48px;
+}
+h2
+{
+  margin: 0;
+  font-size: 40px;
+}
+h3
+{
+  margin: 0;
+  font-size: 34px;
+}
+nav,
+aside
+{
+  width: 20%;
+}
+
+section
+{
+  float: left;
+  width: calc(60% - 100px);
+  margin: 0 50px 50px 50px;
+}
+
+section header,
+section article,
+section footer
+{
+  width: 100%;
+  background-color: #009933;
+  border-radius: 5px;
+  margin: 0;
+  padding: 50px;
+}
+
+section article
+{
+  margin: 25px 0;
+}
+
+nav
+{
+  float: left;
+}
+
+aside
+{
+  float: right;
+}
+
+nav ul
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+nav li
+{
+  display: block;
+  margin: 0 0 0 0px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+nav li a 
+{
+    display: block;
+    color: #555555;
+    padding: 8px 16px;
+    text-decoration: none;
+	background-color:#bbb;
+}
+nav li a:hover 
+{
+    background-color: #555;
+    color: white;
+}
+
+nav li:last-child
+{
+ border-bottom: none;
+}
+
+footer
+{
+  clear: both;
+}
+aside input,textarea,label
+{
+  margin: 15px 0;
+  width: 100%;
+  font-size: 18px;
+}

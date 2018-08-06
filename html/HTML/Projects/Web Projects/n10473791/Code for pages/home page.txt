@@ -1,0 +1,59 @@
+
+<DOCTYPE! html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Basic html Content Page</title>
+  <link rel="stylesheet" type="text/css" href="CSS-Template.css">
+</head>
+
+<body class="hello">
+
+  <header>
+    <h1>header here- include logo and page title</h1>
+	<h2>could also use a large image for the background</h2>
+	<h3>should be the same on each page, copy-paste code</h3>
+  </header>
+  
+  <nav>
+    <ul>
+	  <li><a href="HTML-HomePage.html">Home</a></li>
+	  <li><a href="HTML-ContentPage.html">Content</a></li>
+	  <li><a href="HTML-VideoPage.html">Videos</a></li>
+	  <li><a href="HTML-LinksPage.html">Links</a></li>
+    </ul>
+  </nav>
+  
+  <section>
+    section heading- title/content
+    <header>sub heading 1</header>
+    <article>sub content 1</article>
+    <footer>sub footer 1</footer>
+  </section>
+  
+  <aside>
+	Contact Form:
+	<hr>
+    <div class="container">
+		<form action="">
+
+			<label for="fname">First Name</label>
+			<input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+			<label for="lname">Last Name</label>
+			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+			<label for="subject">Subject</label>
+			<textarea id="subject" name="subject" placeholder="Write something.." style="height:150px"></textarea>
+
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+  </aside>
+  
+  <footer>
+    contact info, logo, email link, address, slogan, etc.
+  </footer>
+  
+</body>
+</html>
