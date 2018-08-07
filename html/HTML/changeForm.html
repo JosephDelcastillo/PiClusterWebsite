@@ -1414,7 +1414,6 @@
                                 <!-- END PEOPLE -->
                             </div>
                             <!-- PEOPLE END -->
-
                             <!-- PROJECTS START -->
                             <div class="row col-12" id="projectsAdd">
                                 <div class="col-12"><br /></div>
@@ -1517,7 +1516,7 @@
                                     </div><div class="col-12"><br /></div>
                                     <!-- Cards -->
                                     <div class="row col-12" id="cardsCarouselProjectAdd">
-                                        
+
                                     </div>
                                     <!-- CAROUSEL END -->
 
@@ -1554,10 +1553,10 @@
             </div>
         </div>
     </div>
-    
+
     <script>
-        window.onload = function () { if (localStorage.getItem('allData') == null || localStorage.getItem('allData') == undefined) { window.open('../index.html'); } }
-        var allData = JSON.parse(localStorage.getItem('allData'));
+        var allData;
+        function retreiveAllData(test) { allData = test[0]; }
 
         window.onload = function verify() { if (localStorage.getItem('pass') != 'true') { window.close(); } }
 
@@ -1658,7 +1657,6 @@
             }
 
         }
-
 
         /*** Contact Info ***/
         function contactInfoModInit() {
@@ -2354,7 +2352,7 @@
             allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].ID = document.getElementById('idModCarouselProjMod').value;
             allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Title = document.getElementById('titleModCarouselProjMod').value;
             allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Image = document.getElementById('imgModCarouselProjMod').value;
-            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Align= document.getElementById('alignModCarouselProjMod').value;
+            allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Align = document.getElementById('alignModCarouselProjMod').value;
             allData.Projects[chosenProjectIndex].Carousel[selModCarouselProjModNumber].Text = document.getElementById('textModCarouselProjMod').value;
         }//Sub Mod
 
@@ -2368,7 +2366,7 @@
         var contactCardAddTotal = 1;
         var achievementCardAddTotal = 1;
         var acredditationCardAddTotal = 1;
-        
+
         var idProjectAdd;
         var indexProjectAdd;
         var cardsMakerProjectAddNumber = 1;
@@ -3006,7 +3004,7 @@
             }
             document.getElementById('cardsMakerProjectAdd').innerHTML = temp;
         }//Makes the cards
-        function makeCardCodeMakerProjectAdd(x, n){
+        function makeCardCodeMakerProjectAdd(x, n) {
             var output = ' \n' +
                 '<!--Maker ' + n + '--> \n' +
                 '<div class="col-6"> \n' +
@@ -3041,7 +3039,7 @@
             var pos = document.getElementById('positionMaker' + n + 'ProjectAdd').value;
             var desc = document.getElementById('descriptionMaker' + n + 'ProjectAdd').value;
 
-            
+
             if (allData.Projects[indexProjectAdd].Makers != null) {
                 for (i in allData.Projects[indexProjectAdd].Makers) {
                     if (allData.Projects[indexProjectAdd].Makers[i].ID == id && i != n) {
@@ -3157,7 +3155,7 @@
             var sub = document.getElementById('subtitleFeature' + n + 'ProjectAdd').value;
             var image = document.getElementById('imgeFeature' + n + 'ProjectAdd').value;
             var desc = document.getElementById('descriptionFeature' + n + 'ProjectAdd').value;
-            
+
             if (allData.Projects[indexProjectAdd].Features != null) {
                 for (i in allData.Projects[indexProjectAdd].Features) {
                     if (allData.Projects[indexProjectAdd].Features[i].ID == id && i != n) {
@@ -3191,7 +3189,7 @@
                 $('#idFeature' + n + 'ProjectAdd').css('border-color', 'red');
             }
         }//Submits the Features
-        
+
         function carouselInfoProjectInit() {
             makeCardsCarouselProjectAdd();
         }//Initializes Cards
@@ -3447,13 +3445,19 @@
         **********************************************************************************/
 
         function submitAllChanges() {
-            var r = confirm("Are you sure you want to submit all changes! These will publish straight to the server!");
-            if (r == true) {
-                localStorage.setItem('allData', JSON.stringify(allData));
+            var c = confirm("Are you sure you want to submit all changes! These will publish straight to the server!");
+            if (c == true) {
+                var r = prompt("Unlock Push");
+                if (r == 'I am good to push this code!') {
+                    alert('It worked!');
+                    editAllData(allData, 'Adf8asdnsdf');
+                }
             }
         }
 
     </script>
+
+    <script src="../DATA/allData.js"></script>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>

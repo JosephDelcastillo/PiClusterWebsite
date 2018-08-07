@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div id="output">
+
+    </div>
+
+
+    <script>
+        var allData;
+        function retreiveAllData(test) { allData = test[0]; }
+
+        window.onload = function init() {
+            var output = JSON.stringify(allData);
+            document.getElementById('output').innerHTML = output;
+            editAllData(allData, 'Adf8asdnsdf');
+            var output = JSON.stringify(allData);
+            document.getElementById('output').innerHTML = output;
+        }
+
+
+    </script>
+
+    <script src="../DATA/allData.js"></script>
+</body>
+</html>
