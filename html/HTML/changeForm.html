@@ -1289,10 +1289,10 @@
                             <!--Main Question-->
                             <div class="row col-7">
                                 <div class="btn-group btn-group-toggle col-12" data-toggle="buttons">
-                                    <label class="btn btn-outline-success active col-6">
+                                    <label class="btn btn-outline-success active col-6" onclick="peopleAddInit();">
                                         <input type="radio" checked> People
                                     </label>
-                                    <label class="btn btn-outline-success col-6">
+                                    <label class="btn btn-outline-success col-6" onclick="projectsAddInit();">
                                         <input type="radio"> Projects
                                     </label>
                                 </div>
@@ -1313,7 +1313,7 @@
                                 <div class="col-12">
                                     <div class="form-inline">
                                         <label class="col-3">Enter New Person ID</label>
-                                        <input type="text" onchange="selPeopleIDAdd(this.value)" class="form-control col-5">
+                                        <input type="text" oninput="selPeopleIDAdd(this.value)" id="inputPeopleIDAdd" class="form-control col-5">
                                         <div class="col-1"></div>
                                         <label class="btn col-3 btn-outline-primary" onclick="subPeopleIDAdd();">Create Person</label>
                                     </div>
@@ -1333,43 +1333,81 @@
                                     <!--Name-->
                                     <div class="form-inline col-12">
                                         <!--First Name-->
-                                        <div class="col-2">First Name:</div>
-                                        <input type="text" id="firstNameGeneralInfoPersonAdd" class="form-control col-3">
-                                        <label class="btn btn-outline-success col-1" onclick="subFirstNameGenInfoPersonAdd();">Submit</label>
+                                        <div class="col-2 text-left">First Name:</div>
+                                        <input type="text" id="firstNameGeneralInfoPersonAdd" class="form-control col-4">
                                         <!--Last Name-->
                                         <div class="col-2">Last Name:</div>
-                                        <input type="text" id="lastNameGeneralInfoPersonAdd" class="form-control col-3">
-                                        <label class="btn btn-outline-success col-1" onclick="subLastNameGenInfoPersonAdd();">Submit</label>
+                                        <input type="text" id="lastNameGeneralInfoPersonAdd" class="form-control col-4">
                                     </div>
-                                    <div class="col-12"><br /></div><!--Padding-->
+                                    <div class="col-12 text-left"><br /></div><!--Padding-->
                                     <!--Level/Age-->
                                     <div class="form-inline col-12">
                                         <!--Level-->
-                                        <div class="col-6">Grade Level (Senior/Junior/Sophmore/Freshman/Teacher)</div>
-                                        <input type="text" id="levelGeneralInfoPersonAdd" class="form-control col-2">
-                                        <label class="btn col-1 btn-outline-success" onclick="subLevelGenInfoPersonAdd();">Submit</label>
+                                        <div class="col-6 text-left">Grade Level (Senior/Junior/Sophomore/Freshman/Teacher): </div>
+                                        <input type="text" id="levelGeneralInfoPersonAdd" class="form-control col-4">
                                         <!--Age-->
                                         <div class="col-1">Age</div>
                                         <input type="number" id="ageGeneralInfoPersonAdd" class="form-control col-1">
-                                        <label class="btn col-1 btn-outline-success" onclick="subAgeGenInfoPersonAdd();">Submit</label>
                                     </div>
                                     <div class="col-12"><br /></div><!--Padding-->
                                     <!--Description-->
                                     <div class="form-inline col-12">
-                                        <div class="col-2">Description</div>
-                                        <textarea class="col-9" id="descriptionGeneralInfoPersonAdd" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
-                                        <label class="btn col-1 btn-outline-success" onclick="subDescriptionGenInfoPersonAdd();" style="height:48px;">Submit</label>
+                                        <div class="col-2 text-left">Description</div>
+                                        <textarea class="form-control col-10" id="descriptionGeneralInfoPersonAdd" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
                                     </div>
                                     <div class="col-12"><br /></div><!--Padding-->
                                     <!--Programming Knowledge-->
                                     <div class="form-inline col-12">
-                                        <div class="col-3">Programming Knowledge</div>
-                                        <textarea class="col-8" id="knowGeneralInfoPersonAdd" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
-                                        <label class="btn col-1 btn-outline-success" onclick="subKnowGenInfoPersonAdd();" style="height:48px;">Submit</label>
+                                        <div class="col-3 text-left">Programming Knowledge</div>
+                                        <textarea class="form-control col-9" id="knowGeneralInfoPersonAdd" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
                                     </div>
+                                    <div class="col-12"><br /></div><!--Padding-->
+                                    <label class="btn btn-block btn-outline-success" onclick="subGeneralInfoAdd();">Submit General Information</label>
                                     <!-- GENERAL INFO END -->
-
-
+                                    <!-- CONTACTS START -->
+                                    <div class="col-12"><br /></div>
+                                    <div class="col-12">
+                                        <h3>Contact Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <div class="row col-12">
+                                        <label class="btn btn-outline-success col-6" onclick="addContactCardAdd();">Add Contact</label>
+                                        <label class="btn btn-outline-danger col-6" onclick="delContactCardAdd();">Remove Contact</label>
+                                    </div>
+                                    <!-- START Contact Cards -->
+                                    <div class="row col-12" id="OutputContactCardsAdd">
+                                    </div>
+                                    <!-- END Contact Cards -->
+                                    <!-- CONTACTS END -->
+                                    <!-- ACHIEVEMENTS START -->
+                                    <div class="col-12"><br /></div>
+                                    <div class="col-12">
+                                        <h3>Achievement Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <div class="row col-12">
+                                        <label class="btn btn-outline-success col-6" onclick="addAchievementPersonAdd();">Add Achievement</label>
+                                        <label class="btn btn-outline-danger col-6" onclick="delAchievementPersonAdd();">Remove Achievement</label>
+                                    </div>
+                                    <div class="row col-12" id="achievementCardsOutputPersonAdd">
+                                    </div>
+                                    <!-- ACHIEVEMENTS END -->
+                                    <!-- ACHIEVEMENTS START -->
+                                    <div class="col-12"><br /></div>
+                                    <div class="col-12">
+                                        <h3>Acredditation Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <div class="row col-12">
+                                        <label class="btn btn-outline-success col-6" onclick="addAcredditationPersonAdd();">Add Acredditation</label>
+                                        <label class="btn btn-outline-danger col-6" onclick="delAcredditationPersonAdd();">Remove Acredditation</label>
+                                    </div>
+                                    <div class="row col-12" id="acredditationCardsOutputPersonAdd">
+                                    </div>
+                                    <!-- Acredditation END -->
 
                                 </div>
 
@@ -2222,18 +2260,557 @@
         **********************************************************************************/
 
         //********************* Variables *********************
-
+        var idPersonAdd;
+        var indexPersonAdd;
+        var contactCardAddTotal = 1;
+        var achievementCardAddTotal = 1;
+        var acredditationCardAddTotal = 1;
 
         //********************* Functions *********************
         function addInit() {
 
+            document.getElementById('projectsAdd').style.display = 'none';
+            document.getElementById('peopleAdd').style.display = 'none';
             document.getElementById('modify').style.display = 'none';
             document.getElementById('add').style.display = 'block';
         }
 
         /******** People ********/
+        function peopleAddInit() {
+            document.getElementById('projectsAdd').style.display = 'none';
+            document.getElementById('allPersonAdd').style.display = 'none';
+
+            document.getElementById('peopleAdd').style.display = 'flex';
+        }
+
+        function selPeopleIDAdd(x) {
+            idPersonAdd = x;
+            for (i in allData.People) {
+                if (allData.People[i].ID == idPersonAdd) {
+                    $('#inputPeopleIDAdd').css('border-color', 'red');
+                    $('#inputPeopleIDAdd').css('box-shadow', '2px red');
+                    break;
+                }
+                else {
+                    $('#inputPeopleIDAdd').css('border-color', 'green');
+                    $('#inputPeopleIDAdd').css('box-shadow', '2px green');
+                }
+            }
+        }
+
+        function subPeopleIDAdd() {
+            for (i in allData.People) {
+                if (allData.People[i].ID == idPersonAdd) {
+                    alert('Another Person has that same id, please try a new one or switch to Modify!');
+                    var bool = false;
+                    break;
+                }
+                else {
+                    var bool = true;
+                }
+            }
+            if (bool) {
+                var tempPerson = {
+                    "ID": idPersonAdd
+                }
+                allData.People.push(tempPerson);
+                indexPersonAdd = findPersonIndexByID(idPersonAdd);
+                contactInfoPeopleAddInit();
+                achievementInfoPeopleAddInit();
+                acredditationInfoPeopleAddInit();
+                document.getElementById('allPersonAdd').style.display = 'flex';
+            }
+        }
+
+        function subGeneralInfoAdd() {
+            var first = document.getElementById('firstNameGeneralInfoPersonAdd').value;
+            var last = document.getElementById('lastNameGeneralInfoPersonAdd').value;
+            var level = document.getElementById('levelGeneralInfoPersonAdd').value;
+            var age = document.getElementById('ageGeneralInfoPersonAdd').value;
+            var desc = document.getElementById('descriptionGeneralInfoPersonAdd').value;
+            var know = document.getElementById('knowGeneralInfoPersonAdd').value;
+
+            //Level must be one of these, so this is verification
+            level.toLowerCase();
+            if (level != 'freshman' && level != 'sophomore' && level != 'junior' && level != 'senior' && level != 'teacher') {
+                alert('Please check the spelling of LEVEL! If must be one of those options!');
+                $('#levelGeneralInfoPersonAdd').css('border-color', 'red');
+                var bool = false;
+            } else if (level == 'freshman') {
+                level = 'Freshman';
+                var bool = true;
+            } else if (level == 'sophomore') {
+                level = 'Sophomore';
+                var bool = true;
+            } else if (level == 'junior') {
+                level = 'Junior';
+                var bool = true;
+            } else if (level == 'senior') {
+                level = 'Senior';
+                var bool = true;
+            } else if (level == 'teacher') {
+                level = 'Teacher';
+                var bool = true;
+            }
+
+            if (bool) {
+                $('#levelGeneralInfoPersonAdd').css('border-color', '');
+                allData.People[indexPersonAdd]["First Name"] = first;
+                allData.People[indexPersonAdd]["Last Name"] = last;
+                allData.People[indexPersonAdd].Level = level;
+                allData.People[indexPersonAdd].Age = age;
+                allData.People[indexPersonAdd].Description = desc;
+                allData.People[indexPersonAdd]["Programming Knowledge"] = know;
+            }
+        }//Submits the General Information
+
+        function contactInfoPeopleAddInit() {
+            var temp = ' \n' +
+                ' <!-- Contact 0 --> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Contact</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">ID: </div> \n' +
+                '                <input type="text" id="id0ContactInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="name0ContactInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">URL: </div> \n' +
+                '                <input type="text" id="url0ContactInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"> \n' +
+                '            <label class="btn btn-block btn-outline-primary" onclick="subContactInfoPersonAdd(0);">Submit Contact</label> \n' +
+                '        </div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+            document.getElementById('OutputContactCardsAdd').innerHTML = temp;
+
+        }//Initializes Contact Info Cards
+        function addContactCardAdd() {
+            if ((contactCardAddTotal + 1) > 0) {
+                contactCardAddTotal += 1;
+                makeContactCardsCode();
+            }
+            else {
+                alert('You cannot have < 0 contact cards!');
+            }
+        }//Add Contact Card
+        function delContactCardAdd() {
+            if ((contactCardAddTotal - 1) > 0) {
+                contactCardAddTotal -= 1;
+                if (allData.People[indexPersonAdd].Contact != null) {
+                    if (contactCardAddTotal < allData.People[indexPersonAdd].Contact.length) {
+                        allData.People[indexPersonAdd].Contact.pop();
+                    }
+                }
+                makeContactCardsCode();
+            }
+            else {
+                alert('You cannot have < 1 contact cards!');
+            }
+        }//Del Contact Card
+        function makeContactCardsCode() {
+            var temp = '\n';
+            for (var i = 0; i < contactCardAddTotal; i++) {
+                if (allData.People[indexPersonAdd].Contact != null && allData.People[indexPersonAdd].Contact[i] != null) {
+                    temp += makeContactCardCode(allData.People[indexPersonAdd].Contact[i], i);
+                } else {
+                    var x = new Object();
+                    x.ID = '';
+                    x.Name = '';
+                    x.URL = '';
+                    temp += makeContactCardCode(x, i);
+                }
+            }
+            document.getElementById('OutputContactCardsAdd').innerHTML = temp;
+        }//Makes Code For Contact Cards
+        function makeContactCardCode(x, n) {
+            var output = ' \n' +
+                ' <!-- Contact ' + n + ' --> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Contact ' + n + '</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">ID: </div> \n' +
+                '                <input type="text" id="id' + n + 'ContactInfoPersonAdd" class="form-control col-8" value="' + x.ID + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="name' + n + 'ContactInfoPersonAdd" class="form-control col-8"value="' + x.Name + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">URL: </div> \n' +
+                '                <input type="text" id="url' + n + 'ContactInfoPersonAdd" class="form-control col-8"value="' + x.URL + '"> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"> \n' +
+                '            <label class="btn btn-block btn-outline-primary" onclick="subContactInfoPersonAdd(' + n + ');">Submit Contact</label> \n' +
+                '        </div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+            return output;
+        }//Makes Code For singular Contact Card
+        function subContactInfoPersonAdd(n) {
+            var id = document.getElementById('id' + n + 'ContactInfoPersonAdd').value;
+            var name = document.getElementById('name' + n + 'ContactInfoPersonAdd').value;
+            var url = document.getElementById('url' + n + 'ContactInfoPersonAdd').value;
+
+            if (allData.People[indexPersonAdd].Contact != null) {
+                for (i in allData.People[indexPersonAdd].Contact) {
+                    if (allData.People[indexPersonAdd].Contact[i].ID == id && i != n) {
+                        var bool = false;
+                        break;
+                    } else {
+                        var bool = true;
+                    }
+                }
+            } else {
+                var bool = true;
+            }
+            if (bool) {
+                $('#id' + n + 'ContactInfoPersonAdd').css('border-color', '');
+                var temp = {
+                    "ID": id,
+                    "Name": name,
+                    "URL": url
+                }
+                if (allData.People[indexPersonAdd].Contact == null) {
+                    allData.People[indexPersonAdd].Contact = [temp];
+                } else if (allData.People[indexPersonAdd].Contact[n] != null) {
+                    allData.People[indexPersonAdd].Contact[n] = temp;
+                } else {
+                    allData.People[indexPersonAdd].Contact.push(temp);
+                }
+            } else {
+                alert('You cannot submit this change, another contact shares this ID!');
+                $('#id' + n + 'ContactInfoPersonAdd').css('border-color', 'red');
+            }
+
+        }//Submits Contact Info
+
+        function achievementInfoPeopleAddInit() {
+            var temp = ' \n' +
+                '<!--Achievement 0 --> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Achievement</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">ID: </div> \n' +
+                '                <input type="text" id="id0AchieveInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="name0AchieveInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Time: </div> \n' +
+                '                <input type="text" id="time0AchieveInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5">Description: </div> \n' +
+                '                <textarea id="description0AchieveInfoPersonAdd" class="form-control col-7" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"><label class="btn btn-block btn-outline-primary" onclick="subAchieveInfoPersonAdd(0);">Submit Achievement</label></div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+
+            document.getElementById('achievementCardsOutputPersonAdd').innerHTML = temp;
+        }//Initializes Achievement Info Cards
+        function addAchievementPersonAdd() {
+            if ((achievementCardAddTotal + 1) > 0) {
+                achievementCardAddTotal += 1;
+                makeAchievementCardsCode();
+            }
+            else {
+                alert('You cannot have < 1 achievement cards!');
+            }
+        }//Add Achievement Card
+        function delAchievementPersonAdd() {
+            if ((achievementCardAddTotal - 1) > 0) {
+                achievementCardAddTotal -= 1;
+
+                if (allData.People[indexPersonAdd].Acheivements != null) {
+                    if (achievementCardAddTotal < allData.People[indexPersonAdd].Acheivements.length) {
+                        allData.People[indexPersonAdd].Acheivements.pop();
+                    }
+                }
+                makeAchievementCardsCode();
+            }
+            else {
+                alert('You cannot have < 1 Achivements cards!');
+            }
+        }//Del Achievement Card
+        function makeAchievementCardsCode() {
+            var temp = '\n';
+            for (var i = 0; i < achievementCardAddTotal; i++) {
+                if (allData.People[indexPersonAdd].Acheivements != null && allData.People[indexPersonAdd].Acheivements[i] != null) {
+                    temp += makeAchievementCardCode(allData.People[indexPersonAdd].Acheivements[i], i);
+                } else {
+                    var x = new Object();
+                    x.ID = '';
+                    x.Name = '';
+                    x.Time = '';
+                    x.Description = '';
+                    temp += makeAchievementCardCode(x, i);
+                }
+            }
+            document.getElementById('achievementCardsOutputPersonAdd').innerHTML = temp;
+        }//Makes Code For Achievement Cards
+        function makeAchievementCardCode(x, n) {
+            var output = ' \n' +
+                '<!--Achievement ' + n + ' --> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Achievement ' + n + '</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">ID: </div> \n' +
+                '                <input type="text" id="id' + n + 'AchieveInfoPersonAdd" class="form-control col-8" value="' + x.ID + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="name' + n + 'AchieveInfoPersonAdd" class="form-control col-8" value="' + x.Name + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Time: </div> \n' +
+                '                <input type="text" id="time' + n + 'AchieveInfoPersonAdd" class="form-control col-8" value="' + x.Time + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5">Description: </div> \n' +
+                '                <textarea id="description' + n + 'AchieveInfoPersonAdd" class="form-control col-7" rows="2" style="max-height:48px; overflow-y: scroll;">' + x.Description + '</textarea> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"><label class="btn btn-block btn-outline-primary" onclick="subAchieveInfoPersonAdd(' + n + ');">Submit Achievement</label></div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+            return output;
+        }//Makes Code For singular Achievement Card
+        function subAchieveInfoPersonAdd(n) {
+            var id = document.getElementById('id' + n + 'AchieveInfoPersonAdd').value;
+            var name = document.getElementById('name' + n + 'AchieveInfoPersonAdd').value;
+            var time = document.getElementById('time' + n + 'AchieveInfoPersonAdd').value;
+            var description = document.getElementById('description' + n + 'AchieveInfoPersonAdd').value;
+
+            if (allData.People[indexPersonAdd].Acheivements != null) {
+                for (i in allData.People[indexPersonAdd].Acheivements) {
+                    if (allData.People[indexPersonAdd].Acheivements[i].ID == id && i != n) {
+                        var bool = false;
+                        break;
+                    } else {
+                        var bool = true;
+                    }
+                }
+            } else {
+                var bool = true;
+            }
+            if (bool) {
+                $('#id' + n + 'AchieveInfoPersonAdd').css('border-color', '');
+                var temp = {
+                    "ID": id,
+                    "Name": name,
+                    "Time": time,
+                    "Description": description
+                }
+                if (allData.People[indexPersonAdd].Acheivements == null) {
+                    allData.People[indexPersonAdd].Acheivements = [temp];
+                } else if (allData.People[indexPersonAdd].Acheivements[n] != null) {
+                    allData.People[indexPersonAdd].Acheivements[n] = temp;
+                } else {
+                    allData.People[indexPersonAdd].Acheivements.push(temp);
+                }
+            } else {
+                alert('You cannot submit this change, another achievement shares this ID!');
+                $('#id' + n + 'AchieveInfoPersonAdd').css('border-color', 'red');
+            }
+
+        }//Submits Achievement Info
+
+
+        function acredditationInfoPeopleAddInit() {
+            var temp = ' \n' +
+                '<!--Acredditation 0 --> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Acredditation</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">ID: </div> \n' +
+                '                <input type="text" id="id0AcreditInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="name0AcreditInfoPersonAdd" class="form-control col-8"> \n' +
+                '                </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5">Description: </div> \n' +
+                '                <textarea id="description0AcreditInfoPersonAdd" class="form-control col-7" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea> \n' +
+                '            </div> \n' +
+                '            <br /> \n' +
+                '            <label class="col-12"><strong>Speaker: </strong></label> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="speakerName0AcreditInfoPersonAdd" class="form-control col-8"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Title: </div> \n' +
+                '                <input type="text" id="speakerTitle0AcreditInfoPersonAdd" class="form-control col-8"> \n' +
+                '                </div> \n' +
+                '                <div class="form-inline col-12"> \n' +
+                '                    <div class="col-5 text-right">Connection: </div> \n' +
+                '                        <input type="text" id="speakerConnections0AcreditInfoPersonAdd" class="form-control col-7"> \n' +
+                '                </div> \n' +
+                '            </div> \n' +
+                '        <div class="card-footer"><label class="btn btn-block btn-outline-primary" onclick="subAcreditInfoPersonAdd(0);">Submit Acreditment</label></div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+
+            document.getElementById('acredditationCardsOutputPersonAdd').innerHTML = temp;
+        }//Initializes Acredditation Info Cards
+        function addAcredditationPersonAdd() {
+            if ((acredditationCardAddTotal + 1) > 0) {
+                acredditationCardAddTotal += 1;
+                makeAcredditationCardsCode();
+            }
+            else {
+                alert('You cannot have < 1 acredditation cards!');
+            }
+        }//Add Acredditation Card
+        function delAcredditationPersonAdd() {
+            if ((acredditationCardAddTotal - 1) > 0) {
+                acredditationCardAddTotal -= 1;
+
+                if (allData.People[indexPersonAdd].Accreditations != null) {
+                    if (acredditationCardAddTotal < allData.People[indexPersonAdd].Accreditations.length) {
+                        allData.People[indexPersonAdd].Accreditations.pop();
+                    }
+                }
+                makeAcredditationCardsCode();
+            }
+            else {
+                alert('You cannot have < 1 Achivements cards!');
+            }
+        }//Del Acredditation Card
+        function makeAcredditationCardsCode() {
+            var temp = '\n';
+            for (var i = 0; i < acredditationCardAddTotal; i++) {
+                if (allData.People[indexPersonAdd].Accreditations != null && allData.People[indexPersonAdd].Accreditations[i] != null) {
+                    temp += makeAcredditationCardCode(allData.People[indexPersonAdd].Accreditations[i], i);
+                } else {
+                    var x = new Object();
+                    x.ID = '';
+                    x.Name = '';
+                    x.Speaker = new Object();
+                    x.Speaker.Name = '';
+                    x.Speaker.Title = '';
+                    x.Speaker.Connections = '';
+                    x.Description = '';
+                    temp += makeAcredditationCardCode(x, i);
+                }
+            }
+            document.getElementById('acredditationCardsOutputPersonAdd').innerHTML = temp;
+        }//Makes Code For Acredditation Cards
+        function makeAcredditationCardCode(x, n) {
+            var output = ' \n' +
+                '<!--Acredditation ' + n + ' --> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Acredditation ' + n + '</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">ID: </div> \n' +
+                '                <input type="text" id="id' + n + 'AcreditInfoPersonAdd" class="form-control col-8" value="' + x.ID + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="name' + n + 'AcreditInfoPersonAdd" class="form-control col-8" value="' + x.Name + '"> \n' +
+                '                </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5">Description: </div> \n' +
+                '                <textarea id="description' + n + 'AcreditInfoPersonAdd" class="form-control col-7" rows="2" style="max-height:48px; overflow-y: scroll;">' + x.Description + '</textarea> \n' +
+                '            </div> \n' +
+                '            <br /> \n' +
+                '            <label class="col-12"><strong>Speaker: </strong></label> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Name: </div> \n' +
+                '                <input type="text" id="speakerName' + n + 'AcreditInfoPersonAdd" class="form-control col-8" value="' + x.Speaker.Name + '"> \n' +
+                '            </div> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-right">Title: </div> \n' +
+                '                <input type="text" id="speakerTitle' + n + 'AcreditInfoPersonAdd" class="form-control col-8" value="' + x.Speaker.Title + '"> \n' +
+                '                </div> \n' +
+                '                <div class="form-inline col-12"> \n' +
+                '                    <div class="col-5 text-right">Connection: </div> \n' +
+                '                        <input type="text" id="speakerConnections' + n + 'AcreditInfoPersonAdd" class="form-control col-7" value="' + x.Speaker.Connections + '"> \n' +
+                '                </div> \n' +
+                '            </div> \n' +
+                '        <div class="card-footer"><label class="btn btn-block btn-outline-primary" onclick="subAcreditInfoPersonAdd(' + n + ');">Submit Acreditment</label></div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+            return output;
+        }//Makes Code For singular Acredditation Card
+        function subAcreditInfoPersonAdd(n) {
+            var id = document.getElementById('id' + n + 'AcreditInfoPersonAdd').value;
+            var name = document.getElementById('name' + n + 'AcreditInfoPersonAdd').value;
+            var description = document.getElementById('description' + n + 'AcreditInfoPersonAdd').value;
+            var speaker = document.getElementById('speakerName' + n + 'AcreditInfoPersonAdd').value;
+            var title = document.getElementById('speakerTitle' + n + 'AcreditInfoPersonAdd').value;
+            var connect = document.getElementById('speakerConnections' + n + 'AcreditInfoPersonAdd').value;
+
+            if (allData.People[indexPersonAdd].Accreditations != null) {
+                for (i in allData.People[indexPersonAdd].Accreditations) {
+                    if (allData.People[indexPersonAdd].Accreditations[i].ID == id && i != n) {
+                        var bool = false;
+                        break;
+                    } else {
+                        var bool = true;
+                    }
+                }
+            } else {
+                var bool = true;
+            }
+            if (bool) {
+                $('#id' + n + 'AcreditInfoPersonAdd').css('border-color', '');
+                var temp = {
+                    "ID": id,
+                    "Name": name,
+                    "Description": description,
+                    "Speaker": {
+                        "Name": speaker,
+                        "Title": title,
+                        "Connections": connect
+                    }
+                }
+                if (allData.People[indexPersonAdd].Accreditations == null) {
+                    allData.People[indexPersonAdd].Accreditations = [temp];
+                } else if (allData.People[indexPersonAdd].Accreditations[n] != null) {
+                    allData.People[indexPersonAdd].Accreditations[n] = temp;
+                } else {
+                    allData.People[indexPersonAdd].Accreditations.push(temp);
+                }
+            } else {
+                alert('You cannot submit this change, another acredditation shares this ID!');
+                $('#id' + n + 'AcreditInfoPersonAdd').css('border-color', 'red');
+            }
+
+        }//Submits Acredditation Info
 
         /******** Projects ********/
+
+        function projectsAddInit() {
+            document.getElementById('peopleAdd').style.display = 'none';
+
+
+            document.getElementById('projectsAdd').style.display = 'flex';
+        }
 
         /**********************************************************************************
         *                            Everything Uses This
