@@ -1417,10 +1417,113 @@
 
                             <!-- PROJECTS START -->
                             <div class="row col-12" id="projectsAdd">
+                                <div class="col-12"><br /></div>
 
+                                <div class="col-12">
+                                    <h2>Projects</h2>
+                                    <hr style="border-color: #000; margin-bottom: 0;" />
+                                    <hr style="border-color: #000; margin: 0;" />
+                                    <br />
+                                </div>
+
+                                <!--Create ID-->
+                                <div class="col-12">
+                                    <div class="form-inline">
+                                        <label class="col-3">Enter New Project ID</label>
+                                        <input type="text" oninput="selProjectIDAdd(this.value)" id="inputProjectIDAdd" class="form-control col-5">
+                                        <div class="col-1"></div>
+                                        <label class="btn col-3 btn-outline-primary" onclick="subProjectIDAdd();">Create Project</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12"><br /></div>
+
+                                <!--All Project Info-->
+                                <div class="row col-12" id="allProjectAdd">
+                                    <!-- GENERAL INFO START -->
+                                    <!--Header-->
+                                    <div class="col-12">
+                                        <h3>General Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <div class="col-12"><br /></div><!--padding-->
+                                    <!--Name-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-2 text-left">Name:</div>
+                                        <input type="text" id="nameGeneralInfoProjectAdd" class="form-control col-10">
+                                    </div>
+                                    <!--MakerID-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-2 text-left">Maker ID:</div>
+                                        <input type="text" id="makerIDGeneralInfoProjectAdd" class="form-control col-10">
+                                    </div>
+                                    <!--Description-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-2 text-left">Description:</div>
+                                        <textarea id="descriptionGeneralInfoProjectAdd" class="form-control col-10" rows="2" style="max-height:48px; overflow-y: scroll;"></textarea>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+                                    <label class="btn btn-block btn-outline-success" onclick="subGeneralInfoProjectAdd();">Submit General Information</label>
+                                    <div class="col-12 text-left"><br /></div><!--Padding-->
+                                    <!-- GENERAL INFO END -->
+                                    <div class="col-12"><br /></div>
+                                    <!-- MAKERS START -->
+                                    <!--Header-->
+                                    <div class="col-12">
+                                        <h3>Maker(s) Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <!--Add Or Remove-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-6"><label class="btn btn-block btn-outline-success" onclick="addMakerProjectAdd();">Add Maker</label></div>
+                                        <div class="col-6"><label class="btn btn-block btn-outline-danger" onclick="delMakerProjectAdd();">Remove Maker</label></div>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+                                    <!-- Cards -->
+                                    <div class="row col-12" id="cardsMakerProjectAdd"></div>
+                                    <!-- MAKERS END -->
+                                    <div class="col-12"><br /></div>
+                                    <!-- FEATURES START -->
+                                    <!--Header-->
+                                    <div class="col-12">
+                                        <h3>Feature(s) Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <!--Add Or Remove-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-6"><label class="btn btn-block btn-outline-success" onclick="addFeatureProjectAdd();">Add Feature</label></div>
+                                        <div class="col-6"><label class="btn btn-block btn-outline-danger" onclick="delFeatureProjectAdd();">Remove Feature</label></div>
+                                    </div>
+                                    <div class="col-12"><br /></div>
+                                    <!-- Cards -->
+                                    <div class="row col-12" id="cardsFeatureProjectAdd">
+                                    </div>
+                                    <!-- FEATURES END -->
+                                    <div class="col-12"><br /></div>
+                                    <!-- CAROUSEL START -->
+                                    <!--Header-->
+                                    <div class="col-12">
+                                        <h3>Carousel(s) Information</h3>
+                                        <hr style="border-color: #000; margin-bottom: 0;" />
+                                        <br />
+                                    </div>
+                                    <!--Add Or Remove-->
+                                    <div class="form-inline col-12">
+                                        <div class="col-6"><label class="btn btn-block btn-outline-success" onclick="addCarouselProjectAdd();">Add Carousel</label></div>
+                                        <div class="col-6"><label class="btn btn-block btn-outline-danger" onclick="delCarouselProjectAdd();">Remove Carousel</label></div>
+                                    </div><div class="col-12"><br /></div>
+                                    <!-- Cards -->
+                                    <div class="row col-12" id="cardsCarouselProjectAdd">
+                                        
+                                    </div>
+                                    <!-- CAROUSEL END -->
+
+                                </div>
                             </div>
                             <!-- PROJECTS END -->
-
                             <!-- END ADD -->
                         </div>
 
@@ -2265,6 +2368,12 @@
         var contactCardAddTotal = 1;
         var achievementCardAddTotal = 1;
         var acredditationCardAddTotal = 1;
+        
+        var idProjectAdd;
+        var indexProjectAdd;
+        var cardsMakerProjectAddNumber = 1;
+        var cardsFeatureProjectAddNumber = 1;
+        var cardsCarouselProjectAddNumber = 1;
 
         //********************* Functions *********************
         function addInit() {
@@ -2807,10 +2916,406 @@
 
         function projectsAddInit() {
             document.getElementById('peopleAdd').style.display = 'none';
-
+            document.getElementById('allProjectAdd').style.display = 'none';
 
             document.getElementById('projectsAdd').style.display = 'flex';
         }
+
+        function selProjectIDAdd(x) {
+            idProjectAdd = x;
+            for (i in allData.Projects) {
+                if (allData.Projects[i].ID == idProjectAdd) {
+                    var bool = false;
+                    break;
+                } else {
+                    var bool = true;
+                }
+            }
+            if (bool) {
+                $('#inputProjectIDAdd').css('border-color', 'green');
+            } else {
+                $('#inputProjectIDAdd').css('border-color', 'red');
+            }
+        }//Updates variable for ID input
+        function subProjectIDAdd() {
+            for (i in allData.Projects) {
+                if (allData.Projects[i].ID == idProjectAdd) {
+                    var bool = false;
+                    break;
+                } else {
+                    var bool = true;
+                }
+            }
+            if (bool) {
+                var temp = { "ID": idProjectAdd };
+                allData.Projects.push(temp)
+                indexProjectAdd = findProjectIndexByID(idProjectAdd);
+                $('#inputProjectIDAdd').css('border-color', '');
+                makerInfoProjectInit();
+                featureInfoProjectInit();
+                carouselInfoProjectInit();
+                document.getElementById('allProjectAdd').style.display = 'flex';
+            } else {
+                $('#inputProjectIDAdd').css('border-color', 'red');
+                alert('Another Project has the same ID! Please either change the ID, or go to modify!');
+            }
+        }//Creates the new project
+
+        function subGeneralInfoProjectAdd() {
+            var name = document.getElementById('nameGeneralInfoProjectAdd').value;
+            var id = document.getElementById('makerIDGeneralInfoProjectAdd').value;
+            var desc = document.getElementById('descriptionGeneralInfoProjectAdd').value;
+
+            allData.Projects[indexProjectAdd].Name = name;
+            allData.Projects[indexProjectAdd].MakerID = id;
+            allData.Projects[indexProjectAdd].Description = desc;
+        }//Submits General Info
+
+        function makerInfoProjectInit() {
+            makeCardsMakerProjectAdd();
+        }//Initalizes the Maker Cards
+        function addMakerProjectAdd() {
+            cardsMakerProjectAddNumber += 1;
+            makeCardsMakerProjectAdd();
+        }//Adds a card
+        function delMakerProjectAdd() {
+            if ((cardsMakerProjectAddNumber - 1) > 0) {
+                cardsMakerProjectAddNumber -= 1;
+                if (allData.Projects[indexProjectAdd].Makers != null) {
+                    if (allData.Projects[indexProjectAdd].Makers[cardsMakerProjectAddNumber] != null) {
+                        allData.Projects[indexProjectAdd].Makers.pop();
+                    }
+                }
+                makeCardsMakerProjectAdd();
+            } else {
+                alert('You cannot have less than 1 Makers!');
+            }
+        }//Removes a card
+        function makeCardsMakerProjectAdd() {
+            var temp = '\n';
+            for (var i = 0; i < cardsMakerProjectAddNumber; i++) {
+                if (allData.Projects[indexProjectAdd].Makers != null && allData.Projects[indexProjectAdd].Makers[i] != null) {
+                    temp += makeCardCodeMakerProjectAdd(allData.Projects[indexProjectAdd].Makers[i], i);
+                } else {
+                    var x = new Object();
+                    x.ID = '';
+                    x.Position = '';
+                    x.Description = '';
+                    temp += makeCardCodeMakerProjectAdd(x, i);
+                }
+            }
+            document.getElementById('cardsMakerProjectAdd').innerHTML = temp;
+        }//Makes the cards
+        function makeCardCodeMakerProjectAdd(x, n){
+            var output = ' \n' +
+                '<!--Maker ' + n + '--> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Maker ' + n + '</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <!-- ID --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-3 text-left">ID: </div> \n' +
+                '                <input type="text" class="form-control col-9" id="idMaker' + n + 'ProjectAdd" value="' + x.ID + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Position --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5 text-left">Position: </div> \n' +
+                '                <input type="text" class="form-control col-7" id="positionMaker' + n + 'ProjectAdd" value="' + x.Position + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Description --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5 text-left">Description: </div> \n' +
+                '                <textarea type="text" class="form-control col-7" id="descriptionMaker' + n + 'ProjectAdd" rows="2" style="max-height:48px; overflow-y: scroll;">' + x.Description + '</textarea> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"> \n' +
+                '            <label class="btn btn-block btn-outline-primary" onclick="subMakerInfoProjectAdd(' + n + ');">Submit Maker Info</label> \n' +
+                '        </div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+            return output;
+        }//Makes the code for each card
+        function subMakerInfoProjectAdd(n) {
+            var id = document.getElementById('idMaker' + n + 'ProjectAdd').value;
+            var pos = document.getElementById('positionMaker' + n + 'ProjectAdd').value;
+            var desc = document.getElementById('descriptionMaker' + n + 'ProjectAdd').value;
+
+            
+            if (allData.Projects[indexProjectAdd].Makers != null) {
+                for (i in allData.Projects[indexProjectAdd].Makers) {
+                    if (allData.Projects[indexProjectAdd].Makers[i].ID == id && i != n) {
+                        var bool = false;
+                        break;
+                    } else {
+                        var bool = true;
+                    }
+                }
+            } else {
+                var bool = true;
+            }
+            if (bool) {
+                $('#idMaker' + n + 'ProjectAdd').css('border-color', '');
+                var temp = {
+                    "ID": id,
+                    "Position": pos,
+                    "Description": desc
+                }
+                if (allData.Projects[indexProjectAdd].Makers == null) {
+                    allData.Projects[indexProjectAdd].Makers = [temp];
+                } else if (allData.Projects[indexProjectAdd].Makers[n] != null) {
+                    allData.Projects[indexProjectAdd].Makers[n] = temp;
+                } else {
+                    allData.Projects[indexProjectAdd].Makers.push(temp);
+                }
+            } else {
+                alert('You cannot submit this change, another maker shares this ID!');
+                $('#idMaker' + n + 'ProjectAdd').css('border-color', 'red');
+            }
+        }//Submits the Makers
+
+        function featureInfoProjectInit() {
+            makeCardsFeatureProjectAdd();
+        }//Initializes Cards
+        function addFeatureProjectAdd() {
+            cardsFeatureProjectAddNumber += 1;
+            makeCardsFeatureProjectAdd();
+        }//Adds Feature Card
+        function delFeatureProjectAdd() {
+            if ((cardsFeatureProjectAddNumber - 1) > 0) {
+                cardsFeatureProjectAddNumber -= 1;
+                if (allData.Projects[indexProjectAdd].Features != null) {
+                    if (allData.Projects[indexProjectAdd].Features[cardsFeatureProjectAddNumber] != null) {
+                        allData.Projects[indexProjectAdd].Features.pop();
+                    }
+                }
+                makeCardsFeatureProjectAdd();
+            } else {
+                alert('You cannot have less than 1 Feature!');
+            }
+        }//Removes a Feature card
+        function makeCardsFeatureProjectAdd() {
+            var temp = '\n';
+            for (var i = 0; i < cardsFeatureProjectAddNumber; i++) {
+                if (allData.Projects[indexProjectAdd].Features != null && allData.Projects[indexProjectAdd].Features[i] != null) {
+                    temp += makeCardCodeFeatureProjectAdd(allData.Projects[indexProjectAdd].Features[i], i);
+                } else {
+                    var x = new Object();
+                    x.ID = '';
+                    x.Title = '';
+                    x.SubTitle = '';
+                    x.img = 'random';
+                    x.Description = '';
+                    temp += makeCardCodeFeatureProjectAdd(x, i);
+                }
+            }
+            document.getElementById('cardsFeatureProjectAdd').innerHTML = temp;
+        }//Makes the cards
+        function makeCardCodeFeatureProjectAdd(x, n) {
+            var output = ' \n' +
+                '<!--Feature ' + n + '--> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Feature ' + n + '</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <!-- ID --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">ID: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="idFeature' + n + 'ProjectAdd" value="' + x.ID + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Title --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">Title: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="titleFeature' + n + 'ProjectAdd"  value="' + x.Title + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Sub Title --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">Sub Title: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="subtitleFeature' + n + 'ProjectAdd"  value="' + x.SubTitle + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Image --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">Image: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="imgeFeature' + n + 'ProjectAdd"  value="' + x.img + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Description --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-5 text-left">Description: </div> \n' +
+                '                <textarea type="text" class="form-control col-7" id="descriptionFeature' + n + 'ProjectAdd" rows="2" style="max-height:48px; overflow-y: scroll;">' + x.Description + '</textarea> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"> \n' +
+                '            <label class="btn btn-block btn-outline-primary" onclick="subFeatureInfoProjectAdd(' + n + ');">Submit Maker Info</label> \n' +
+                '        </div> \n' +
+                '    </div> \n' +
+                '</div> \n';
+            return output;
+        }//Makes the code for the card
+        function subFeatureInfoProjectAdd(n) {
+            var id = document.getElementById('idFeature' + n + 'ProjectAdd').value;
+            var title = document.getElementById('titleFeature' + n + 'ProjectAdd').value;
+            var sub = document.getElementById('subtitleFeature' + n + 'ProjectAdd').value;
+            var image = document.getElementById('imgeFeature' + n + 'ProjectAdd').value;
+            var desc = document.getElementById('descriptionFeature' + n + 'ProjectAdd').value;
+            
+            if (allData.Projects[indexProjectAdd].Features != null) {
+                for (i in allData.Projects[indexProjectAdd].Features) {
+                    if (allData.Projects[indexProjectAdd].Features[i].ID == id && i != n) {
+                        var bool = false;
+                        break;
+                    } else {
+                        var bool = true;
+                    }
+                }
+            } else {
+                var bool = true;
+            }
+            if (bool) {
+                $('#idFeature' + n + 'ProjectAdd').css('border-color', '');
+                var temp = {
+                    "ID": id,
+                    "Title": title,
+                    "SubTitle": sub,
+                    "img": image,
+                    "Description": desc
+                }
+                if (allData.Projects[indexProjectAdd].Features == null) {
+                    allData.Projects[indexProjectAdd].Features = [temp];
+                } else if (allData.Projects[indexProjectAdd].Features[n] != null) {
+                    allData.Projects[indexProjectAdd].Features[n] = temp;
+                } else {
+                    allData.Projects[indexProjectAdd].Features.push(temp);
+                }
+            } else {
+                alert('You cannot submit this change, another maker shares this ID!');
+                $('#idFeature' + n + 'ProjectAdd').css('border-color', 'red');
+            }
+        }//Submits the Features
+        
+        function carouselInfoProjectInit() {
+            makeCardsCarouselProjectAdd();
+        }//Initializes Cards
+        function addCarouselProjectAdd() {
+            cardsCarouselProjectAddNumber += 1;
+            makeCardsCarouselProjectAdd();
+        }//Adds Card
+        function delCarouselProjectAdd() {
+            if ((cardsCarouselProjectAddNumber - 1) > 0) {
+                cardsCarouselProjectAddNumber -= 1;
+                if (allData.Projects[indexProjectAdd].Carousel != null) {
+                    if (allData.Projects[indexProjectAdd].Carousel[cardsCarouselProjectAddNumber] != null) {
+                        allData.Projects[indexProjectAdd].Carousel.pop();
+                    }
+                }
+                makeCardsCarouselProjectAdd();
+            } else {
+                alert('You cannot have less than 1 Carousel!');
+            }
+        }//Removes Card
+        function makeCardsCarouselProjectAdd() {
+            var temp = '\n';
+            for (var i = 0; i < cardsCarouselProjectAddNumber; i++) {
+                if (allData.Projects[indexProjectAdd].Carousel != null && allData.Projects[indexProjectAdd].Carousel[i] != null) {
+                    temp += makeCardCodeCarouselProjectAdd(allData.Projects[indexProjectAdd].Carousel[i], i);
+                } else {
+                    var x = new Object();
+                    x.ID = '';
+                    x.Title = '';
+                    x.Text = '';
+                    x.Image = 'random';
+                    x.Align = 'L';
+                    temp += makeCardCodeCarouselProjectAdd(x, i);
+                }
+            }
+            document.getElementById('cardsCarouselProjectAdd').innerHTML = temp;
+        }//Makes the Carousel Questions Cards
+        function makeCardCodeCarouselProjectAdd(x, n) {
+            var output = ' \n' +
+                '<!--Maker 0--> \n' +
+                '<div class="col-6"> \n' +
+                '    <div class="card"> \n' +
+                '        <h5 class="card-header">Maker ' + n + '</h5> \n' +
+                '        <div class="card-body"> \n' +
+                '            <!-- ID --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">ID: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="idCarousel' + n + 'ProjectAdd" value="' + x.ID + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Title --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">Title: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="titleCarousel' + n + 'ProjectAdd"  value="' + x.Title + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Text --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">Text: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="textCarousel' + n + 'ProjectAdd"  value="' + x.Text + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Image --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-4 text-left">Image: </div> \n' +
+                '                <input type="text" class="form-control col-8" id="imgCarousel' + n + 'ProjectAdd"  value="' + x.Image + '"/> \n' +
+                '            </div> \n' +
+                '            <!-- Align --> \n' +
+                '            <div class="form-inline col-12"> \n' +
+                '                <div class="col-6 text-left" id="labelAlignCarousel' + n + 'ProjectAdd">Align: (L/M/R)</div> \n' +
+                '                <input type="text" class="form-control col-6" id="alignCarousel' + n + 'ProjectAdd"  value="' + x.Align + '"/> \n' +
+                '            </div> \n' +
+                '        </div> \n' +
+                '        <div class="card-footer"> \n' +
+                '            <label class="btn btn-block btn-outline-primary" onclick="subCarouselInfoProjectAdd(' + n + ');">Submit Carousel Info</label> \n' +
+                '        </div> \n' +
+                '    </div> \n' +
+                '</div > \n';
+            return output;
+        }//Makes the Code the Carousel Question Cards
+        function subCarouselInfoProjectAdd(n) {
+            var id = document.getElementById('idCarousel' + n + 'ProjectAdd').value;
+            var title = document.getElementById('titleCarousel' + n + 'ProjectAdd').value;
+            var txt = document.getElementById('textCarousel' + n + 'ProjectAdd').value;
+            var img = document.getElementById('imgCarousel' + n + 'ProjectAdd').value;
+            var align = document.getElementById('alignCarousel' + n + 'ProjectAdd').value.toString().toLowerCase();
+
+            align.toString().toLowerCase();
+            if (align != 'l' && align != 'm' && align != 'r') {
+                alert('Check ALIGN! It MUST EQUAL L or M or R');
+                $('#alignCarousel' + n + 'ProjectAdd').css('border-color', 'red');
+            } else {
+                $('#alignCarousel' + n + 'ProjectAdd').css('border-color', '');
+                if (allData.Projects[indexProjectAdd].Carousel != null) {
+                    for (i in allData.Projects[indexProjectAdd].Carousel) {
+                        if (allData.Projects[indexProjectAdd].Carousel[i].ID == id && i != n) {
+                            var bool = false;
+                            break;
+                        } else {
+                            var bool = true;
+                        }
+                    }
+                } else {
+                    var bool = true;
+                }
+                if (bool) {
+                    $('#idCarousel' + n + 'ProjectAdd').css('border-color', '');
+                    var temp = {
+                        "ID": id,
+                        "Title": title,
+                        "Text": txt,
+                        "Image": img,
+                        "Align": align
+                    }
+                    if (allData.Projects[indexProjectAdd].Carousel == null) {
+                        allData.Projects[indexProjectAdd].Carousel = [temp];
+                    } else if (allData.Projects[indexProjectAdd].Carousel[n] != null) {
+                        allData.Projects[indexProjectAdd].Carousel[n] = temp;
+                    } else {
+                        allData.Projects[indexProjectAdd].Carousel.push(temp);
+                    }
+                } else {
+                    alert('You cannot submit this change, another maker shares this ID!');
+                    $('#idCarousel' + n + 'ProjectAdd').css('border-color', 'red');
+                }
+            }
+        }//Submits the Carousel
 
         /**********************************************************************************
         *                            Everything Uses This
