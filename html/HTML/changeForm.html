@@ -3448,9 +3448,9 @@
             var c = confirm("Are you sure you want to submit all changes! These will publish straight to the server!");
             if (c == true) {
                 var r = prompt("Unlock Push");
-                if (r == 'I am good to push this code!') {
+                if (r == 'Push!') {
+                    editAllData(allData);
                     alert('It worked!');
-                    editAllData(allData, 'Adf8asdnsdf');
                 }
             }
         }

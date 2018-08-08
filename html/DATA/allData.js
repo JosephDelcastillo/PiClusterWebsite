@@ -1223,8 +1223,8 @@ var allData = {
 
 retreiveAllData([allData]);
 
-function editAllData(x, y) {
-    if (y = 'Adf8asdnsdf') {
+function editAllData(x) {
+    //if (y = 'Adf8asdnsdf') {
         allData = x;
-    }
+    //}
 }
