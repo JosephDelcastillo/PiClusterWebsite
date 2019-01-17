@@ -1043,7 +1043,7 @@ var allData = {
                     "img": "random"
                 }
             ],
-            "Custom": "<img src='https://getbootstrap.com/docs/4.1/assets/img/bootstrap-stack.png'>;"
+            "Custom": "<img src='https://getbootstrap.com/docs/4.1/assets/img/bootstrap-stack.png'>"
         },
         //PiSite
         {
